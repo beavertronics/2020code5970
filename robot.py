@@ -37,8 +37,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		# Instances of classes
 
 		# Instantiate Subsystems
-		self.drivetrain = Drivetrain(self)
 		self.shifters = Shifters()
+		self.drivetrain = Drivetrain(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 

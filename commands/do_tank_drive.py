@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
 import wpilib
@@ -32,9 +33,15 @@ class Do_Tank_Drive(Command):
 		#self.robot.arm.limit_switch_state()
 
 	def isFinished(self):
+#		'''
+#		>>> glob.isFinished()
+#		False
+#		'''
+		
 		# This is how running tank driving is prioritized
 		# In other words, runs til interrupted
 		return False
+		
 
 	def end(self):
 		# Stop motors when ending command
@@ -42,7 +49,15 @@ class Do_Tank_Drive(Command):
 	
 	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
-		self.end()
-
-
-	
+		self.end
+#
+#if __name__ == '__main__':
+#	import doctest
+#	import sys
+#	sys.path.append('./../')
+#	sys.path.append('./../subsystems')
+#	sys.path.append('./../commands')
+#	
+#	from robot import BeaverTronicsRobot
+#	doctest.testmod(extraglobs={'glob': Do_Tank_Drive(BeaverTronicsRobot)})
+#	
