@@ -5,23 +5,27 @@ sys.path.append('./../subsystems')
 sys.path.append('./../')
 from unittest import mock
 import unittest
-from do_tank_drive import Do_Tank_Drive
+import mocks
+#XXX from file import Class
 
 class TestDummy(unittest.TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        print('setUpClass()')
+	@classmethod
+	def setUpClass(cls):
+		print('setUpClass()')
 
-    def setUp(self):
-        print('setUp()')
+	def setUp(self):
+		print('setUp()')
 
-    def test_func(self):
-        print('test_func()')
+	def test_func(self):
+		print('test_func()')
 
-    def tearDown(self):
-        print('setUp()')
+	def tearDown(self):
+		print('setUp()')
 
-    @classmethod
-    def tearDownClass(cls):
-        print('tearDownClass()')
+	@classmethod
+	def tearDownClass(cls):
+		print('tearDownClass()')
+
+if __name__ == '__main__':
+	unittest.main()
