@@ -68,7 +68,6 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.loops = 0
 		self.timer.reset()
 		self.timer.start()
-
 		Scheduler.getInstance().removeAll()
 		Scheduler.getInstance().enable()
 
@@ -86,6 +85,12 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 
 	def disabledPeriodic(self):
 		return None
+
+	def testInit(self):
+		pass
+
+	def testPeriodic(self):
+		pass
 
 if __name__ == "__main__":
 	wpilib.run(BeaverTronicsRobot)
