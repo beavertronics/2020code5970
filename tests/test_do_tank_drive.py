@@ -1,3 +1,4 @@
+# vim: set sw=4 noet ts=4 fileencoding=utf-8:
 import sys
 sys.path.append('./../commands')
 sys.path.append('./../subsystems')
