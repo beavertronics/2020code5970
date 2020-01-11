@@ -21,9 +21,9 @@ class Test_Do_Tank_Drive(unittest.TestCase):
         # all are in subsystems
         with mock.patch('robot.BeaverTronicsRobot') as a:
             robot_instance = a.return_value
-        with mock.patch('drivetrain.Drivetrain') as b:
-            drivetrain_instance = b.return_value
-        robot_instance.drivetrain = drivetrain_instance
+        #with mock.patch('drivetrain.Drivetrain') as b:
+        #    drivetrain_instance = b.return_value
+        #robot_instance.drivetrain = drivetrain_instance
         self.td = Do_Tank_Drive(robot_instance)
 
     def test_isFinished(self):
