@@ -16,6 +16,7 @@ import math
 #Linux path
 sys.path.append('./subsystems') 
 sys.path.append('./commands') 
+sys.path.append('./tests')
 
 #RoboRIO path
 sys.path.insert(0, '/home/lvuser/py/subsystems')
@@ -30,6 +31,12 @@ from drivetrain import Drivetrain
 
 # Teleop init command
 from oi import OI
+
+# For testing
+import unittest
+from parametrized import ParametrizedTestCase
+from test_do_tank_drive import Test_Do_Tank_Drive
+from test_shifters import Test_Shifters
 
 class BeaverTronicsRobot(wpilib.TimedRobot): 
 
@@ -87,10 +94,14 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		return None
 
 	def testInit(self):
-		pass
+		return None
 
 	def testPeriodic(self):
-		pass
+		suite = unittest.TestSuite()
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Shifters, param=self.shifters))
+		# TextTestRunner just outputs to stdout what is happening
+		unittest.TextTestRunner(verbosity=2).run(suite)
 
 if __name__ == "__main__":
 	wpilib.run(BeaverTronicsRobot)

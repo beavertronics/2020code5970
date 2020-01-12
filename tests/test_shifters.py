@@ -4,30 +4,33 @@ sys.path.append('./../subsystems')
 from unittest import mock
 import unittest
 from shifters import Shifters
+from parametrized import ParametrizedTestCase
 
-class Test_Shifters(unittest.TestCase):
+class Test_Shifters(ParametrizedTestCase):
 
+	# This method is run once before running ALL tests
 	@classmethod
 	def setUpClass(cls):
 		print('setUpClass()')
 
+	# This method is run once before running EACH test
 	def setUp(self):
-		self.shift = Shifters()
+		#self.shift = Shifters()
 		print('setUp()')
 
-	def test_shifters_on(self):
-		print('test_shifters_on()')
-		self.shift.shifters_on()
-		l_status = self.shift.shifter_solenoid_left.get()
-		r_status = self.shift.shifter_solenoid_right.get()
+	def test_param_on(self):
+		print('test_param_on()')
+		self.param.shifters_on()
+		l_status = self.param.shifter_solenoid_left.get()
+		r_status = self.param.shifter_solenoid_right.get()
 		assert l_status == True
 		assert r_status == True
 
-	def test_shifters_off(self):
+	def test_param_off(self):
 		print('test_shifters_off()')
-		self.shift.shifters_off()
-		l_status = self.shift.shifter_solenoid_left.get()
-		r_status = self.shift.shifter_solenoid_right.get()
+		self.param.shifters_off()
+		l_status = self.param.shifter_solenoid_left.get()
+		r_status = self.param.shifter_solenoid_right.get()
 		assert l_status == False
 		assert r_status == False
 
