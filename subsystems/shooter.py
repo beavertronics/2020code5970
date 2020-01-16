@@ -17,5 +17,9 @@ class Shooter(Subsystem):
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
 		#XXX Need to get pid_output 
+		pid_output = self.get_velocity()
 		self.shooter_motor.set(pid_output)
 
+	# Private function
+	def get_velocity(self):
+		pass
