@@ -26,6 +26,7 @@ sys.path.insert(0, '/home/lvuser/py/commands')
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 from shifters import Shifters
+from shooter import Shooter
 
 from drivetrain import Drivetrain
 
@@ -37,6 +38,7 @@ import unittest
 from parametrized import ParametrizedTestCase
 from test_do_tank_drive import Test_Do_Tank_Drive
 from test_shifters import Test_Shifters
+from test_shooter import Test_Shooter
 
 class BeaverTronicsRobot(wpilib.TimedRobot): 
 
@@ -46,6 +48,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		# Instantiate Subsystems
 		self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
+		self.shooter = Shooter(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 
@@ -100,6 +103,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		suite = unittest.TestSuite()
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Shifters, param=self.shifters))
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Shooter, param=self.shooter))
 		# TextTestRunner just outputs to stdout what is happening
 		unittest.TextTestRunner(verbosity=2).run(suite)
 
