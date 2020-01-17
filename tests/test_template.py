@@ -5,8 +5,8 @@ sys.path.append('./../subsystems')
 sys.path.append('./../')
 from unittest import mock
 import unittest
-import mocks
 #XXX from file import Class
+from parametrized import ParametrizedTestCase
 
 class TestDummy(ParametrizedTestCase):
 	
