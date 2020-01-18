@@ -4,21 +4,15 @@ import wpilib
 import wpilib.drive
 from wpilib.command import Command
 
-class Do_Tank_Drive(Command):
-
+class Command_Intake(Command):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
-
-		# an instance of BeaverTronicsRobot from robot.py containing its
-		# instance of drivetrain
-		self.robot_dt = robot.drivetrain
-		self.requires(self.robot_dt)
-		self.robot = robot
-
-		self.left_joy = robot.left_joy
-		self.right_joy = robot.right_joy
+		self.requires(robot.intake)
+		self.requires(robot.carrier)
+		self.intake = robot.intake
+		self.carrier = robot.carrier
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""

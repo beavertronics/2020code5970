@@ -4,22 +4,17 @@ import wpilib
 import wpilib.drive
 from wpilib.command import Command
 
-class Do_Tank_Drive(Command):
-
+class Do_Little_Climb(Command):
 	def __init__(self, robot):
+		''' 
+			This activates the second stage of the unfolding climber.
+		'''
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
+		self.requires(robot.lil_climber)
+		self.lil_climber = robot.lil_climber
 
-		# an instance of BeaverTronicsRobot from robot.py containing its
-		# instance of drivetrain
-		self.robot_dt = robot.drivetrain
-		self.requires(self.robot_dt)
-		self.robot = robot
-
-		self.left_joy = robot.left_joy
-		self.right_joy = robot.right_joy
-	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
 		pass

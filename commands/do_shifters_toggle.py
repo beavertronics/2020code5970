@@ -35,9 +35,6 @@ class Do_Shifters_Toggle(Command):
 		return None
 
 	def end(self):
-		# unactuate solenoids for shifters
-		# shifts to State 2(low gear)
-		# ends on [second press] of "Joystick 1 '2' button"
 		self.robot_shifters.shifters_off()
 		print ("shifters off!")
 

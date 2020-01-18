@@ -9,6 +9,7 @@ from sys import path
 path.append('../commands')
 
 # Button commands
+#import do_button_command
 
 # Non-button commands
 
@@ -33,6 +34,7 @@ class OI():
 		'''
 		JoystickButton and Xbox button assignments
 		'''
+		# I think ltop1 is left trigger. Vice versa for right
 		ltop1 = JoystickButton(self.left_joy, 1)
 		ltop2 = JoystickButton(self.left_joy, 2)
 		ltop3 = JoystickButton(self.left_joy, 3)
@@ -60,23 +62,29 @@ class OI():
 		xboxSTART = JoystickButton(self.xbox, 8)
 
 
-		# whenActive and whenInactive allows toggle between 2 commands
-		'''
-		Joystick 0 / Left Joystick Commands
-		'''
-		# Button 1 causes cargo motor to spin outwards for 0.5s
-		#ltop1.whileHeld(Do_Cargo_Eject(robot))
-
-		'''
-		Joystick 1 / Right Joystick Commands
-		'''
-		# Button 2 toggles shifters
-		rtop2.toggleWhenPressed(Do_Shifters_Toggle(robot))
-
-		'''
-		Joystick 2 / Xbox Controller Commands
-		'''	
-		# In frame
-		#xboxA.whenPressed(Do_Undo_Four_Bar(robot))
+#		# whenActive and whenInactive allows toggle between 2 commands
+#		'''
+#		Joystick 0 / Left Joystick Commands
+#		'''
+#		# Button 1 causes cargo motor to spin outwards for 0.5s
+#		#ltop1.whileHeld(Do_Cargo_Eject(robot))
+#		ltop1.whenPressed(Do_Cancel_Current_Com(robot))
+#
+#		'''
+#		Joystick 1 / Right Joystick Commands
+#		'''
+#		# Button 2 toggles shifters
+#		rtop2.toggleWhenPressed(Do_Shifters_Toggle(robot))
+#
+#		'''
+#		Joystick 2 / Xbox Controller Commands
+#		'''	
+#		# In frame
+#		xboxY.whenPressed(Do_Winch(robot))
+#		xboxX.whenPressed(Command_Shoot(robot))
+#		# When pressed, this will reverse the current climber motor direction
+#		xboxA.whenPressed(Do_Big_Climb(robot))
+#		xboxB.whenPressed(Do_Little_Climb(robot))
+#		xboxRB.whileHeld(Command_Intake(robot))
 
 

@@ -11,14 +11,8 @@ class Do_Tank_Drive(Command):
 		print(str(robot) + "!!")
 		super().__init__()
 
-		# an instance of BeaverTronicsRobot from robot.py containing its
-		# instance of drivetrain
-		self.robot_dt = robot.drivetrain
-		self.requires(self.robot_dt)
-		self.robot = robot
-
-		self.left_joy = robot.left_joy
-		self.right_joy = robot.right_joy
+		self.requires(robot.winch)
+		self.winch = robot.winch
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
