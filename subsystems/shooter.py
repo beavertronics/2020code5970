@@ -4,17 +4,18 @@ import wpilib
 from wpilib.command import Subsystem
 from simple_pid import PID
 #from shooter_encoder import encoder.ang_velocity
-'''All values currently arbitary'''
 class Shooter(Subsystem):
 	#*********Robot-Side Initialization***************
 	def __init__(self, robot):
 		'''
 		Command Dependencies:
 
+		All values currently arbitary!
 		'''
 		super().__init__()
 		# Assumes four PWM ports for motors
-		self.shooter_motor = wpilib.VictorSP(5)
+		#XXX shooter is on wrong PWM for now
+		self.shooter_motor = wpilib.VictorSP(7)
 		
 		#setpoint = self.get_setpoint()
 		#setpoint = robot.setpoint
@@ -28,7 +29,7 @@ class Shooter(Subsystem):
 		self.shooter_motor.setSpeed(output)
 
 	def get_rpm(self):
-		# rpm = angular velocity * arbitrary constant
+		# rpm = enconder output * arbitrary constant
 		rpm = 5 * 4
 		return rpm
 
@@ -36,6 +37,7 @@ class Shooter(Subsystem):
 		output = self.pid(self.get_rpm())
 		return output
 
+#XXX Not sure if a getter for setpoint is necessary
 #	def get_setpoint(self, setpoint):
 #		'''Setpoint value probably not changing'''
 #		#XXX maybe have user input from GUI or something
