@@ -39,6 +39,7 @@ from parametrized import ParametrizedTestCase
 from test_do_tank_drive import Test_Do_Tank_Drive
 from test_shifters import Test_Shifters
 from test_shooter import Test_Shooter
+from test_drivetrain import Test_Drivetrain
 
 class BeaverTronicsRobot(wpilib.TimedRobot): 
 
@@ -105,6 +106,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 			Test_Shifters, param=self.shifters))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Shooter, param=self.shooter))
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Drivetrain, param=self.drivetrain))
 		# TextTestRunner just outputs to stdout what is happening
 		unittest.TextTestRunner(verbosity=2).run(suite)
 
