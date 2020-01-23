@@ -3,7 +3,7 @@
 import wpilib
 from wpilib.command import Subsystem
 from simple_pid import PID
-#from shooter_encoder import encoder.ang_velocity
+from shooter_encoder import Shooter_Encoder
 class Shooter(Subsystem):
 	#*********Robot-Side Initialization***************
 	def __init__(self, robot):
@@ -19,8 +19,12 @@ class Shooter(Subsystem):
 		
 		#setpoint = self.get_setpoint()
 		#setpoint = robot.setpoint
-		self.pid = PID(0.2, 0.1, 0.05, setpoint=5)
-		self.pid.output_limits = (0,10)
+		self.pid = PID(0.2, 0.1, 0.05, setpoint=0.2)
+		self.pid.output_limits = (-1,1)
+
+		#Initializes shooter encoder
+		#XXX DIO_1 and DIO_2 are incorrect for now
+		self.shooter_encoder = Shooter_Encoder(8,9)
 
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
@@ -28,13 +32,9 @@ class Shooter(Subsystem):
 		output = self.get_pid_output()
 		self.shooter_motor.setSpeed(output)
 
-	def get_rpm(self):
-		# rpm = enconder output * arbitrary constant
-		rpm = 5 * 4
-		return rpm
-
 	def get_pid_output(self):
-		output = self.pid(self.get_rpm())
+		current_rpm = self.shooter_encoder.get_encoder_rpm()
+		output = self.pid(current_rpm)
 		return output
 
 #XXX Not sure if a getter for setpoint is necessary
