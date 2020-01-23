@@ -1,16 +1,16 @@
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
 import wpilib
+import ctre
 
 #*********Robot-Side Initialization***************
 class Right_Motors():
 	
 	def __init__(self):
 		#Initialize Right motors
-		right_front = (wpilib.VictorSP(0))
-		right_mid = (wpilib.VictorSP(1))
-		right_rear = (wpilib.VictorSP(2))
+		right_one = (ctre.WPI_VictorSPX(3))
+		right_two = (ctre.WPI_VictorSPX(4))
 		self.right_motor_group = wpilib.SpeedControllerGroup(
-			right_front, right_mid, right_rear)
+			right_one, right_two)
 
 

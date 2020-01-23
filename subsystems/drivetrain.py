@@ -61,8 +61,8 @@ class Drivetrain(Subsystem):
 	def stop_robot(self, drive):
 		drive.tankDrive(0,0)
 	
-	def reset_encoder(self):
-		self.right_encoder.reset()
+#	def reset_encoder(self):
+#		self.right_encoder.reset()
 
 	
 
