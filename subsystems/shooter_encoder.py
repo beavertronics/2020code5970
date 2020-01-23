@@ -1,8 +1,8 @@
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
 # Outline:
-    # need to measure encoder count
-    # convert to rpm
+	# need to measure encoder count
+	# convert to rpm
 
 import wpilib
 import math
@@ -11,8 +11,7 @@ import math
 # encoder. But inheriting wpilib.Encoder is only necessary if we need to 
 # overwrite a function used in the original encoder class, which it looks
 # like we do not.
-class Shooter_Encoder(wpilib.Encoder): 
-
+class Shooter_Encoder(wpilib.Encoder):
 	def __init__(self, DIO_1, DIO_2):
 		super().__init__(DIO_1, DIO_2)
 		# Constants
