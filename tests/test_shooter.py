@@ -7,7 +7,7 @@ sys.path.append('./../')
 from unittest import mock
 import unittest
 from shooter import Shooter
-#from shooter_encoder import encoder.ang_velocity
+from shooter_encoder import Shooter_Encoder
 from parametrized import ParametrizedTestCase
 
 '''All values currently arbitrary'''
@@ -30,18 +30,13 @@ class Test_Shooter(ParametrizedTestCase):
 		print('test_shoot()')
 		#XXX why is the line below there?
 		#self.param.shoot()
+		self.param.shooter_motor.setSpeed(self.param.get_pid_output())
 		actual_motor_speed = self.param.shooter_motor.get()
-		supposed_motor_speed = self.param.shooter_motor.setSpeed(
-			self.param.get_pid_output())
+		supposed_motor_speed = self.param.get_pid_output()
+		print(actual_motor_speed)
+		print(supposed_motor_speed)
 		assert(actual_motor_speed == supposed_motor_speed)
 	
-	def test_get_rpm(self):
-		print('test_get_rpm()')
-		supposed_rpm = self.param.get_rpm()
-		actual_rpm = 5 * 4
-		#actual_rpm == angular velocity * arbitrary constant
-		assert(supposed_rpm == actual_rpm)
-
 	def test_get_pid_output(self):
 		print('test_get_pid_output()')
 		supposed_pid_out = self.param.get_pid_output()
