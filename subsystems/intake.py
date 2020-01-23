@@ -11,22 +11,25 @@ class Intake(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__()
-		self.intake_motor = wpilib.VictorSP(7)
+		pwm_val = 0.5
+
+		# resource already allocated -- multiple references to pwm 7
+		# self.intake_motor = wpilib.VictorSP(7)
 		
 		# solenoid value arbitrary
-		self.intake_solenoid_fourbar = wpilib.Solenoid(2)
+		self.fourbar = wpilib.Solenoid(2)
 
 	def fourbar_eject(self):
 		''' Shoots the ball by controlling the flywheel motor '''
-		self.intake_solenoid_fourbar.set(True)
+		self.fourbar.set(True)
 
 	def fourbar_inject(self):
-		self.intake_solenoid_fourbar.set(False)
+		self.fourbar.set(False)
 
 	def activate_intake(self):
-		# rpm = enconder output * arbitrary constant
-		pwm_val = 1
-		self.intake_motor.setSpeed(pwm_val)
+		self.intake_motor.set(pwm_val)
 	
 	def backwards_intake(self):
+		new_pwm_val = -1 * pwm_val
+		self.intake_motor.set(new_pwm_val)
 

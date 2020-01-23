@@ -27,6 +27,7 @@ from left_motors import Left_Motors
 from right_motors import Right_Motors
 from shifters import Shifters
 from shooter import Shooter
+from intake import Intake
 
 from drivetrain import Drivetrain
 
@@ -49,6 +50,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
+		self.intake = Intake(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 

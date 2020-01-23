@@ -15,6 +15,7 @@ path.append('../commands')
 
 # shifter commands
 from do_shifters_toggle import Do_Shifters_Toggle
+from do_four_bar import Do_Four_Bar
 
 class OI():
 	def __init__(self, robot):
@@ -87,4 +88,4 @@ class OI():
 #		xboxB.whenPressed(Do_Little_Climb(robot))
 #		xboxRB.whileHeld(Command_Intake(robot))
 
-
+		xboxRB.whenPressed(Do_Four_Bar(robot))
