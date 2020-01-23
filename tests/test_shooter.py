@@ -28,19 +28,27 @@ class Test_Shooter(ParametrizedTestCase):
 	#XXX I also changed a few things to be more readable
 	def test_shoot(self):
 		print('test_shoot()')
-		#XXX why is the line below there?
-		#self.param.shoot()
-		self.param.shooter_motor.setSpeed(self.param.get_pid_output())
-		actual_motor_speed = self.param.shooter_motor.get()
-		supposed_motor_speed = self.param.get_pid_output()
-		print(actual_motor_speed)
-		print(supposed_motor_speed)
-		assert(actual_motor_speed == supposed_motor_speed)
-	
+		test_vals = [-0.1, 0.05, 0.15, 0.25, 1]
+		val = 0.1
+		#for val in test_vals:
+			#self.param.shooter_motor.setSpeed(self.param.pid(val))
+			#actual_motor_speed = self.param.shooter_motor.get()
+			#supposed_motor_speed = self.param.pid(val)
+			#print(actual_motor_speed)
+			#print(supposed_motor_speed)
+		#	assert(actual_motor_speed == supposed_motor_speed)
+		#XXX pid having odd behavior because it isn't getting proper inputs,
+		# needs to know difference of inputs in order to have a decreasing behavior
+		#diagnostics
+		for x in range(0, 4):
+			val = self.param.pid(val)
+			print(self.param.pid._proportional / self.param.pid.Kp)
+			print(self.param.pid._last_input)
+
 	def test_get_pid_output(self):
 		print('test_get_pid_output()')
 		supposed_pid_out = self.param.get_pid_output()
-		actual_pid_out = self.param.pid(self.param.get_rpm())
+		actual_pid_out = self.param.pid(self.param.shooter_encoder.get_encoder_rpm())
 		assert(supposed_pid_out == actual_pid_out)
 
 	def tearDown(self):

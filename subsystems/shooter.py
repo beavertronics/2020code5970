@@ -19,7 +19,7 @@ class Shooter(Subsystem):
 		
 		#setpoint = self.get_setpoint()
 		#setpoint = robot.setpoint
-		self.pid = PID(0.2, 0.1, 0.05, setpoint=0.2)
+		self.pid = PID(0.2, 0.1, 0.1, setpoint=0.2)
 		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
