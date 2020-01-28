@@ -15,6 +15,7 @@ class Intake(Subsystem):
 
 		# resource already allocated -- multiple references to pwm 7
 		# self.intake_motor = wpilib.VictorSP(7)
+		self.intake_motor = wpilib.VictorSP(4)
 		
 		# solenoid value arbitrary
 		self.fourbar = wpilib.Solenoid(2)

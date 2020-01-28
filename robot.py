@@ -42,6 +42,8 @@ from test_do_tank_drive import Test_Do_Tank_Drive
 from test_shifters import Test_Shifters
 from test_shooter import Test_Shooter
 from test_shooter_encoder import Test_Shooter_Encoder
+from test_intake import Test_Intake
+
 from test_drivetrain import Test_Drivetrain
 
 class BeaverTronicsRobot(wpilib.TimedRobot): 
@@ -114,6 +116,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 			Test_Drivetrain, param=self.drivetrain))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Shooter_Encoder, param=self.shooter.shooter_encoder))
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Intake, param=self.intake))
 		# TextTestRunner just outputs to stdout what is happening
 		unittest.TextTestRunner(verbosity=2).run(suite)
 
