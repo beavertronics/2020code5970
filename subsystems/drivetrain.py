@@ -42,7 +42,6 @@ class Drivetrain(Subsystem):
 		self.drive = self.set_drivetrain_type(DifferentialDrive, 
 			self.left_motors, self.right_motors)
 
-
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot_instance))
 
@@ -54,8 +53,8 @@ class Drivetrain(Subsystem):
 
 	# Sets motor speeds to joystick inputs
 	def set_tank_speed(self, left_joy, right_joy, drive=DifferentialDrive):
-		left_speed = -left_joy.getY()
-		right_speed = -right_joy.getY()
+		left_speed = left_joy.getY()
+		right_speed = right_joy.getY() 
 		drive.tankDrive(left_speed, right_speed)
 
 	def stop_robot(self, drive):
