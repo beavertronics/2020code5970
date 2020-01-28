@@ -5,6 +5,10 @@ import wpilib.drive
 from wpilib.command import Command
 
 class Command_Auto(Command):
+	''' 
+	Robot should drive across the field (under trench or through middle),
+	line up, and shoot all balls it is carrying. Optionally pick up more after.
+	'''
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
@@ -19,9 +23,7 @@ class Command_Auto(Command):
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		# Continuously sets motor speed to joystick inputs w/ Scheduler
-		self.robot_dt.set_tank_speed(
-			self.left_joy, self.right_joy, self.robot_dt.drive)
+		pass
 
 	def isFinished(self):
 		# This is how running tank driving is prioritized
@@ -29,9 +31,7 @@ class Command_Auto(Command):
 		return False
 
 	def end(self):
-		# Stop motors when ending command
-		self.robot_dt.stop_robot(self.robot_dt.drive)
+		pass
 	
-	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
-		self.end
+		self.end()

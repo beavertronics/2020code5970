@@ -23,12 +23,13 @@ sys.path.insert(0, '/home/lvuser/py/subsystems')
 sys.path.insert(0, '/home/lvuser/py/commands')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
-from left_motors import Left_Motors
-from right_motors import Right_Motors
+#XXX shifters deprecated, need to remove from all active code this year
 from shifters import Shifters
 from shooter import Shooter
 from shooter_encoder import Shooter_Encoder
 from intake import Intake
+from winch import Winch
+from climber import Climber
 
 from drivetrain import Drivetrain
 
@@ -56,6 +57,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.intake = Intake(self)
+		self.winch = Winch(self)
+		self.climber = Climber(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 

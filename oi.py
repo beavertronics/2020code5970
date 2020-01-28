@@ -10,12 +10,13 @@ path.append('../commands')
 
 # Button commands
 #import do_button_command
+from command_intake_pickup import Command_Intake_Pickup
+from do_big_climb import Do_Big_Climb
+from do_little_climb import Do_Little_Climb
+from do_winch import Do_Winch
 
 # Non-button commands
-
-# shifter commands
-from do_shifters_toggle import Do_Shifters_Toggle
-from command_intake_pickup import Command_Intake_Pickup
+#from do_shifters_toggle import Do_Shifters_Toggle
 
 class OI():
 	def __init__(self, robot):
@@ -64,28 +65,30 @@ class OI():
 
 
 #		# whenActive and whenInactive allows toggle between 2 commands
-#		'''
-#		Joystick 0 / Left Joystick Commands
-#		'''
+
+		'''
+		Joystick 0 / Left Joystick Commands
+		'''
+
 #		# Button 1 causes cargo motor to spin outwards for 0.5s
 #		#ltop1.whileHeld(Do_Cargo_Eject(robot))
 #		ltop1.whenPressed(Do_Cancel_Current_Com(robot))
 #
-#		'''
-#		Joystick 1 / Right Joystick Commands
-#		'''
+		'''
+		Joystick 1 / Right Joystick Commands
+		'''
+
 #		# Button 2 toggles shifters
 #		rtop2.toggleWhenPressed(Do_Shifters_Toggle(robot))
 #
-#		'''
-#		Joystick 2 / Xbox Controller Commands
-#		'''	
+		'''
+		Joystick 2 / Xbox Controller Commands
+		'''	
 #		# In frame
-#		xboxY.whenPressed(Do_Winch(robot))
+		xboxY.whenPressed(Do_Winch(robot))
 #		xboxX.whenPressed(Command_Shoot(robot))
-#		# When pressed, this will reverse the current climber motor direction
-#		xboxA.whenPressed(Do_Big_Climb(robot))
-#		xboxB.whenPressed(Do_Little_Climb(robot))
+		xboxA.whenPressed(Do_Big_Climb(robot))
+		xboxB.whenPressed(Do_Little_Climb(robot))
 #		xboxRB.whileHeld(Command_Intake(robot))
 
 		xboxRB.whenPressed(Command_Intake_Pickup(robot))

@@ -3,22 +3,34 @@
 import wpilib
 from wpilib.command import Subsystem
 
-class Intake(Subsystem):
+class Climber(Subsystem):
 	def __init__(self, robot):
 		'''
-		Command Dependencies:
-
-		All values currently arbitary!
+		Unfolds climber using two stages of unfolding
 		'''
 		super().__init__()
-		#self.shooter_motor = wpilib.VictorSP(7)
+		# Note to self: Biggum is two pistons on the lower stage which are
+		# currently on the same solenoid port
+		self.biggum = wpilib.Solenoid(0)
+		# Two pistons for the upper stage on same port
+		self.littlum = wpilib.Solenoid(1)
 		
-	def intake_down(self):
-		''' Shoots the ball by controlling the flywheel motor '''
-		pass
+	def big_actuate(self):
+		''' Actuates the biggest stage of unfolding the climber via piston '''
+		self.biggum.set(True)
+	
+	def big_unactuate(self):
+		self.biggum.set(False)
 
-	def activate_rollers(self):
-		# rpm = enconder output * arbitrary constant
-		rpm = 5 * 4
-		return rpm
+	def little_actuate(self):
+		''' Actuates the littlest stage of unfolding the climber via piston '''
+		self.littlum.set(True)
+
+	def little_unactuate(self):
+		self.littlum.set(False)
+
+	def reverse_solenoid(self, solenoid):
+		''' Sets piston actuation to opposite of the current state '''
+		current = solenoid.get()
+		solenoid.set(not(current))
 

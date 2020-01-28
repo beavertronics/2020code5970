@@ -15,9 +15,11 @@ class Shifters(Subsystem):
 		Initialize Pneumatics[shifters]
 			Each solenoid is instantiated by 
 			an "actuated" and "unactuated" command (on and off, respectively)
+
+		DEPRECATED... We use TUFFboxes this year
 		'''
-		self.shifter_solenoid_left = wpilib.Solenoid(0)
-		self.shifter_solenoid_right = wpilib.Solenoid(1)
+		self.shifter_solenoid_left = wpilib.Solenoid(3)
+		self.shifter_solenoid_right = wpilib.Solenoid(4)
 
 	def shifters_on(self):
 		# actuate shifter solenoids; shift into high gear

@@ -4,13 +4,12 @@ import wpilib
 import wpilib.drive
 from wpilib.command import Command
 
-class Do_Tank_Drive(Command):
+class Do_Winch(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
-
 		self.requires(robot.winch)
 		self.winch = robot.winch
 	
@@ -21,18 +20,17 @@ class Do_Tank_Drive(Command):
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		# Continuously sets motor speed to joystick inputs w/ Scheduler
-		self.robot_dt.set_tank_speed(
-			self.left_joy, self.right_joy, self.robot_dt.drive)
+		self.winch.roll_up()
 
 	def isFinished(self):
-		# This is how running tank driving is prioritized
-		# In other words, runs til interrupted
-		return False
+		return True
 
 	def end(self):
 		# Stop motors when ending command
-		self.robot_dt.stop_robot(self.robot_dt.drive)
+		#XXX This may cause issues... ex if holding button down, will it
+		# roll up a little then stop then roll up a little or will it just
+		# run the execute func until the button is released?
+		self.winch.stop_motor()
 	
-	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
-		self.end
+		self.end()
