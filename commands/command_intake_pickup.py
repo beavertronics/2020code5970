@@ -10,23 +10,28 @@ from do_intake_delay import Do_Intake_Delay
 
 class Command_Intake_Pickup(CommandGroup):
 
-    def __init__(self, robot):
+	def __init__(self, robot):
+		super().__init__()
+		print("command group intake pickup initialized")
+		#XXX after this do intake is run then it also runs the end command
+		# so therefore if you want a command to run at the very end of
+		# running the command group you man want to just define it directly
+		# in the end func.
+		self.robot = robot
+		self.addSequential(Do_Four_Bar(robot))
+		self.addSequential(Do_Intake_Delay(robot), 0.2)
+		self.addSequential(Do_Intake(robot))
+		self.addSequential(Do_Four_Bar_Inside(robot))
 
-        super().__init__()
-
-    def execute(self):
-        print("command group intake pickup initialized")
-        self.addSequential(Do_Four_Bar)
-        self.addSequential(Do_Intake_Delay, 0.2)
-        self.addSequential(Do_Intake)
+	def execute(self):
+		pass
 
 	def isFinished(self):
 		return True
 
 	def end(self):
-		# stop rollers when ending command
-		self.addSequential(Do_Intake.end())
-		self.addSequential(Do_Four_Bar_Inside)
-	
+		#self.addSequential(Do_Four_Bar_Inside(self.robot))
+		pass
+
 	def interrupted(self):
 		self.end()
