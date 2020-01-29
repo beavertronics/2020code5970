@@ -13,14 +13,12 @@ class Command_Intake_Pickup(CommandGroup):
 	def __init__(self, robot):
 		super().__init__()
 		print("command group intake pickup initialized")
-		#XXX after this do intake is run then it also runs the end command
-		# so therefore if you want a command to run at the very end of
-		# running the command group you man want to just define it directly
-		# in the end func.
+		#XXX have this happen while a button is pressed, retract as soon as released maybe
 		self.robot = robot
 		self.addSequential(Do_Four_Bar(robot))
 		self.addSequential(Do_Intake_Delay(robot), 0.2)
 		self.addSequential(Do_Intake(robot))
+		self.addParallel(Do_Carrier(robot))
 		self.addSequential(Do_Four_Bar_Inside(robot))
 
 	def execute(self):
