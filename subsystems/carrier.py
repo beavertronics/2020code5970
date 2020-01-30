@@ -11,7 +11,7 @@ class Carrier(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__()
-		self.carrier_motor = wpilib.victorSP(8)
+		self.carrier_motor = wpilib.VictorSP(8)
 		self.motor_speed = 0.314
 
 	#Sets carrier motor to object's given motor speed, will be determined later

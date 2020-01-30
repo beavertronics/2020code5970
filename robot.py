@@ -27,6 +27,8 @@ sys.path.insert(0, '/home/lvuser/py/commands')
 from shifters import Shifters
 from shooter import Shooter
 from shooter_encoder import Shooter_Encoder
+from feeder import Feeder
+from carrier import Carrier
 from intake import Intake
 from winch import Winch
 from climber import Climber
@@ -56,6 +58,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
+		self.carrier = Carrier(self)
+		self.feeder = Feeder(self)
 		self.intake = Intake(self)
 		self.winch = Winch(self)
 		self.climber = Climber(self)

@@ -7,6 +7,7 @@ from do_intake import Do_Intake
 from do_four_bar import Do_Four_Bar
 from do_four_bar_inside import Do_Four_Bar_Inside
 from do_intake_delay import Do_Intake_Delay
+from do_carrier import Do_Carrier
 
 class Command_Intake_Pickup(CommandGroup):
 
