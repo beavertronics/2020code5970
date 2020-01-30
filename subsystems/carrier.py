@@ -14,15 +14,15 @@ class Carrier(Subsystem):
 		self.carrier_motor = wpilib.victorSP(8)
 		self.motor_speed = 0.314
 
-	#Sets carrier motor to objects given motor speed, will be determined later
-	def activate_motor(self):
+	#Sets carrier motor to object's given motor speed, will be determined later
+	def activate_carrier(self):
 		speed = self.motor_speed
 		self.carrier_motor.set(speed)
 	
-	def deactivate_motor(self):
+	def deactivate_carrier(self):
 		self.carrier_motor.set(0)
 
-	def reverse_motor(self):
+	def reverse_carrier(self):
 		speed = self.carrier_motor.get()
 		new_speed = speed * -1
 		self.carrier_motor.set(new_speed)

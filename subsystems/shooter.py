@@ -15,11 +15,12 @@ class Shooter(Subsystem):
 		super().__init__()
 		# Assumes four PWM ports for motors
 		#XXX shooter is on wrong PWM for now
-		self.shooter_motor = wpilib.VictorSP(7)
+		self.shooter_motor = wpilib.VictorSP(4)
 		
 		#setpoint = self.get_setpoint()
 		#setpoint = robot.setpoint
-		self.pid = PID(0.5, 0.02, 0.001, setpoint=0.3)
+		self.setpoint = 0.3
+		self.pid = PID(0.5, 0.02, 0.001, setpoint=self.setpoint)
 		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
@@ -31,6 +32,9 @@ class Shooter(Subsystem):
 		#XXX Need to get pid_output 
 		output = self.get_pid_output()
 		self.shooter_motor.setSpeed(output)
+		
+	def stop_shoot(self):
+		self.shooter_motor.setSpeed(0)
 
 	def get_pid_output(self):
 		current_rpm = self.shooter_encoder.get_encoder_rpm()

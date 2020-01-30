@@ -1,40 +1,33 @@
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
 import wpilib
-import wpilib.drive
-from wpilib.command import Command
+from wpilib.command import CommandGroup
 
-class Command_Shoot(Command):
+from do_shooter import Do_Shooter
+from do_carrier import Do_Carrier
+from do_feeder import Do_Feeder
+
+class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
-		self.requires(robot.carrier)
-		self.requires(robot.feeder)
-		self.requires(robot.shooter)
-		self.carrier = robot.carrier
-		self.feeder = robot.feeder
-		self.shooter = robot.shooter
-	
-	def initialize(self):
-		"""Called just before this Command runs the first time"""
-		pass
+		print("command group shoot initialized")
+		self.robot = robot
+		self.addSequential(Do_Carrier(robot))
+		self.addSequential(Do_Shoot(robot))
+		self.addSequential(Do_Feeder(robot))
+		self.addSequential(Do_Stop_Shoot(robot))
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		# Continuously sets motor speed to joystick inputs w/ Scheduler
-		self.robot_dt.set_tank_speed(
-			self.left_joy, self.right_joy, self.robot_dt.drive)
+		pass
 
 	def isFinished(self):
-		# This is how running tank driving is prioritized
-		# In other words, runs til interrupted
-		return False
+		return True
 
 	def end(self):
-		# Stop motors when ending command
-		self.robot_dt.stop_robot(self.robot_dt.drive)
-	
-	#XXX Maybe don't want to stop motors when interrupted
+		pass
+
 	def interrupted(self):
 		self.end

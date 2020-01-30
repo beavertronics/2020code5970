@@ -3,29 +3,28 @@
 import wpilib
 from wpilib.command import Command
 
-class Do_Carrier(Command):
+class Do_Stop_Shoot(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
-		self.requires(robot.carrier)
-		self.carrier = robot.carrier
+		self.requires(robot.shooter)
+		self.shooter = robot.shooter
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		self.carrier.activate_carrier()
-
+		self.shooter.stop_shoot()	
+	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		pass
 
 	def isFinished(self):
-		#XXX Do we need some kind of delay in here so it goes the proper distance?
 		return False
 
 	def end(self):
-		self.carrier.deactivate_carrier()
+		pass
 
 	def interrupted(self):
 		self.end

@@ -3,7 +3,7 @@
 import wpilib
 from wpilib.command import Subsystem
 
-class Intake(Subsystem):
+class Feeder(Subsystem):
 	def __init__(self, robot):
 		'''
 		Command Dependencies:
@@ -11,14 +11,14 @@ class Intake(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__()
-		#self.shooter_motor = wpilib.VictorSP(7)
-		
-	def intake_down(self):
-		''' Shoots the ball by controlling the flywheel motor '''
-		pass
+		self.feeder_motor = wpilib.VictorSP(7)
+		self.motor_speed = 0.3
 
-	def activate_rollers(self):
-		# rpm = enconder output * arbitrary constant
-		rpm = 5 * 4
-		return rpm
+	# Sets feeder motor to object's given motor speed, will be determined later
+	def activate_feeder(self):
+		speed = self.motor_speed
+		self.feeder_motor.setSpeed(speed)
+
+	def deactivate_feeder(self):
+		self.feeder_motor.setSpeed(0)
 
