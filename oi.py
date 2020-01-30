@@ -86,7 +86,7 @@ class OI():
 		'''	
 #		# In frame
 		xboxY.whenPressed(Do_Winch(robot))
-#		xboxX.whenPressed(Command_Shoot(robot))
+		xboxX.whenPressed(Command_Shoot(robot))
 		xboxA.whenPressed(Do_Big_Climb(robot))
 		xboxB.whenPressed(Do_Little_Climb(robot))
 #		xboxRB.whileHeld(Command_Intake(robot))
