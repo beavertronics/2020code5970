@@ -19,6 +19,7 @@ class Do_Bad_Auto(Command):
 		"""Called iteratively by Scheduler"""
 		print("Carrier activated!!")
 		self.drivetrain.bad_auto_drive()
+		self.drivetrain.stop_robot()
 
 	def isFinished(self):
 		return True

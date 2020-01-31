@@ -37,7 +37,7 @@ class Do_Tank_Drive(Command):
 
 	def end(self):
 		# Stop motors when ending command
-		self.robot_dt.stop_robot(self.robot_dt.drive)
+		self.robot_dt.stop_robot()
 	
 	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):

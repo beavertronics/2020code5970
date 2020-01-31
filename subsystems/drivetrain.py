@@ -58,10 +58,12 @@ class Drivetrain(Subsystem):
 		right_speed = right_joy.getY() 
 		drive.tankDrive(left_speed, right_speed)
 
-	def stop_robot(self, drive=DifferentialDrive):
-		drive.tankDrive(0,0)
+	#def stop_robot(self, drive=DifferentialDrive):
+	def stop_robot(self):
+		self.drive.tankDrive(0.0, 0.0)
 
-	def bad_auto_drive(self, drive=DifferentialDrive):
+	#def bad_auto_drive(self, drive=DifferentialDrive):
+	def bad_auto_drive(self):
 		# We start x feet away from the tower if directly in front
 		# Therefore we can use the encoder to figure out when we are close
 		# enough. Or we could just run into it and shoot
@@ -70,7 +72,7 @@ class Drivetrain(Subsystem):
 		total_run_time = time.time() + 4
 		# Runs motors straight forward for four seconds at half speed
 		while time.time() < total_run_time:
-			drive.tankDrive(0.5, 0.5)
+			self.drive.tankDrive(0.5, 0.5)
 	
 #	def reset_encoder(self):
 #		self.right_encoder.reset()
