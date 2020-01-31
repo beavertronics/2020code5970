@@ -14,6 +14,7 @@ path.append('../commands')
 from do_tank_drive import Do_Tank_Drive
 
 import math
+import time
 
 
 class Drivetrain(Subsystem):
@@ -57,8 +58,19 @@ class Drivetrain(Subsystem):
 		right_speed = right_joy.getY() 
 		drive.tankDrive(left_speed, right_speed)
 
-	def stop_robot(self, drive):
+	def stop_robot(self, drive=DifferentialDrive):
 		drive.tankDrive(0,0)
+
+	def bad_auto_drive(self, drive=DifferentialDrive):
+		# We start x feet away from the tower if directly in front
+		# Therefore we can use the encoder to figure out when we are close
+		# enough. Or we could just run into it and shoot
+
+		# In seconds
+		total_run_time = time.time() + 4
+		# Runs motors straight forward for four seconds at half speed
+		while time.time() < total_run_time:
+			drive.tankDrive(0.5, 0.5)
 	
 #	def reset_encoder(self):
 #		self.right_encoder.reset()

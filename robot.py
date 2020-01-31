@@ -46,8 +46,10 @@ from test_shifters import Test_Shifters
 from test_shooter import Test_Shooter
 from test_shooter_encoder import Test_Shooter_Encoder
 from test_intake import Test_Intake
-
 from test_drivetrain import Test_Drivetrain
+
+# Auto Commands
+from command_bad_auto import Command_Bad_Auto
 
 class BeaverTronicsRobot(wpilib.TimedRobot): 
 
@@ -86,6 +88,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
 		
 	def autonomousPeriodic(self):
+		Scheduler.getInstance().add(Command_Bad_Auto(self))
 		Scheduler.getInstance().run()
 
 	def teleopInit(self):
