@@ -14,6 +14,7 @@ class Do_Stop_Shoot(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
+		print("Stop_shoot executed in init function!!")
 		self.shooter.stop_shoot()	
 	
 	def execute(self):

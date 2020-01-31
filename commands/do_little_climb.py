@@ -24,6 +24,7 @@ class Do_Little_Climb(Command):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
+		print("Do_Little_Climb execute!!")
 		self.climber.reverse_solenoid(self.climber.littlum)
 
 	def isFinished(self):

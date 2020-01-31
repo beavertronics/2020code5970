@@ -18,17 +18,21 @@ class Do_Shoot(Command):
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
+		print("Shoot executed!!")
 		self.shooter.shoot()
 
 	def isFinished(self):
 		# Once the the motor speed has reached the goal rpm, it can stop
+		#XXX BELOW SHOULD GO IN CONDITIONAL COMMAND FOR FEEDER ACTIVATION
 		current_rpm = self.shooter.shooter_encoder.get_encoder_rpm()
 		goal_rpm = self.shooter.setpoint
 		
 		if(current_rpm == goal_rpm):
-			return True
+			finished = True
 		else:
-			return False
+			finished = False
+
+		return finished
 
 	def end(self):
 		pass

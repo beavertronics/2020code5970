@@ -23,6 +23,7 @@ class Do_Big_Climb(Command):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
+		print("Do_Big_Climb execute!!")
 		self.climber.reverse_solenoid(self.climber.biggum)
 
 	def isFinished(self):

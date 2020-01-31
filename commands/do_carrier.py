@@ -4,6 +4,7 @@ import wpilib
 from wpilib.command import Command
 
 class Do_Carrier(Command):
+	#XXX may want to inherit from TimedCommand instead of Command
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
@@ -14,15 +15,15 @@ class Do_Carrier(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		self.carrier.activate_carrier()
 
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		pass
+		print("Carrier activated!!")
+		self.carrier.activate_carrier()
 
 	def isFinished(self):
-		#XXX Do we need some kind of delay in here so it goes the proper distance?
-		return False
+		#XXX Timed activation for correct carrying distance?
+		return True
 
 	def end(self):
 		self.carrier.deactivate_carrier()

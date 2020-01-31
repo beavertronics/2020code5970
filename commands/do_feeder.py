@@ -14,11 +14,11 @@ class Do_Feeder(Command):
 
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		self.feeder.activate_feeder()
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		pass
+		print("Feeder activated!!")
+		self.feeder.activate_feeder()
 
 	def isFinished(self):
 		#XXX Do we need some kind of delay in here so it goes the proper distance?
