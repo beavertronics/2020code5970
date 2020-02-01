@@ -18,10 +18,13 @@ class Test_Drivetrain(ParametrizedTestCase):
 	@classmethod
 	def setUpClass(cls):
 		print('setUpClass()')
+		print('param = BeaverTronicsRobot.drivetrain')
 
 	def setUp(self):
 		print('setUp()')
-
+		with patch('drivetrain.Drivetrain') as mock:
+			dt_inst = mock.return_value
+			self.drive_inst = dt_inst.drive
 
 #		self.left_motors = Left_Motors()
 #		self.right_motors = Right_Motors()
@@ -44,15 +47,16 @@ class Test_Drivetrain(ParametrizedTestCase):
 	def test_set_tank_speed(self, mock_left_joy, mock_right_joy):
 		''' Passes in fake values and mocks the behavior of joysticks to test
 			if the speed is set correctly '''
-		mock_left_joy.getY.return_value = -1
-		mock_right_joy.getY.return_value = 0
+		mock_left_joy.getY.return_value = -1.0
+		mock_right_joy.getY.return_value = 0.0
 		self.param.set_tank_speed(
 			left_joy=mock_left_joy, right_joy=mock_right_joy, 
-			drive=wpilib.drive.DifferentialDrive)
+			drive=self.drive_inst)
 		print(mock_left_joy.getY)
 		print(mock_right_joy)
-		assert(self.param.left_motors_instance.get() == -1)
-		assert(self.param.right_motors_instance.get() == 0)
+		print("Left_motors: " + str(self.param.left_motors.get()))
+		assert(self.param.left_motors.get() == -1.0)
+		assert(self.param.right_motors.get() == 0.0)
 
 	def tearDown(self):
 		print('tearDown()')
