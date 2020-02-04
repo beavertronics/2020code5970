@@ -48,6 +48,8 @@ from test_shooter_encoder import Test_Shooter_Encoder
 from test_feeder import Test_Feeder
 from test_carrier import Test_Carrier
 from test_intake import Test_Intake
+from test_winch import Test_Winch
+from test_climber import Test_Climber
 from test_drivetrain import Test_Drivetrain
 
 # Auto Commands
@@ -134,6 +136,10 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 			Test_Carrier, param=self.carrier))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Intake, param=self.intake))
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Winch, param=self.winch))
+		suite.addTest(ParametrizedTestCase.parametrize(
+			Test_Climber, param=self.climber))
 		# TextTestRunner just outputs to stdout what is happening
 		unittest.TextTestRunner(verbosity=2).run(suite)
 
