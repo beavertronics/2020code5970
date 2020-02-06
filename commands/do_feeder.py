@@ -14,6 +14,7 @@ class Do_Feeder(Command):
 
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
+		pass
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
