@@ -1,3 +1,5 @@
+# vim: set sw=4 noet ts=4 fileencoding=utf-8:
+
 #
 # This is a demo program showing CameraServer usage with OpenCV to do image
 # processing. The image is acquired from the USB camera, then a rectangle
@@ -19,13 +21,15 @@ from cscore import CameraServer
 
 
 def main():
+    ''' This sends a camera feed to the drive station, does not do filtering '''
     cs = CameraServer.getInstance()
     cs.enableLogging()
 
     camera = cs.startAutomaticCapture()
 
     camera.setResolution(320, 240)
-    camera.setPixelFormat(VideoMode.PixelFormat.kGray)
+    #XXX deleted 2/5/20
+    #camera.setPixelFormat(VideoMode.PixelFormat.kGray)
 
     #camera_mode.PixelFormat.kGray
 

@@ -17,6 +17,7 @@ import math
 sys.path.append('./subsystems') 
 sys.path.append('./commands') 
 sys.path.append('./tests')
+sys.path.append('./vision')
 
 #RoboRIO path
 sys.path.insert(0, '/home/lvuser/py/subsystems')
