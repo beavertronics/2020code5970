@@ -22,11 +22,8 @@ class Test_Shooter(ParametrizedTestCase):
 	def setUp(self):
 		print('setUp()')
 
-	#XXX I don't believe that this SHOULD work. The pid output is supposed to
-	# change based on the instantaneous status of the motors. It might be too
-	# delayed to use these commands in succession and assert equality
-	#XXX I also changed a few things to be more readable
-	# test assumes pid values from shooter.py (kP=0.5, kI=0.02, kD=0.001, setpoint=0.3), dt=0.01
+	# test assumes pid values from shooter.py 
+	# (kP=0.5, kI=0.02, kD=0.001, setpoint=0.3), dt=0.01
 	def test_shoot(self):
 		print('test_shoot()')
 		kP = 0.5
@@ -35,11 +32,13 @@ class Test_Shooter(ParametrizedTestCase):
 		setpoint = 0.3
 		dt = 0.01
 		
+		# test_vals[0][0] is fake motor speed input, test_vals[0][1] is
+		# expected update to motor speed from pid loop
 		test_vals = [[0.2, 0.05002], [0.4, -0.05002]]
 		for each in test_vals:
-			input_ = each[0]
+			motor_input = each[0]
 			actual_output = each[1]
-			error = setpoint - input_
+			error = setpoint - motor_input
 			d_input = 0
 			proportional = kP * error
 			integral = kI * error * dt

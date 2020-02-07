@@ -3,9 +3,11 @@
 import wpilib
 from wpilib.command import Subsystem
 from carrier_encoder import Carrier_Encoder
+from simple_pid import PID
 
 class Carrier(Subsystem):
-	def __init__(self, robot):
+	s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
+	def __init__(self, robot, settings=s):
 		'''
 		Command Dependencies:
 
@@ -13,10 +15,8 @@ class Carrier(Subsystem):
 		'''
 		super().__init__()
 		self.carrier_motor = wpilib.VictorSP(8)
-
-		#setpoint = self.get_setpoint()
-		self.carrier_setpoint = 0.1
-		self.pid = PID(0.5, 0.02, 0.001, setpoint=self.carrier_setpoint)
+		self.carrier_setpoint = s['setpoint']  
+		self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
 		# self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder
