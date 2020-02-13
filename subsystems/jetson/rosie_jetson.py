@@ -9,20 +9,20 @@ import logging
 from camera import Camera
 
 class Rosie_Jetson():
-    ''' This is all the processing functions the Jetson will run.'''
+	''' This is all the processing functions the Jetson will run.'''
 
-    def __init__(self):
-        self.cam = Camera()
+	def __init__(self):
+		self.cam = Camera()
 
-    # get feed from camera
-    def get_feed(self):
-        while True:
-            self.retval, self.frame = self.cam.read()
-            if not self.retval:
-                #XXX error message w logger?
-                # send to drivestation also
-                time.sleep(1)
-                continue
+	# get feed from camera
+	def get_feed(self):
+		while True:
+			self.retval, self.frame = self.cam.read()
+			if not self.retval:
+				#XXX error message w logger?
+				# send to drivestation also
+				time.sleep(1)
+				continue
 
 	# hsv filtering
 	def hsv_frame(self):
@@ -39,7 +39,7 @@ class Rosie_Jetson():
 		color_mask = cv2.inRange(hsv_frame, lower_bound, upper_bound)
 		return(color_mask)
 
-    # other filters (erode etc)
+	# other filters (erode etc)
 	def erode(self):
 		color_mask = self.color_mask()
 		kernel = np.ones((5, 5), np.uint8)
@@ -58,7 +58,7 @@ class Rosie_Jetson():
 	def find_contours(self):
 		image = dilate()
 		contours, hierarchy = cv2.findContours(image, cv2.RETR_EXTERNAL, 
-				cv2.CHAIN_APPROX_SIMPLE)
+			cv2.CHAIN_APPROX_SIMPLE)
 		return(contours)
 
 	def largest_contour(self):
@@ -75,4 +75,4 @@ class Rosie_Jetson():
 		return(rectangle)
 	
 	# find location of object
-    # return the location / send to the roborio
+	# return the location / send to the roborio

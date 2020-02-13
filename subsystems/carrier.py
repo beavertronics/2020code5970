@@ -6,8 +6,9 @@ from carrier_encoder import Carrier_Encoder
 from simple_pid import PID
 
 class Carrier(Subsystem):
-	s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
-	def __init__(self, robot, settings=s):
+	#s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
+	#def __init__(self, robot, settings=s):
+	def __init__(self, robot):
 		'''
 		Command Dependencies:
 
@@ -15,8 +16,9 @@ class Carrier(Subsystem):
 		'''
 		super().__init__()
 		self.carrier_motor = wpilib.VictorSP(8)
-		self.carrier_setpoint = s['setpoint']  
-		self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
+		self.pid = PID(0.5, 0.02, 0.001, 0.1)
+		#self.carrier_setpoint = s['setpoint']  
+		#self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
 		# self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder

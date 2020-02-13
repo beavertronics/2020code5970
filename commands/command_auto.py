@@ -14,8 +14,8 @@ class Command_Auto(Command):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		super().__init__()
-		self.requires(robot.#XXX)
-		self.#XXX = robot.something
+		#self.requires(robot.#XXX)
+		#self.#XXX = robot.something
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
