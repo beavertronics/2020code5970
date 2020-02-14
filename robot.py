@@ -4,7 +4,7 @@
 # Robotics specifc libraries
 import wpilib
 from wpilib.command import Scheduler
-from wpilib.buttons.joystickbutton import JoystickButton
+from wpilib.buttons import JoystickButton
 import time
 from networktables import NetworkTables
 
