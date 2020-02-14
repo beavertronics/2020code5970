@@ -20,6 +20,10 @@ class Test_Carrier(ParametrizedTestCase):
 		print('setUp()')
 		#XXX need to mock robot and make new instance of carrier so that
 		# pid args for test can be passed in below
+		# XXX Carrier needs a robot instance.  This is mocked.  Then
+		#     we tell the mock what methods it must support.  These are
+		#	  those calls to robot methods in carrier.py. I didn't see any
+		#     yet.
 		#self.carrier = Carrier(robot_mock, pid_param_dict)
 		self.kP = 0.5
 		self.kI = 0.02
@@ -43,9 +47,9 @@ class Test_Carrier(ParametrizedTestCase):
 			motor_input = each[0]
 			error = setpoint - motor_input
 			d_input = 0
-			proportional = kP * error
-			integral = kI * error * dt
-			derivative = -kD * d_input / dt
+			proportional = kP * error # XXX self.XXX
+			integral = kI * error * dt # XXX
+			derivative = -kD * d_input / dt # XXX
 
 			#actual_output = each[1]
 			self.param.carrier

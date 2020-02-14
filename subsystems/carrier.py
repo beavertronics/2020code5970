@@ -6,7 +6,7 @@ from carrier_encoder import Carrier_Encoder
 from simple_pid import PID
 
 class Carrier(Subsystem):
-	s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
+	#s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
 	def __init__(self, robot, settings=s):
 		'''
 		Command Dependencies:
@@ -14,13 +14,20 @@ class Carrier(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__()
+		# XXX the constant 8 should be passed in with the settings.
 		self.carrier_motor = wpilib.VictorSP(8)
-		self.carrier_setpoint = s['setpoint']  
-		self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
+		# XXX no need to save this, the instance of this class uses it
+		# only to init PID.
+		#self.carrier_setpoint = s['setpoint']
+		self.carrier_setpoint = 0.5
+		#self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
+		self.pid = PID(0.5, 0.02, 0.001, self.carrier_setpoint)
 		# self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder
 		#XXX DIO values incorrect for now
+		# the 6,7 below should be within the settings passed in.  Also,
+		# Carrier_Encoder class should be passed in and mocked in tests.
 		self.carrier_encoder = Carrier_Encoder(6,7)
 
 	#Sets carrier motor to object's given motor speed, will be determined later
