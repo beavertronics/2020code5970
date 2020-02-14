@@ -25,7 +25,7 @@ sys.path.insert(0, '/home/lvuser/py/commands')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
 #XXX shifters deprecated, need to remove from all active code this year
-from shifters import Shifters
+#from shifters import Shifters
 from shooter import Shooter
 from shooter_encoder import Shooter_Encoder
 from feeder import Feeder
@@ -43,7 +43,7 @@ from oi import OI
 import unittest
 from parametrized import ParametrizedTestCase
 from test_do_tank_drive import Test_Do_Tank_Drive
-from test_shifters import Test_Shifters
+#from test_shifters import Test_Shifters
 from test_shooter import Test_Shooter
 from test_shooter_encoder import Test_Shooter_Encoder
 from test_feeder import Test_Feeder
@@ -62,7 +62,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		# Instances of classes
 
 		# Instantiate Subsystems
-		self.shifters = Shifters()
+		#self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
@@ -123,8 +123,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 
 	def testPeriodic(self):
 		suite = unittest.TestSuite()
-		suite.addTest(ParametrizedTestCase.parametrize(
-			Test_Shifters, param=self.shifters))
+		#suite.addTest(ParametrizedTestCase.parametrize(
+		#	Test_Shifters, param=self.shifters))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Shooter, param=self.shooter))
 		suite.addTest(ParametrizedTestCase.parametrize(
