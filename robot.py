@@ -62,6 +62,7 @@ from command_bad_auto import Command_Bad_Auto
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
+		sys.settrace()
 		# Instances of classes
 
 		# Instantiate Subsystems
