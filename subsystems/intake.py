@@ -10,7 +10,7 @@ class Intake(Subsystem):
 
 		All values currently arbitary!
 		'''
-		#super().__init__()
+		Subsystem.__init__(self)
 		# constant, just indicates what speed the intake motor should go
 		self.pwm_val = 0.5
 
