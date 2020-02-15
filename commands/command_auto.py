@@ -11,7 +11,7 @@ class Command_Auto(Command):
 	'''
 
 	def __init__(self, robot):
-		super().__init__()
+		Command.__init__(self)
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		# Command.__init__(self)
@@ -35,4 +35,4 @@ class Command_Auto(Command):
 		pass
 	
 	def interrupted(self):
-		self.end()()
+		self.end()

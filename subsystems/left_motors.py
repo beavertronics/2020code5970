@@ -5,7 +5,7 @@ import ctre
 #from wpilib.buttons.joystickbutton import JoystickButton
 
 #*********Robot-Side Initialization***************
-class Left_Motors():
+class Left_Motors:
  
 	def __init__(self):
 		#Initialize Left motors

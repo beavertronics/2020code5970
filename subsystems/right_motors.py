@@ -4,7 +4,7 @@ import wpilib
 import ctre
 
 #*********Robot-Side Initialization***************
-class Right_Motors():
+class Right_Motors:
 	
 	def __init__(self):
 		#Initialize Right motors

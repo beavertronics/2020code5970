@@ -12,6 +12,7 @@ class Shooter(Subsystem):
 
 		All values currently arbitary!
 		'''
+		Subsystem.__init__(self, "Shooter")
 		#super().__init__()
 		# Assumes four PWM ports for motors
 		#XXX shooter is on wrong PWM for now

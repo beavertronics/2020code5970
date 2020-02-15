@@ -13,7 +13,7 @@ import math
 # like we do not.
 class Shooter_Encoder(wpilib.Encoder):
 	def __init__(self, DIO_1, DIO_2):
-		super().__init__(DIO_1, DIO_2)
+		wpilib.Encoder.__init__(self, DIO_1, DIO_2)
 		# Constants
 		pulses_per_rev = 12
 		# gear_reduction = #XXX
