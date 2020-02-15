@@ -27,6 +27,5 @@ class Command_Shoot(CommandGroup):
 		# Command.__init__(self)
 		print("Doing Command_Shoot!!")
 		self.addSequential(Do_Carrier(robot))
-		import pdb; pdb.set_trace()
 		self.addParallel(Do_Shoot(robot))
 		self.addParallel(Do_Activate_Feeder(robot))
