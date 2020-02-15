@@ -11,7 +11,7 @@ from do_feeder import Do_Feeder
 
 class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
-		CommandGroup.__init__(self)
+		CommandGroup.__init__(self, name='Command_Shoot')
 		print("Command_Shoot init!!")
 #		# Recognize as a wpilib command
 #		Command.__init__(self)

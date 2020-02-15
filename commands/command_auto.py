@@ -11,7 +11,7 @@ class Command_Auto(Command):
 	'''
 
 	def __init__(self, robot):
-		Command.__init__(self)
+		Command.__init__(self, name='Command_Auto')
 		# Recognize as a wpilib command
 		print("command_auto init")
 		# Command.__init__(self)
