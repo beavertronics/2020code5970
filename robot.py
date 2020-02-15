@@ -63,13 +63,14 @@ from command_bad_auto import Command_Bad_Auto
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
-		CommandBasedRobot.__init__()
+		super().__init__()
+		#CommandBasedRobot.__init__()
 		faulthandler.enable()
 		# Instances of classes
 
 		# Instantiate Subsystems
 		# self.shifters = Shifters()
-		self.drivetrain = Drivetrain(self)
+		#self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
