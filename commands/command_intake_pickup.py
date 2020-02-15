@@ -12,7 +12,7 @@ from do_carrier import Do_Carrier
 class Command_Intake_Pickup(CommandGroup):
 
 	def __init__(self, robot):
-		#super().__init__()
+		# Command.__init__(self)
 		print("command group intake pickup initialized")
 		#XXX have this happen while a button is pressed, retract as soon as released maybe
 		self.robot = robot

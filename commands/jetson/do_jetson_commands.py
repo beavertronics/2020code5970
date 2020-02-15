@@ -11,7 +11,7 @@ class Do_Jetson_Commands(Command):
 
     def __init__(self, robot):
         print("Do_Jetson_Commands init!!")
-        #super().__init__()
+        Command.__init__(self)
 
     def execute(self):
         # Call can.sh on Jetson

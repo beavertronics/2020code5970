@@ -14,7 +14,7 @@ class Carrier(Subsystem):
 
 		All values currently arbitary!
 		'''
-		#super().__init__()
+		super().__init__()
 		self.carrier_motor = wpilib.VictorSP(8)
 		self.pid = PID(0.5, 0.02, 0.001, 0.1)
 		#self.carrier_setpoint = s['setpoint']  

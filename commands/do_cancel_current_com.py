@@ -9,7 +9,7 @@ class Do_Cancel_Current_Com(Command):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
-		#super().__init__()
+		Command.__init__(self)
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
