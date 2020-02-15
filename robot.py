@@ -102,8 +102,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.loops = 0
 		self.timer.reset()
 		self.timer.start()
+		#XXX may want to change later
 		Scheduler.getInstance().removeAll()
-		Scheduler.getInstance().enable()
 
 	def teleopPeriodic(self):
 		Scheduler.getInstance().run()
@@ -115,10 +115,13 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 			self.loops = 0
 
 	def disabledInit(self):
+		#XXX need to define later
+		#self.reset()
 		Scheduler.getInstance().removeAll()
 
 	def disabledPeriodic(self):
-		return None
+		#XXX to do def this log function
+		#self.log()
 
 	def testInit(self):
 		return None
