@@ -122,6 +122,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 	def disabledPeriodic(self):
 		#XXX to do def this log function
 		#self.log()
+		pass
 
 	def testInit(self):
 		return None
