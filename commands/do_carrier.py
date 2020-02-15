@@ -30,4 +30,4 @@ class Do_Carrier(Command):
 		self.carrier.deactivate_carrier()
 
 	def interrupted(self):
-		self.end()()
+		self.end()
