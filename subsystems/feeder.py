@@ -10,8 +10,7 @@ class Feeder(Subsystem):
 
 		All values currently arbitary!
 		'''
-		Subsystem.__init__(self)
-		Subsytem.__init__(self)
+		Subsystem.__init__()
 		self.feeder_motor = wpilib.VictorSP(5)
 		self.motor_speed = 0.3
 
