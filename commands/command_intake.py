@@ -35,4 +35,4 @@ class Command_Intake(Command):
 	
 	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
-		self.end
+		self.end()

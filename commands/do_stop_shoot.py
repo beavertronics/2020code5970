@@ -28,4 +28,4 @@ class Do_Stop_Shoot(Command):
 		pass
 
 	def interrupted(self):
-		self.end
+		self.end()

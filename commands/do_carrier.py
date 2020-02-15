@@ -15,6 +15,7 @@ class Do_Carrier(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
+		pass
 
 	def execute(self):
 		"""Called iteratively by Scheduler"""
@@ -29,4 +30,4 @@ class Do_Carrier(Command):
 		self.carrier.deactivate_carrier()
 
 	def interrupted(self):
-		self.end
+		self.end()()

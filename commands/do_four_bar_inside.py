@@ -21,4 +21,4 @@ class Do_Four_Bar_Inside(Command):
 
     def interrupted(self):
         print("Command 'do_four_bar_inside' has been interrupted")
-        self.end()
+        self.end()()

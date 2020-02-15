@@ -29,4 +29,4 @@ class Do_Feeder(Command):
 		self.feeder.deactivate_feeder()
 	
 	def interrupted(self):
-		self.end
+		self.end()

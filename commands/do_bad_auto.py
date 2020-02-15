@@ -28,4 +28,4 @@ class Do_Bad_Auto(Command):
 		self.drivetrain.stop_robot()
 
 	def interrupted(self):
-		self.end()
+		self.end()()

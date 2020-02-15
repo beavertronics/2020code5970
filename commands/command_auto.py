@@ -34,4 +34,4 @@ class Command_Auto(Command):
 		pass
 	
 	def interrupted(self):
-		self.end()
+		self.end()()

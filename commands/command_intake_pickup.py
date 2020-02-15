@@ -33,4 +33,4 @@ class Command_Intake_Pickup(CommandGroup):
 		pass
 
 	def interrupted(self):
-		self.end()
+		self.end()()

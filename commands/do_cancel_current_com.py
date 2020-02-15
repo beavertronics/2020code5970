@@ -32,4 +32,4 @@ class Do_Cancel_Current_Com(Command):
 	
 	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
-		self.end
+		self.end()

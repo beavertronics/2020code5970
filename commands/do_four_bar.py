@@ -22,4 +22,4 @@ class Do_Four_Bar(Command):
 
 	def interrupted(self):
 		print("Command 'do_four_bar' has been interrupted")
-		self.end()
+		self.end()()
