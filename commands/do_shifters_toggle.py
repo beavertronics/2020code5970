@@ -41,5 +41,5 @@ class Do_Shifters_Toggle(Command):
 
 	def interrupted(self):
 		print("Command 'shifters_toggle' interrupted!")
-		self.end()()
+		self.end()
 

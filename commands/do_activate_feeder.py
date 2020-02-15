@@ -36,6 +36,6 @@ class Do_Activate_Feeder(ConditionalCommand):
 		pass
 
 	def interrupted(self):
-		self.end()()
+		self.end()
 
 

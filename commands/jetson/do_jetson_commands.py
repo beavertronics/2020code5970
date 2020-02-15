@@ -5,23 +5,23 @@ import wpilib.drive
 from wpilib.command import Command
 
 class Do_Jetson_Commands(Command):
-    ''' This will send instructions for what the Jetson should start processing.
-    The Jetson should eventually send back motor speeds based on the vision
-    processing.'''
+^I''' This will send instructions for what the Jetson should start processing.
+^IThe Jetson should eventually send back motor speeds based on the vision
+^Iprocessing.'''
 
-    def __init__(self, robot):
-        print("Do_Jetson_Commands init!!")
-        Command.__init__(self)
+^Idef __init__(self, robot):
+^I^Iprint("Do_Jetson_Commands init!!")
+^I^ICommand.__init__(self)
 
-    def execute(self):
-        # Call can.sh on Jetson
-        pass
+^Idef execute(self):
+^I^I# Call can.sh on Jetson
+^I^Ipass
 
-    def isFinished(self):
-        pass
+^Idef isFinished(self):
+^I^Ipass
 
-    def end(self):
-        pass
+^Idef end(self):
+^I^Ipass
 
-    def interrupted(self):
-        pass
+^Idef interrupted(self):
+^I^Ipass
