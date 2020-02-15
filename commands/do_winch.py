@@ -7,7 +7,7 @@ from wpilib.command import Command
 class Do_Winch(Command):
 
 	def __init__(self, robot):
-		Command.__init__(self)
+		Command.__init__(robot)
 		# Recognize as a wpilib command
 		print("Winch init!!")
 		self.requires(robot.winch)

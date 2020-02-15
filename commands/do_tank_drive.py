@@ -9,7 +9,7 @@ class Do_Tank_Drive(Command):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
-		Command.__init__(self)
+		Command.__init__(robot)
 
 		# an instance of BeaverTronicsRobot from robot.py containing its
 		# instance of drivetrain

@@ -15,7 +15,7 @@ class Command_Bad_Auto(CommandGroup):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print("BAD AUTO init!!!!")
-		# Command.__init__(self)
+		# Command.__init__(robot)
 		self.requires(robot.drivetrain)
 		self.drivetrain = robot.drivetrain
 		self.addSequential(Do_Bad_Auto(robot))

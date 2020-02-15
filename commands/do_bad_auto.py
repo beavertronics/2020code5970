@@ -7,7 +7,7 @@ class Do_Bad_Auto(Command):
 
 	def __init__(self, robot):
 		print("Do_Bad_Auto init!!")
-		Command.__init__(self)
+		Command.__init__(robot)
 		self.requires(robot.drivetrain)
 		self.drivetrain = robot.drivetrain
 	
