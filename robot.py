@@ -97,10 +97,9 @@ class BeaverTronicsRobot(CommandBasedRobot):
 	def autonomousInit(self):
 		# Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
-		Scheduler.getInstance().addCommand(Command_Bad_Auto(self))
 		
 	def autonomousPeriodic(self):
-		
+		Scheduler.getInstance().addCommand(Command_Bad_Auto(self))
 		Scheduler.getInstance().run()
 
 	def teleopInit(self):
@@ -116,15 +115,16 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		Scheduler.getInstance().run()
 
 		# Keeping track of TimedRobot loops through code
-#		self.loops += 1
-#		if self.timer.hasPeriodPassed(1):
-#			self.logger.info("%d loops / second", self.loops)
-#			self.loops = 0
+		self.loops += 1
+		if self.timer.hasPeriodPassed(1):
+			self.logger.info("%d loops / second", self.loops)
+			self.loops = 0
 
 	def disabledInit(self):
 		#XXX need to define later
 		#self.reset()
-		Scheduler.getInstance().removeAll()
+		#Scheduler.getInstance().removeAll()
+		pass
 
 	def disabledPeriodic(self):
 		#XXX to do def this log function
