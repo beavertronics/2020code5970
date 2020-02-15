@@ -7,6 +7,7 @@ from wpilib.command import Scheduler
 from wpilib.buttons import JoystickButton
 import time
 from networktables import NetworkTables
+from commandbased import CommandBasedRobot
 
 # Non robot specific libraries
 import os
