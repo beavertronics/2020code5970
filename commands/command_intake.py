@@ -8,7 +8,7 @@ class Command_Intake(Command):
 	def __init__(self, robot):
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
-		super().__init__()
+		#super().__init__()
 		self.requires(robot.intake)
 		self.requires(robot.carrier)
 		self.intake = robot.intake

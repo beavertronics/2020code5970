@@ -7,21 +7,18 @@ from simple_pid import PID
 
 class Carrier(Subsystem):
 	#s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
-	def __init__(self, robot, settings=s):
+	#def __init__(self, robot, settings=s):
+	def __init__(self, robot):
 		'''
 		Command Dependencies:
 
 		All values currently arbitary!
 		'''
-		super().__init__()
-		# XXX the constant 8 should be passed in with the settings.
+		#super().__init__()
 		self.carrier_motor = wpilib.VictorSP(8)
-		# XXX no need to save this, the instance of this class uses it
-		# only to init PID.
-		#self.carrier_setpoint = s['setpoint']
-		self.carrier_setpoint = 0.5
+		self.pid = PID(0.5, 0.02, 0.001, 0.1)
+		#self.carrier_setpoint = s['setpoint']  
 		#self.pid = PID(s['p'], s['i'], s['d'], setpoint=self.carrier_setpoint)
-		self.pid = PID(0.5, 0.02, 0.001, self.carrier_setpoint)
 		# self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder
