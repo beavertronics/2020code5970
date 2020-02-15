@@ -13,11 +13,14 @@ class Command_Intake_Pickup(CommandGroup):
 
 	def __init__(self, robot):
 		CommandGroup.__init__(self)
-		# Command.__init__(self)
 		print("command group intake pickup initialized")
-		#XXX have this happen while a button is pressed, retract as soon as released maybe
+		#XXX have this happen while a button is pressed, 
+		# retract as soon as released maybe
 		self.robot = robot
 		self.addSequential(Do_Four_Bar(robot))
+		#XXX pdb
+		import pdb
+		pdb.set_trace()
 		self.addSequential(Do_Intake_Delay(robot), 0.2)
 		self.addSequential(Do_Intake(robot))
 		self.addParallel(Do_Carrier(robot))
