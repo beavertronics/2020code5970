@@ -17,7 +17,7 @@ class My_Arm_Encoder(wpilib.Encoder):
 	FINAL_DEGREE_PER_CLICK = DEGREE_PER_CLICK * DRIVE_RATIO
 
 	def __init__(self, DIO_1, DIO_2):
-		super().__init__(DIO_1, DIO_2)
+		wpilib.Encoder.__init__(self, DIO_1, DIO_2)
 		# Amount some gear in motor configuration turns per encoder click
 		self.setDistancePerPulse(self.FINAL_DEGREE_PER_CLICK)
 	

@@ -10,7 +10,7 @@ class Do_Activate_Feeder(ConditionalCommand):
 	def __init__(self, robot):
 		print(str(robot) + "!!")
 		self.do_feeder = Do_Feeder(robot)
-		super().__init__('Do_Activate_Feeder', self.do_feeder)
+		ConditionalCommand.__init__(self, 'Do_Activate_Feeder', self.do_feeder)
 		self.requires(robot.shooter)
 		self.shooter = robot.shooter
 

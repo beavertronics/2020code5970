@@ -93,9 +93,10 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 	def autonomousInit(self):
 		Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
+		Scheduler.getInstance().addCommand( Command_Bad_Auto(self))
 		
 	def autonomousPeriodic(self):
-		Scheduler.getInstance().add(Command_Bad_Auto(self))
+		
 		Scheduler.getInstance().run()
 
 	def teleopInit(self):
@@ -104,6 +105,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.timer.start()
 		#XXX may want to change later
 		Scheduler.getInstance().removeAll()
+		Scheduler.getInstance().setEnabled(True)
+
 
 	def teleopPeriodic(self):
 		Scheduler.getInstance().run()

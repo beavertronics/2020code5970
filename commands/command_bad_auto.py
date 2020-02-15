@@ -13,7 +13,7 @@ class Command_Bad_Auto(CommandGroup):
 	'''
 
 	def __init__(self, robot):
-		super().__init__()
+		CommandGroup.__init__(self, "name")
 		# Recognize as a wpilib command
 		print("BAD AUTO init!!!!")
 		# Command.__init__(self)
