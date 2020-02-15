@@ -34,4 +34,4 @@ class Do_Winch(Command):
 		self.winch.stop_motor()
 	
 	def interrupted(self):
-		self.end()()
+		self.end()

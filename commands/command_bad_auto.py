@@ -40,4 +40,4 @@ class Command_Bad_Auto(CommandGroup):
 #		pass
 #	
 #	def interrupted(self):
-#		self.end()()
+#		self.end()

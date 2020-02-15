@@ -19,4 +19,4 @@ class Do_Intake_Delay(Command):
 		return True
 
 	def interrupted(self):
-		self.end()()
+		self.end()
