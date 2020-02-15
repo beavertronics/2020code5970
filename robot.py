@@ -59,7 +59,7 @@ from test_drivetrain import Test_Drivetrain
 # Auto Commands
 from command_bad_auto import Command_Bad_Auto
 
-class BeaverTronicsRobot(wpilib.TimedRobot): 
+class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
 		# Instances of classes
@@ -91,6 +91,8 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		#XXX might crash sim
 		#wpilib.CameraServer.launch("vision.py:main")
 		
+		# register subsystems
+
 	def autonomousInit(self):
 		Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
