@@ -22,6 +22,8 @@ sys.path.append('./vision')
 #RoboRIO path
 sys.path.insert(0, '/home/lvuser/py/subsystems')
 sys.path.insert(0, '/home/lvuser/py/commands')
+sys.path.insert(0, '/home/lvuser/py/tests')
+sys.path.insert(0, '/home/lvuser/py/vision')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
 #XXX shifters deprecated, need to remove from all active code this year
