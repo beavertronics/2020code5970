@@ -59,7 +59,7 @@ from test_drivetrain import Test_Drivetrain
 # Auto Commands
 from command_bad_auto import Command_Bad_Auto
 
-class BeaverTronicsRobot(wpilib.TimedRobot): 
+class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
 		# Instances of classes
