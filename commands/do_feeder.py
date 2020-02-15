@@ -7,7 +7,7 @@ class Do_Feeder(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print(str(robot) + "!!")
+		print("do_feeder init")
 		Command.__init__(self)
 		self.requires(robot.feeder)
 		self.feeder = robot.feeder

@@ -25,16 +25,3 @@ class Command_Intake_Pickup(CommandGroup):
 		self.addSequential(Do_Intake(robot))
 		self.addParallel(Do_Carrier(robot))
 		self.addSequential(Do_Four_Bar_Inside(robot))
-
-	def execute(self):
-		pass
-
-	def isFinished(self):
-		return True
-
-	def end(self):
-		#self.addSequential(Do_Four_Bar_Inside(self.robot))
-		pass
-
-	def interrupted(self):
-		self.end()

@@ -8,7 +8,7 @@ class Do_Carrier(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print(str(robot) + "!!")
+		print("command init")
 		Command.__init__(self)
 		self.requires(robot.carrier)
 		self.carrier = robot.carrier
