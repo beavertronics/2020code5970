@@ -23,7 +23,7 @@ class Drivetrain(Subsystem):
 		# Super from subsystem allows scheduler class to understand things like
 		# interupt and execute etc...
 		print("-------Drivetrain--------")
-		Subsystem.__init__()
+		
 		print("---------------")
 	
 		# Motors
