@@ -106,7 +106,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		self.timer.start()
 		#XXX may want to change later
 		Scheduler.getInstance().removeAll()
-		Scheduler.getInstance().setEnabled(True)
+		#Scheduler.getInstance().setEnabled(True)
 
 
 	def teleopPeriodic(self):
