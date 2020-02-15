@@ -66,7 +66,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 		# Instantiate Subsystems
 		#self.shifters = Shifters()
-		self.drivetrain = Drivetrain(self)
+		#self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
