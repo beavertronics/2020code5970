@@ -93,7 +93,7 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 	def autonomousInit(self):
 		Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
-		Scheduler.getInstance().addCommand( Command_Bad_Auto(self))
+		Scheduler.getInstance().addCommand(Command_Bad_Auto(self))
 		
 	def autonomousPeriodic(self):
 		

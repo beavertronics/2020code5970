@@ -19,9 +19,9 @@ class Command_Intake_Pickup(CommandGroup):
 		self.robot = robot
 		self.addSequential(Do_Four_Bar(robot))
 		#XXX pdb
-		import pdb
-		pdb.set_trace()
-		self.addSequential(Do_Intake_Delay(robot), 0.2)
+		#import pdb
+		#pdb.set_trace()
+		#self.addSequential(Do_Intake_Delay(robot), 0.2)
 		self.addSequential(Do_Intake(robot))
 		self.addParallel(Do_Carrier(robot))
 		self.addSequential(Do_Four_Bar_Inside(robot))
