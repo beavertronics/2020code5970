@@ -11,6 +11,7 @@ class Command_Auto(Command):
 	'''
 
 	def __init__(self, robot):
+		super().__init__()
 		# Recognize as a wpilib command
 		print(str(robot) + "!!")
 		# Command.__init__(self)
