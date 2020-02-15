@@ -63,7 +63,7 @@ from command_bad_auto import Command_Bad_Auto
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
-		super().__init__()
+		CommandBasedRobot.__init__()
 		faulthandler.enable()
 		# Instances of classes
 
