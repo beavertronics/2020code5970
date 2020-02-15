@@ -91,6 +91,8 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		#XXX might crash sim
 		#wpilib.CameraServer.launch("vision.py:main")
 		
+		# register subsystems
+
 	def autonomousInit(self):
 		Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
