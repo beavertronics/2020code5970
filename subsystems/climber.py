@@ -8,7 +8,8 @@ class Climber(Subsystem):
 		'''
 		Unfolds climber using two stages of unfolding
 		'''
-		
+		super().__init__("climber")
+	
 		# Note to self: Biggum is two pistons on the lower stage which are
 		# currently on the same solenoid port
 		self.biggum = wpilib.Solenoid(0)

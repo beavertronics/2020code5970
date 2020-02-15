@@ -6,7 +6,7 @@ from wpilib.command import Command
 class Do_Four_Bar_Inside(Command):
 
     def __init__(self, robot):
-        Command.__init__(robot)
+        Command.__init__(self)
 
         self.intake = robot.intake
 

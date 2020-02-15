@@ -12,7 +12,7 @@ from do_feeder import Do_Feeder
 class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
 #		# Recognize as a wpilib command
-#		Command.__init__(robot)
+#		Command.__init__(self)
 #		print("Doing Command_Shoot!!")
 #		self.addSequential(Do_Carrier(robot))
 #		#XXX I think this should be parallel so that it continues to run
@@ -23,7 +23,7 @@ class Command_Shoot(CommandGroup):
 #		# Command groups don't need end functions and the like because 
 #		# those functions are defined in the individual commands
 
-		# Command.__init__(robot)
+		# Command.__init__(self)
 		print("Doing Command_Shoot!!")
 		self.addSequential(Do_Carrier(robot))
 		self.addParallel(Do_Shoot(robot))
