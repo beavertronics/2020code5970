@@ -22,10 +22,10 @@ class Command_Shoot(CommandGroup):
 #		self.addSequential(Do_Stop_Shoot(robot))
 #		# Command groups don't need end functions and the like because 
 #		# those functions are defined in the individual commands
-		import pdb; pdb.set_trace()
 
 		# Command.__init__(self)
 		print("Doing Command_Shoot!!")
 		self.addSequential(Do_Carrier(robot))
+		import pdb; pdb.set_trace()
 		self.addParallel(Do_Shoot(robot))
 		self.addParallel(Do_Activate_Feeder(robot))
