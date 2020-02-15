@@ -8,7 +8,7 @@ class Do_Cancel_Current_Com(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print("command init")
+		print("do_cancel_current_com init")
 		Command.__init__(self)
 	
 	def initialize(self):

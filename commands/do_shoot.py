@@ -7,7 +7,7 @@ class Do_Shoot(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print("Do_Shoot!!")
+		print("Do_Shoot init!!")
 		Command.__init__(self)
 		self.requires(robot.shooter)
 		self.shooter = robot.shooter

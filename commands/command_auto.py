@@ -13,7 +13,7 @@ class Command_Auto(Command):
 	def __init__(self, robot):
 		Command.__init__(self)
 		# Recognize as a wpilib command
-		print("command init")
+		print("command_auto init")
 		# Command.__init__(self)
 		#self.requires(robot.#XXX)
 		#self.#XXX = robot.something

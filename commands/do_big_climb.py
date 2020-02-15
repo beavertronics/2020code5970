@@ -10,7 +10,7 @@ class Do_Big_Climb(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print("command init")
+		print("do_big_climb init")
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber

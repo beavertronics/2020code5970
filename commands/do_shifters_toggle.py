@@ -6,6 +6,7 @@ from wpilib.command import Command
 # toggles Shifters between low and high gear
 class Do_Shifters_Toggle(Command):
 	def __init__(self, robot):
+		print("do_shifters_toggle init")
 		Command.__init__(self)
 
 		self.robot_shifters = robot.shifters

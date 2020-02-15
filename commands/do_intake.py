@@ -6,7 +6,7 @@ from wpilib.command import Command
 class Do_Intake(Command):
 
     def __init__(self, robot):
-
+		print("do_intake init")
         Command.__init__(self)
         
         self.intake = robot.intake

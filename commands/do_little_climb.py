@@ -10,8 +10,7 @@ class Do_Little_Climb(Command):
 	''' Changes the piston actuation of the unfolding upper stage. '''
 
 	def __init__(self, robot):
-		# Recognize as a wpilib command
-		print("command init")
+		print("do_little_climb init")
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber

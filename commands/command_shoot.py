@@ -12,6 +12,7 @@ from do_feeder import Do_Feeder
 class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
 		CommandGroup.__init__(self)
+		print("Command_Shoot init!!")
 #		# Recognize as a wpilib command
 #		Command.__init__(self)
 #		print("Doing Command_Shoot!!")
@@ -25,7 +26,6 @@ class Command_Shoot(CommandGroup):
 #		# those functions are defined in the individual commands
 
 		# Command.__init__(self)
-		print("Doing Command_Shoot!!")
 		self.addSequential(Do_Carrier(robot))
 		self.addParallel(Do_Shoot(robot))
 		self.addParallel(Do_Activate_Feeder(robot))
