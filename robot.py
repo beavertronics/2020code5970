@@ -94,7 +94,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# register subsystems
 
 	def autonomousInit(self):
-		Scheduler.getInstance().removeAll()
+		# Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
 		Scheduler.getInstance().addCommand(Command_Bad_Auto(self))
 		
@@ -107,7 +107,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.timer.reset()
 		self.timer.start()
 		#XXX may want to change later
-		Scheduler.getInstance().removeAll()
+		# Scheduler.getInstance().removeAll()
 		#Scheduler.getInstance().setEnabled(True)
 
 
