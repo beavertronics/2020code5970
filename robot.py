@@ -13,6 +13,7 @@ from commandbased import CommandBasedRobot
 import os
 import sys
 import math
+import faulthandler
 
 #Linux path
 sys.path.append('./subsystems') 
@@ -63,7 +64,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 	def robotInit(self):
 		super().__init__()
-		sys.settrace()
+		faulthandler.enable()
 		# Instances of classes
 
 		# Instantiate Subsystems
