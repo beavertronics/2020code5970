@@ -7,7 +7,7 @@ class Do_Intake(Command):
 
     def __init__(self, robot):
 
-        super().__init__()
+        #super().__init__()
         
         self.intake = robot.intake
 

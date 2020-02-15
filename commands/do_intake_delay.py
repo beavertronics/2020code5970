@@ -5,17 +5,18 @@ from wpilib.command import Command
 
 class Do_Intake_Delay(Command):
 
-    def __init__(self, robot):
-        super().__init__()
+	def __init__(self, robot):
+		#super().__init__()
+		pass
 
-    def initialize(self):
-        pass
+	def initialize(self):
+		pass
 
-    def execute(self):
-        pass
+	def execute(self):
+		pass
 
-    def isFinished(self):
-        return True
+	def isFinished(self):
+		return True
 
-    def interrupted(self):
-        self.end()
+	def interrupted(self):
+		self.end()

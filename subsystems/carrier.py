@@ -14,7 +14,7 @@ class Carrier(Subsystem):
 
 		All values currently arbitary!
 		'''
-		super().__init__()
+		#super().__init__()
 		self.carrier_motor = wpilib.VictorSP(8)
 		self.pid = PID(0.5, 0.02, 0.001, 0.1)
 		#self.carrier_setpoint = s['setpoint']  
@@ -23,6 +23,8 @@ class Carrier(Subsystem):
 
 		#initialize carrier encoder
 		#XXX DIO values incorrect for now
+		# the 6,7 below should be within the settings passed in.  Also,
+		# Carrier_Encoder class should be passed in and mocked in tests.
 		self.carrier_encoder = Carrier_Encoder(6,7)
 
 	#Sets carrier motor to object's given motor speed, will be determined later

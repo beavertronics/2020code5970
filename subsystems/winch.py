@@ -10,7 +10,7 @@ class Winch(Subsystem):
 
 		All values currently arbitary!
 		'''
-		super().__init__()
+		#super().__init__()
 		#self.shooter_motor = wpilib.VictorSP(7)
 		self.winch_motor = wpilib.VictorSP(6)
 		

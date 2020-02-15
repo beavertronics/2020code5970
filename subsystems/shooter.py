@@ -12,7 +12,7 @@ class Shooter(Subsystem):
 
 		All values currently arbitary!
 		'''
-		super().__init__()
+		#super().__init__()
 		# Assumes four PWM ports for motors
 		#XXX shooter is on wrong PWM for now
 		self.shooter_motor = wpilib.VictorSP(4)
