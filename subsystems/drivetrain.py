@@ -25,7 +25,8 @@ class Drivetrain(Subsystem):
 		print("-------Drivetrain--------")
 		
 		print("---------------")
-		Subsystem.__init__(self, "drivetrain")
+		super().__init__("drivetrain")
+		# Subsystem.__init__(self, "drivetrain")
 	
 		# Motors
 		left_motors_instance = Left_Motors()

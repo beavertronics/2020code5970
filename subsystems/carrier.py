@@ -14,7 +14,8 @@ class Carrier(Subsystem):
 
 		All values currently arbitary!
 		'''
-		Subsystem.__init__(self, "carrier")
+		super().__init__("carrier")
+		# Subsystem.__init__(self, "carrier")
 		
 		self.carrier_motor = wpilib.VictorSP(8)
 		self.pid = PID(0.5, 0.02, 0.001, 0.1)
