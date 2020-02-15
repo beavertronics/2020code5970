@@ -112,10 +112,10 @@ class BeaverTronicsRobot(wpilib.TimedRobot):
 		Scheduler.getInstance().run()
 
 		# Keeping track of TimedRobot loops through code
-		self.loops += 1
-		if self.timer.hasPeriodPassed(1):
-			self.logger.info("%d loops / second", self.loops)
-			self.loops = 0
+#		self.loops += 1
+#		if self.timer.hasPeriodPassed(1):
+#			self.logger.info("%d loops / second", self.loops)
+#			self.loops = 0
 
 	def disabledInit(self):
 		#XXX need to define later
