@@ -8,7 +8,7 @@ from feeder import Feeder
 class Do_Activate_Feeder(ConditionalCommand):
 
 	def __init__(self, robot):
-		print("activate_feeder init")
+		#print("activate_feeder init")
 		self.do_feeder = Do_Feeder(robot)
 		ConditionalCommand.__init__(self, 'Do_Activate_Feeder', self.do_feeder)
 		self.requires(robot.shooter)

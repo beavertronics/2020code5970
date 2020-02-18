@@ -22,9 +22,9 @@ class Drivetrain(Subsystem):
 	def __init__(self, robot):
 		# Super from subsystem allows scheduler class to understand things like
 		# interupt and execute etc...
-		print("-------Drivetrain--------")
+		#print("-------Drivetrain--------")
 		
-		print("---------------")
+		#print("---------------")
 		super().__init__("drivetrain")
 		# Subsystem.__init__(self, "drivetrain")
 	

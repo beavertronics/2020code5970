@@ -8,7 +8,7 @@ class Command_Intake(Command):
 	def __init__(self, robot):
 		Command.__init__(self, name='Command_Intake')
 		# Recognize as a wpilib command
-		print("command_intake init")
+		#print("command_intake init")
 		self.requires(robot.intake)
 		self.requires(robot.carrier)
 		self.intake = robot.intake

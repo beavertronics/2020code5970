@@ -7,7 +7,7 @@ class Do_Shoot(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print("Do_Shoot init!!")
+		#print("Do_Shoot init!!")
 		Command.__init__(self)
 		self.requires(robot.shooter)
 		self.shooter = robot.shooter
@@ -17,7 +17,7 @@ class Do_Shoot(Command):
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		print("Shoot executed!!")
+		#print("Shoot executed!!")
 		self.shooter.shoot()
 
 	def isFinished(self):

@@ -6,13 +6,13 @@ from wpilib.command import Command
 class Do_Four_Bar(Command):
 	
 	def __init__(self, robot):
-		print("do_four_bar init")
+		#print("do_four_bar init")
 		Command.__init__(self)
 
 		self.intake = robot.intake
 
 	def initialize(self):
-		print("four bar actuate")
+		#print("four bar actuate")
 	
 	def execute(self):
 		self.intake.fourbar_eject()
@@ -22,5 +22,5 @@ class Do_Four_Bar(Command):
 		return True
 
 	def interrupted(self):
-		print("Command 'do_four_bar' has been interrupted")
+		#print("Command 'do_four_bar' has been interrupted")
 		self.end()

@@ -7,7 +7,7 @@ class Do_Feeder(Command):
 
 	def __init__(self, robot):
 		# Recognize as a wpilib command
-		print("do_feeder init")
+		#print("do_feeder init")
 		Command.__init__(self)
 		self.requires(robot.feeder)
 		self.feeder = robot.feeder
@@ -18,7 +18,7 @@ class Do_Feeder(Command):
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		print("Feeder activated!!")
+		#print("Feeder activated!!")
 		self.feeder.activate_feeder()
 
 	def isFinished(self):
