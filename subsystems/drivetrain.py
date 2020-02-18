@@ -18,7 +18,7 @@ class Drivetrain(Subsystem):
 
 		'''
 		super().__init__("drivetrain")
-		print("drivetrain init! no seg fault please")
+		#print("drivetrain init! no seg fault please")
 
 		self.robot = robot
 		self.lm_inst = Left_Motors().left_motor_group
