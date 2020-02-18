@@ -45,6 +45,8 @@ class Drivetrain(Subsystem):
 		self.drive = self.set_drivetrain_type(DifferentialDrive, 
 			self.left_motors, self.right_motors)
 
+		self.drive.setSafetyEnabled(False)
+
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot_instance))
 
@@ -59,22 +61,24 @@ class Drivetrain(Subsystem):
 		left_speed = left_joy.getY()
 		right_speed = right_joy.getY() 
 		drive.tankDrive(left_speed, right_speed)
+		drive.Watchdog.setTimeout(1)
+		#drive.feed()
 
 	#def stop_robot(self, drive=DifferentialDrive):
 	def stop_robot(self):
 		self.drive.tankDrive(0.0, 0.0)
 
 	#def bad_auto_drive(self, drive=DifferentialDrive):
-	def bad_auto_drive(self):
-		# We start x feet away from the tower if directly in front
-		# Therefore we can use the encoder to figure out when we are close
-		# enough. Or we could just run into it and shoot
-
-		# In seconds
-		total_run_time = time.time() + 4
-		# Runs motors straight forward for four seconds at half speed
-		while time.time() < total_run_time:
-			self.drive.tankDrive(0.5, 0.5)
+#	def bad_auto_drive(self):
+#		# We start x feet away from the tower if directly in front
+#		# Therefore we can use the encoder to figure out when we are close
+#		# enough. Or we could just run into it and shoot
+#
+#		# In seconds
+#		total_run_time = time.time() + 4
+#		# Runs motors straight forward for four seconds at half speed
+#		while time.time() < total_run_time:
+#			self.drive.tankDrive(0.5, 0.5)
 	
 #	def reset_encoder(self):
 #		self.right_encoder.reset()
