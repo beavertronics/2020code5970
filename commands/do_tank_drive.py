@@ -27,8 +27,7 @@ class Do_Tank_Drive(Command):
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		# Continuously sets motor speed to joystick inputs w/ Scheduler
-		self.robot_dt.set_tank_speed(
-			self.left_joy, self.right_joy, self.robot_dt.drive)
+		self.robot_dt.set_tank_speed(self.left_joy, self.right_joy)
 
 	def isFinished(self):
 		# This is how running tank driving is prioritized
