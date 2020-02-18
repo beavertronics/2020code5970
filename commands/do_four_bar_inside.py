@@ -12,6 +12,7 @@ class Do_Four_Bar_Inside(Command):
 
 	def initialize(self):
 		#print("four bar back into robot!")
+		pass
 
 	def execute(self):
 		self.intake.fourbar_inject()

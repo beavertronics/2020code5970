@@ -13,6 +13,7 @@ class Do_Four_Bar(Command):
 
 	def initialize(self):
 		#print("four bar actuate")
+		pass
 	
 	def execute(self):
 		self.intake.fourbar_eject()
