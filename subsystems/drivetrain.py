@@ -61,7 +61,6 @@ class Drivetrain(Subsystem):
 		left_speed = left_joy.getY()
 		right_speed = right_joy.getY() 
 		drive.tankDrive(left_speed, right_speed)
-		drive.Watchdog.setTimeout(1)
 		#drive.feed()
 
 	#def stop_robot(self, drive=DifferentialDrive):

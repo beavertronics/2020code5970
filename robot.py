@@ -75,6 +75,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
 		gc.collect()
+		#self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
