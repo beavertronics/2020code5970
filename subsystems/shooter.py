@@ -22,7 +22,7 @@ class Shooter(Subsystem):
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
-		self.shooter_encoder = wpilib.Encoder(8, 9)
+		self.shooter_encoder = wpilib.Encoder(4, 5)
 		pulses_per_rev = 12
 		self.shooter_encoder.setDistancePerPulse(pulses_per_rev)
 
