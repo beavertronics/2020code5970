@@ -28,7 +28,7 @@ sys.path.insert(0, '/home/lvuser/py/vision')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
 from shooter import Shooter
-from shooter_encoder import Shooter_Encoder
+#from shooter_encoder import Shooter_Encoder
 from feeder import Feeder
 from carrier import Carrier
 from intake import Intake

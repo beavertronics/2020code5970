@@ -2,7 +2,8 @@
 
 import wpilib
 from wpilib.command import Subsystem
-from carrier_encoder import Carrier_Encoder
+#from carrier_encoder import Carrier_Encoder
+from wpilib.encoder import Encoder
 from simple_pid import PID
 
 class Carrier(Subsystem):
@@ -24,10 +25,13 @@ class Carrier(Subsystem):
 		# self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder
-		#XXX DIO values incorrect for now
+		#XXX DIO values and pulses_per_rev incorrect for now
 		# the 6,7 below should be within the settings passed in.  Also,
 		# Carrier_Encoder class should be passed in and mocked in tests.
-		self.carrier_encoder = Carrier_Encoder(6,7)
+		#self.carrier_encoder = Carrier_Encoder(6,7)
+		self.carrier_encoder = Encoder(6, 7)
+		pulses_per_rev = 12
+		self.carrier_encoder.setDistancePerPulse(pulses_per_rev)
 
 	#Sets carrier motor to object's given motor speed, will be determined later
 	def activate_carrier(self):
@@ -39,7 +43,7 @@ class Carrier(Subsystem):
 		self.carrier_motor.set(0)
 
 	def get_pid_output(self):
-		current_rpm = self.carrier_encoder.get_encoder_rpm()
+		current_rpm = self.get_encoder_rpm()
 		# what is this output telling you from self.pid
 		output = self.pid(current_rpm)
 		return output
@@ -48,3 +52,7 @@ class Carrier(Subsystem):
 		speed = self.carrier_motor.get()
 		new_speed = speed * -1
 		self.carrier_motor.set(new_speed)
+	
+	def get_encoder_rpm(self):
+		angular_velocity_rpm = self.carrier_encoder.getRate()
+		return angular_velocity_rpm
