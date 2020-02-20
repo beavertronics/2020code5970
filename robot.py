@@ -13,7 +13,6 @@ from commandbased.commandbasedrobot import CommandBasedRobot
 import os
 import sys
 import math
-import faulthandler
 
 #Linux path
 sys.path.append('./subsystems') 
@@ -28,8 +27,6 @@ sys.path.insert(0, '/home/lvuser/py/tests')
 sys.path.insert(0, '/home/lvuser/py/vision')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
-#XXX shifters deprecated, need to remove from all active code this year
-#from shifters import Shifters
 from shooter import Shooter
 from shooter_encoder import Shooter_Encoder
 from feeder import Feeder
@@ -61,21 +58,16 @@ from test_drivetrain import Test_Drivetrain
 from command_bad_auto import Command_Bad_Auto
 
 #XXX DEBUG
-import gc
+#import gc
 
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
 		super().__init__()
-		gc.collect()
-		#CommandBasedRobot.__init__()
 		# Instances of classes
 
 		# Instantiate Subsystems
-		# self.shifters = Shifters()
 		self.drivetrain = Drivetrain(self)
-		gc.collect()
-		#self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
@@ -94,15 +86,12 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.oi = OI(self)
 
 		self.timer = wpilib.Timer()
-		self.loops = 0
 
 		# untested vision
 		#XXX might crash sim
 		#wpilib.CameraServer.launch("vision.py:main")
 		#wpilib.CamereaServer.launch()
 		
-		# register subsystems
-
 	def autonomousInit(self):
 		# Scheduler.getInstance().removeAll()
 		data = wpilib.DriverStation.getInstance().getGameSpecificMessage()
@@ -112,30 +101,16 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		Scheduler.getInstance().run()
 
 	def teleopInit(self):
-		self.loops = 0
-		self.timer.reset()
-		self.timer.start()
-
+		pass
 
 	def teleopPeriodic(self):
-		gc.collect()
 		Scheduler.getInstance().run()
-
-		# Keeping track of TimedRobot loops through code
-#		self.loops += 1
-#		if self.timer.hasPeriodPassed(1):
-#			self.logger.info("%d loops / second", self.loops)
-#			self.loops = 0
+		self.logger.info(self.getPeriod())
 
 	def disabledInit(self):
-		#XXX need to define later
-		#self.reset()
-		#Scheduler.getInstance().removeAll()
 		pass
 
 	def disabledPeriodic(self):
-		#XXX to do def this log function
-		#self.log()
 		pass
 
 	def testInit(self):
@@ -143,8 +118,6 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 	def testPeriodic(self):
 		suite = unittest.TestSuite()
-		#suite.addTest(ParametrizedTestCase.parametrize(
-		#	Test_Shifters, param=self.shifters))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Shooter, param=self.shooter))
 		suite.addTest(ParametrizedTestCase.parametrize(
