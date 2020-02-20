@@ -7,7 +7,7 @@ from wpilib.command import Scheduler
 from wpilib.buttons import JoystickButton
 import time
 from networktables import NetworkTables
-from commandbased import CommandBasedRobot
+from commandbased.commandbasedrobot import CommandBasedRobot
 
 # Non robot specific libraries
 import os
@@ -60,14 +60,21 @@ from test_drivetrain import Test_Drivetrain
 # Auto Commands
 from command_bad_auto import Command_Bad_Auto
 
+#XXX DEBUG
+import gc
+
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
-		faulthandler.enable()
+		super().__init__()
+		gc.collect()
+		#CommandBasedRobot.__init__()
 		# Instances of classes
 
 		# Instantiate Subsystems
-		#self.shifters = Shifters()
+		# self.shifters = Shifters()
+		self.drivetrain = Drivetrain(self)
+		gc.collect()
 		#self.drivetrain = Drivetrain(self)
 		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
@@ -111,13 +118,14 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 
 	def teleopPeriodic(self):
+		gc.collect()
 		Scheduler.getInstance().run()
 
 		# Keeping track of TimedRobot loops through code
-		self.loops += 1
-		if self.timer.hasPeriodPassed(1):
-			self.logger.info("%d loops / second", self.loops)
-			self.loops = 0
+#		self.loops += 1
+#		if self.timer.hasPeriodPassed(1):
+#			self.logger.info("%d loops / second", self.loops)
+#			self.loops = 0
 
 	def disabledInit(self):
 		#XXX need to define later

@@ -6,7 +6,7 @@ from wpilib.command import Command
 # toggles Shifters between low and high gear
 class Do_Shifters_Toggle(Command):
 	def __init__(self, robot):
-		print("do_shifters_toggle init")
+		#print("do_shifters_toggle init")
 		Command.__init__(self)
 
 		self.robot_shifters = robot.shifters
@@ -25,7 +25,7 @@ class Do_Shifters_Toggle(Command):
 		# remain in State 1(high gear) until end of command
 		# initializes on [first press] of "Joystick 1 '2' button"
 		self.robot_shifters.shifters_on()
-		print("shifters on!")
+		#print("shifters on!")
 
 	def execute(self):
 		# command loops continuously doing nothing until
@@ -37,9 +37,9 @@ class Do_Shifters_Toggle(Command):
 
 	def end(self):
 		self.robot_shifters.shifters_off()
-		print ("shifters off!")
+		#print ("shifters off!")
 
 	def interrupted(self):
-		print("Command 'shifters_toggle' interrupted!")
+		#print("Command 'shifters_toggle' interrupted!")
 		self.end()
 

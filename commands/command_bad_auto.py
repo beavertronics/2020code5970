@@ -15,7 +15,7 @@ class Command_Bad_Auto(CommandGroup):
 	def __init__(self, robot):
 		CommandGroup.__init__(self, name='Command_Bad_Auto')
 		# Recognize as a wpilib command
-		print("command_bad_auto init!!!!")
+		#print("command_bad_auto init!!!!")
 		# Command.__init__(self)
 		self.requires(robot.drivetrain)
 		self.drivetrain = robot.drivetrain
@@ -29,7 +29,7 @@ class Command_Bad_Auto(CommandGroup):
 #	
 #	def execute(self):
 #		"""Called iteratively by Scheduler"""
-#		print("BAD AUTO execute")
+#		#print("BAD AUTO execute")
 #
 #	def isFinished(self):
 #		# This is how running tank driving is prioritized

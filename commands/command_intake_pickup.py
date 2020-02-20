@@ -13,7 +13,7 @@ class Command_Intake_Pickup(CommandGroup):
 
 	def __init__(self, robot):
 		CommandGroup.__init__(self, name='Command_Intake_Pickup')
-		print("command group intake pickup initialized")
+		#print("command group intake pickup initialized")
 		#XXX have this happen while a button is pressed, 
 		# retract as soon as released maybe
 		self.robot = robot

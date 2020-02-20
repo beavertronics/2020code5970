@@ -6,7 +6,7 @@ from wpilib.command import Command
 class Do_Bad_Auto(Command):
 
 	def __init__(self, robot):
-		print("Do_Bad_Auto init!!")
+		#print("Do_Bad_Auto init!!")
 		Command.__init__(self)
 		self.requires(robot.drivetrain)
 		self.drivetrain = robot.drivetrain
@@ -17,7 +17,7 @@ class Do_Bad_Auto(Command):
 
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		print("Carrier activated!!")
+		#print("Carrier activated!!")
 		self.drivetrain.bad_auto_drive()
 		self.drivetrain.stop_robot()
 

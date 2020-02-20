@@ -12,10 +12,10 @@ from do_feeder import Do_Feeder
 class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
 		CommandGroup.__init__(self, name='Command_Shoot')
-		print("Command_Shoot init!!")
+		#print("Command_Shoot init!!")
 #		# Recognize as a wpilib command
 #		Command.__init__(self)
-#		print("Doing Command_Shoot!!")
+#		#print("Doing Command_Shoot!!")
 #		self.addSequential(Do_Carrier(robot))
 #		#XXX I think this should be parallel so that it continues to run
 #		# the flywheel when we use things like carrier and feeder. -lolly

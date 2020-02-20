@@ -24,9 +24,9 @@ class OI():
 
 		self.robot = robot
 
-		self.left_joy = robot.left_joy 
-		self.right_joy = robot.right_joy 
-		self.xbox = robot.xbox
+		self.left_joy = self.robot.left_joy 
+		self.right_joy = self.robot.right_joy 
+		self.xbox = self.robot.xbox
 
 		# First character indicates self.right or self.left, 
 		# second indicates position,
@@ -72,24 +72,24 @@ class OI():
 		'''
 
 #		# Button 1 causes cargo motor to spin outwards for 0.5s
-#		#ltop1.whileHeld(Do_Cargo_Eject(robot))
-#		ltop1.whenPressed(Do_Cancel_Current_Com(robot))
+#		#ltop1.whileHeld(Do_Cargo_Eject(self.robot))
+#		ltop1.whenPressed(Do_Cancel_Current_Com(self.robot))
 #
 		'''
 		Joystick 1 / Right Joystick Commands
 		'''
 
 #		# Button 2 toggles shifters
-#		rtop2.toggleWhenPressed(Do_Shifters_Toggle(robot))
+#		rtop2.toggleWhenPressed(Do_Shifters_Toggle(self.robot))
 #
 		'''
 		Joystick 2 / Xbox Controller Commands
 		'''	
 #		# In frame
-		xboxY.whenPressed(Do_Winch(robot))
-		xboxX.whileHeld(Command_Shoot(robot))
-		xboxA.whenPressed(Do_Big_Climb(robot))
-		xboxB.whenPressed(Do_Little_Climb(robot))
-#		xboxRB.whileHeld(Command_Intake(robot))
+		xboxY.whenPressed(Do_Winch(self.robot))
+		xboxX.whileHeld(Command_Shoot(self.robot))
+		xboxA.whenPressed(Do_Big_Climb(self.robot))
+		xboxB.whenPressed(Do_Little_Climb(self.robot))
+#		xboxRB.whileHeld(Command_Intake(self.robot))
 
-		xboxRB.whenPressed(Command_Intake_Pickup(robot))
+		xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
