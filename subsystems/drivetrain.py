@@ -2,8 +2,6 @@
 
 import wpilib
 from wpilib.command import Subsystem
-from wpilib.encoder import Encoder
-from wpilib.interfaces.gyro import Gyro
 from wpilib.drive import DifferentialDrive
 from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
@@ -30,18 +28,21 @@ class Drivetrain(Subsystem):
 		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
 		pulses_per_rev = 12
 		# gear_reduction = 1:1
-		self.right_encoder = Encoder(6, 7)
-		self.right_encoder.setDistancePerPulse(pulses_per_rev)
-		self.left_encoder = Encoder(8, 9)	
-		self.left_encoder.setDistancePerPulse(pulses_per_rev)
-		self.gyro = Gyro()
-		self.gyro.calibrate()
+		self.right_encoder = wpilib.Encoder(6, 7)
+		#XXX pulses_per_rev not defined
+		#self.right_encoder.setDistancePerPulse(pulses_per_rev)
+		self.left_encoder = wpilib.Encoder(8, 9)	
+		#self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		self.gyro = wpilib.interfaces.Gyro()
+		#XXX override calibrate?
+		#self.gyro.calibrate()
 
 		# init with gyroAngle and initialPose
-		gyro_angle = self.gyro.getAngle
+		#gyro_angle = self.gyro.getAngle()
 		#XXX different possible starting positions, manual input? vision?
-		initial_pose = 0
-		self.drive_odometry = DifferentialDriveOdometry()
+		#initial_pose = 0
+		#XXX missing the params for DifferentialDriveOdometry()
+		#self.drive_odometry = DifferentialDriveOdometry()
 		
 	#XXX not sure if this is correct
 	def initDefaultCommand(self):

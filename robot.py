@@ -44,9 +44,8 @@ from oi import OI
 import unittest
 from parametrized import ParametrizedTestCase
 from test_do_tank_drive import Test_Do_Tank_Drive
-#from test_shifters import Test_Shifters
-from test_shooter import Test_Shooter
-from test_shooter_encoder import Test_Shooter_Encoder
+#from test_shooter import Test_Shooter
+#from test_shooter_encoder import Test_Shooter_Encoder
 from test_feeder import Test_Feeder
 from test_carrier import Test_Carrier
 from test_intake import Test_Intake
@@ -118,12 +117,12 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 	def testPeriodic(self):
 		suite = unittest.TestSuite()
-		suite.addTest(ParametrizedTestCase.parametrize(
-			Test_Shooter, param=self.shooter))
+		#suite.addTest(ParametrizedTestCase.parametrize(
+		#	Test_Shooter, param=self.shooter))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Drivetrain, param=self.drivetrain))
-		suite.addTest(ParametrizedTestCase.parametrize(
-			Test_Shooter_Encoder, param=self.shooter.shooter_encoder))
+		#suite.addTest(ParametrizedTestCase.parametrize(
+		#	Test_Shooter_Encoder, param=self.shooter.shooter_encoder))
 		suite.addTest(ParametrizedTestCase.parametrize(
 			Test_Feeder, param=self.feeder))
 		suite.addTest(ParametrizedTestCase.parametrize(

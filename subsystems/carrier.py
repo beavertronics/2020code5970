@@ -3,7 +3,6 @@
 import wpilib
 from wpilib.command import Subsystem
 #from carrier_encoder import Carrier_Encoder
-from wpilib.encoder import Encoder
 from simple_pid import PID
 
 class Carrier(Subsystem):
@@ -29,7 +28,7 @@ class Carrier(Subsystem):
 		# the 6,7 below should be within the settings passed in.  Also,
 		# Carrier_Encoder class should be passed in and mocked in tests.
 		#self.carrier_encoder = Carrier_Encoder(6,7)
-		self.carrier_encoder = Encoder(6, 7)
+		self.carrier_encoder = wpilib.Encoder(6, 7)
 		pulses_per_rev = 12
 		self.carrier_encoder.setDistancePerPulse(pulses_per_rev)
 

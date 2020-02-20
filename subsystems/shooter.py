@@ -4,7 +4,6 @@ import wpilib
 from wpilib.command import Subsystem
 from simple_pid import PID
 #from shooter_encoder import Shooter_Encoder
-from wpilib.encoder import Encoder
 
 class Shooter(Subsystem):
 	#*********Robot-Side Initialization***************
@@ -15,24 +14,17 @@ class Shooter(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__("shooter")
-		# Subsystem.__init__(self, "Shooter")
-		#super().__init__()
-		# Assumes four PWM ports for motors
-		#XXX shooter is on wrong PWM for now
+		# Correct shoooter pwm
 		self.shooter_motor = wpilib.VictorSP(4)
-		
-		#setpoint = self.get_setpoint()
-		#setpoint = robot.setpoint
 		self.setpoint = 0.3
 		self.pid = PID(0.5, 0.02, 0.001, setpoint=self.setpoint)
 		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
-		#self.shooter_encoder = Shooter_Encoder(8,9)
-		self.shooter_encoder = Encoder(8, 9)
+		self.shooter_encoder = wpilib.Encoder(8, 9)
 		pulses_per_rev = 12
-		self.shooter_encoder.setDistancePerPulse(pules_per_rev)
+		self.shooter_encoder.setDistancePerPulse(pulses_per_rev)
 
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
