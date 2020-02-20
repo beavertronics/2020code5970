@@ -6,7 +6,7 @@ from wpilib.command import Command
 class Do_Intake_Delay(Command):
 
 	def __init__(self, robot):
-		#print("do_intake_delay init")
+		print("do_intake_delay init")
 		Command.__init__(self)
 
 	def initialize(self):

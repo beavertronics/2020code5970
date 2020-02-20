@@ -7,9 +7,8 @@ class Do_Carrier(Command):
 	#XXX may want to inherit from TimedCommand instead of Command
 
 	def __init__(self, robot):
-		# Recognize as a wpilib command
-		#print("do_carrier init")
 		Command.__init__(self)
+		print("do_carrier init!!")
 		self.requires(robot.carrier)
 		self.carrier = robot.carrier
 	
@@ -19,7 +18,6 @@ class Do_Carrier(Command):
 
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		#print("Carrier activated!!")
 		self.carrier.activate_carrier()
 
 	def isFinished(self):

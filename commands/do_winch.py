@@ -8,8 +8,7 @@ class Do_Winch(Command):
 
 	def __init__(self, robot):
 		Command.__init__(self)
-		# Recognize as a wpilib command
-		#print("do_winch init!!")
+		print("do_winch init!!")
 		self.requires(robot.winch)
 		self.winch = robot.winch
 	
@@ -19,7 +18,6 @@ class Do_Winch(Command):
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		#print("Do_Winch execute!!")
 		# Continuously sets motor speed to joystick inputs w/ Scheduler
 		self.winch.roll_up()
 
