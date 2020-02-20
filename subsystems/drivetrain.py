@@ -2,7 +2,10 @@
 
 import wpilib
 from wpilib.command import Subsystem
+from wpilib.encoder import Encoder
+from wpilib.interfaces.gyro import Gyro
 from wpilib.drive import DifferentialDrive
+from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 
@@ -24,6 +27,21 @@ class Drivetrain(Subsystem):
 		self.lm_inst = Left_Motors().left_motor_group
 		self.rm_inst = Right_Motors().right_motor_group
 		self.drive = DifferentialDrive(self.lm_inst, self.rm_inst)
+		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
+		pulses_per_rev = 12
+		# gear_reduction = 1:1
+		self.right_encoder = Encoder(6, 7)
+		self.right_encoder.setDistancePerPulse(pulses_per_rev)
+		self.left_encoder = Encoder(8, 9)	
+		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		self.gyro = Gyro()
+		self.gyro.calibrate()
+
+		# init with gyroAngle and initialPose
+		gyro_angle = self.gyro.getAngle
+		#XXX different possible starting positions, manual input? vision?
+		initial_pose = 0
+		self.drive_odometry = DifferentialDriveOdometry()
 		
 	#XXX not sure if this is correct
 	def initDefaultCommand(self):
@@ -36,4 +54,12 @@ class Drivetrain(Subsystem):
 
 	def stop_robot(self):
 		self.drive.tankDrive(0,0)
+
+	def get_robot_position(self):
+		right_encoder_distance = self.right_encoder.getDistance()
+		left_encoder_distance = self.left_encoder.getDistance()
+		gyro_angle = self.gyro.getAngle()
+		robot_position = self.drive_odometry.update(gyro_angle,
+				left_encoder_distance, right_encoder_distance)
+		return(robot_position)
 
