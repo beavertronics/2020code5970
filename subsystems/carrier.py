@@ -27,7 +27,6 @@ class Carrier(Subsystem):
 		#XXX DIO values and pulses_per_rev incorrect for now
 		# the 6,7 below should be within the settings passed in.  Also,
 		# Carrier_Encoder class should be passed in and mocked in tests.
-		#self.carrier_encoder = Carrier_Encoder(6,7)
 		self.carrier_encoder = wpilib.Encoder(6, 7)
 		pulses_per_rev = 12
 		self.carrier_encoder.setDistancePerPulse(pulses_per_rev)

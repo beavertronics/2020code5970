@@ -13,7 +13,13 @@ class Feeder(Subsystem):
 		super().__init__("feeder")
 		# Subsystem.__init__(self, "carrier")
 		
-		self.feeder_motor = wpilib.VictorSP(5)
+		#XXX 0, 1, 2, 3 not wired 
+		#XXX 4 is supposed to be shooter? 
+		#XXX 5 is CARRIER
+		#XXX 6 does nothing
+		#XXX 7 is drivetrain?
+		#XXX 8 is FEEDER
+		self.feeder_motor = wpilib.VictorSP(4)
 		self.motor_speed = 0.3
 
 	# Sets feeder motor to object's given motor speed, will be determined later

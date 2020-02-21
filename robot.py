@@ -66,13 +66,14 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instances of classes
 
 		# Instantiate Subsystems
-		self.drivetrain = Drivetrain(self)
-		self.shooter = Shooter(self)
-		self.carrier = Carrier(self)
+		#XXX DEBUGGING PWM ports
+		#self.drivetrain = Drivetrain(self)
+		#self.shooter = Shooter(self)
+		#self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
-		self.intake = Intake(self)
-		self.winch = Winch(self)
-		self.climber = Climber(self)
+		#self.intake = Intake(self)
+		#self.winch = Winch(self)
+		#self.climber = Climber(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 

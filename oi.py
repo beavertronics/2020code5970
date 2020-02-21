@@ -15,6 +15,9 @@ from command_shoot import Command_Shoot
 from do_big_climb import Do_Big_Climb
 from do_little_climb import Do_Little_Climb
 from do_winch import Do_Winch
+from do_feeder import Do_Feeder
+from do_carrier import Do_Carrier
+from do_intake import Do_Intake
 
 # Non-button commands
 #from do_shifters_toggle import Do_Shifters_Toggle
@@ -86,10 +89,14 @@ class OI():
 		Joystick 2 / Xbox Controller Commands
 		'''	
 #		# In frame
-		xboxY.whenPressed(Do_Winch(self.robot))
-		xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whenPressed(Do_Big_Climb(self.robot))
-		xboxB.whenPressed(Do_Little_Climb(self.robot))
+		#xboxY.whenPressed(Do_Winch(self.robot))
+		#xboxX.whileHeld(Command_Shoot(self.robot))
+		#xboxA.whenPressed(Do_Big_Climb(self.robot))
+		#xboxB.whenPressed(Do_Little_Climb(self.robot))
+		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
 #		xboxRB.whileHeld(Command_Intake(self.robot))
 
-		xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
+		#XXX debugging motor controller positions
+		xboxA.whileHeld(Do_Feeder(self.robot))
+		#xboxB.whileHeld(Do_Carrier(self.robot))
+		#xboxX.whileHeld(Do_Intake(self.robot))
