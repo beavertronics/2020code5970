@@ -25,13 +25,14 @@ class Drivetrain(Subsystem):
 		self.lm_inst = Left_Motors().left_motor_group
 		self.rm_inst = Right_Motors().right_motor_group
 		self.drive = DifferentialDrive(self.lm_inst, self.rm_inst)
+		#self.SetSafetyEnabled(False)
 		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
 		pulses_per_rev = 12
 		# gear_reduction = 1:1
-		self.right_encoder = wpilib.Encoder(6, 7)
+		self.right_encoder = wpilib.Encoder(0, 1)
 		#XXX pulses_per_rev not defined
 		#self.right_encoder.setDistancePerPulse(pulses_per_rev)
-		self.left_encoder = wpilib.Encoder(8, 9)	
+		self.left_encoder = wpilib.Encoder(2, 3)	
 		#self.left_encoder.setDistancePerPulse(pulses_per_rev)
 		self.gyro = wpilib.interfaces.Gyro()
 		#XXX override calibrate?

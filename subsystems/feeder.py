@@ -19,7 +19,7 @@ class Feeder(Subsystem):
 		#XXX 6 does nothing
 		#XXX 7 is drivetrain?
 		#XXX 8 is FEEDER
-		self.feeder_motor = wpilib.VictorSP(4)
+		self.feeder_motor = wpilib.VictorSP(8)
 		self.motor_speed = 0.3
 
 	# Sets feeder motor to object's given motor speed, will be determined later

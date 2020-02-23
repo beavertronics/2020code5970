@@ -8,7 +8,7 @@ class Do_Carrier(Command):
 
 	def __init__(self, robot):
 		Command.__init__(self)
-		print("do_carrier init!!")
+		print("do_carrier init")
 		self.requires(robot.carrier)
 		self.carrier = robot.carrier
 	
