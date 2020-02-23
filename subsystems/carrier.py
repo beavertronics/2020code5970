@@ -4,6 +4,7 @@ import wpilib
 from wpilib.command import Subsystem
 #from carrier_encoder import Carrier_Encoder
 from simple_pid import PID
+import logging
 
 class Carrier(Subsystem):
 	#s = {'p':0.5, 'i':0.02, 'd':0.001, 'setpoint':0.1}
@@ -38,7 +39,8 @@ class Carrier(Subsystem):
 		#output = self.get_pid_output()
 		output = 0.3
 		# why setSpeed() instead of set()
-		self.carrier_motor.set(output)
+		self.carrier_motor.setSpeed(output)
+		logging.info('set carrier motor speed ' + str(output))
 	
 	def deactivate_carrier(self):
 		self.carrier_motor.set(0)
@@ -47,12 +49,12 @@ class Carrier(Subsystem):
 #		current_rpm = self.get_encoder_rpm()
 		# what is this output telling you from self.pid
 		#output = self.pid(current_rpm)
-		return output
+#		return output
 
-	def reverse_carrier(self):
-		speed = self.carrier_motor.get()
-		new_speed = speed * -1
-		self.carrier_motor.set(new_speed)
+#	def reverse_carrier(self):
+#		speed = self.carrier_motor.get()
+#		new_speed = speed * -1
+#		self.carrier_motor.set(new_speed)
 	
 #	def get_encoder_rpm(self):
 #		angular_velocity_rpm = self.carrier_encoder.getRate()
