@@ -3,7 +3,7 @@
 import wpilib
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
-from wpilib.kinematics import DifferentialDriveOdometry
+#from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 
@@ -30,11 +30,10 @@ class Drivetrain(Subsystem):
 		pulses_per_rev = 12
 		# gear_reduction = 1:1
 		self.right_encoder = wpilib.Encoder(0, 1)
-		#XXX pulses_per_rev not defined
-		#self.right_encoder.setDistancePerPulse(pulses_per_rev)
+		self.right_encoder.setDistancePerPulse(pulses_per_rev)
 		self.left_encoder = wpilib.Encoder(2, 3)	
-		#self.left_encoder.setDistancePerPulse(pulses_per_rev)
-		self.gyro = wpilib.interfaces.Gyro()
+		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		#self.gyro = wpilib.interfaces.Gyro()
 		#XXX override calibrate?
 		#self.gyro.calibrate()
 
