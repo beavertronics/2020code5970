@@ -31,6 +31,5 @@ class Do_Big_Climb(Command):
 	def end(self):
 		pass
 	
-	#XXX Not sure if this behavior is desired
 	def interrupted(self):
 		self.big_unactuate()

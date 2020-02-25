@@ -32,6 +32,5 @@ class Command_Intake(Command):
 		# Stop motors when ending command
 		self.robot_dt.stop_robot(self.robot_dt.drive)
 	
-	#XXX Maybe don't want to stop motors when interrupted
 	def interrupted(self):
 		self.end()

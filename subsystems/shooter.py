@@ -22,17 +22,17 @@ class Shooter(Subsystem):
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
-		self.shooter_encoder = wpilib.Encoder(5, 4)
+		self.shooter_encoder = wpilib.Encoder(4, 5)
 		pulses_per_rev = 12
 		self.shooter_encoder.setDistancePerPulse(pulses_per_rev)
+		#XXX not accurate
+		self.setpoint_range = range(0, 1000)
 
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
 		#XXX Need to get pid_output 
-		
-
-		output = 0.3
 		#output = self.get_pid_output()
+		output = 0.3
 		self.shooter_motor.setSpeed(output)
 		logging.info('set shooter motor speed ' + str(output))
 		
