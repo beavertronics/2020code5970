@@ -89,8 +89,8 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 		# untested vision
 		#XXX might crash sim
-		#wpilib.CameraServer.launch("vision.py:main")
-		#wpilib.CamereaServer.launch()
+		wpilib.CameraServer.launch("vision.py:main")
+		wpilib.CameraServer.launch()
 		
 	def autonomousInit(self):
 		# Scheduler.getInstance().removeAll()
