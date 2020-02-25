@@ -47,14 +47,3 @@ class Shooter(Subsystem):
 	def get_encoder_rpm(self):
 		angular_velocity_rpm = self.shooter_encoder.getRate()
 		return angular_velocity_rpm
-
-#XXX Not sure if a getter for setpoint is necessary
-#	def get_setpoint(self, setpoint):
-#		'''Setpoint value probably not changing'''
-#		#XXX maybe have user input from GUI or something
-#		# maybe also pass in as arg
-#		#Fake val
-#		return setpoint
-
-
-

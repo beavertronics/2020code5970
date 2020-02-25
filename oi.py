@@ -9,7 +9,6 @@ from sys import path
 path.append('../commands')
 
 # Button commands
-#import do_button_command
 from command_intake_pickup import Command_Intake_Pickup
 from command_shoot import Command_Shoot
 from do_big_climb import Do_Big_Climb

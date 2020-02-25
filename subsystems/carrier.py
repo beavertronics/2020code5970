@@ -17,6 +17,7 @@ class Carrier(Subsystem):
 		super().__init__("carrier")
 		# Subsystem.__init__(self, "carrier")
 		
+		#XXX PID COMMENTED OUT FOR TESTING
 		self.carrier_motor = wpilib.VictorSP(5)
 		#self.pid = PID(0.5, 0.02, 0.001, 0.1)
 		#self.carrier_setpoint = s['setpoint']  
@@ -25,8 +26,7 @@ class Carrier(Subsystem):
 
 		#initialize carrier encoder
 		#XXX DIO values and pulses_per_rev incorrect for now
-		# the 6,7 below should be within the settings passed in.  Also,
-		# Carrier_Encoder class should be passed in and mocked in tests.
+		# the 6,7 below should be within the settings passed in.
 
 		# Need to fix encoder init
 		self.carrier_encoder = wpilib.Encoder(8, 9)
