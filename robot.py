@@ -65,8 +65,8 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instantiate Subsystems
 		#XXX DEBUGGING
 		#self.drivetrain = Drivetrain(self)
-		self.shooter = Shooter(self)
-		#self.carrier = Carrier(self)
+		#self.shooter = Shooter(self)
+		self.carrier = Carrier(self)
 		#self.feeder = Feeder(self)
 		#self.intake = Intake(self)
 		#self.winch = Winch(self)
