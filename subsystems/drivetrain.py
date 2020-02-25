@@ -44,7 +44,6 @@ class Drivetrain(Subsystem):
 		#XXX missing the params for DifferentialDriveOdometry()
 		#self.drive_odometry = DifferentialDriveOdometry()
 		
-	#XXX not sure if this is correct
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
 
