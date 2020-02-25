@@ -19,6 +19,9 @@ from do_feeder import Do_Feeder
 from do_carrier import Do_Carrier
 from do_intake import Do_Intake
 
+#XXX For testing shooter
+from do_shoot import Do_Shoot
+
 # Non-button commands
 #from do_shifters_toggle import Do_Shifters_Toggle
 
@@ -97,6 +100,7 @@ class OI():
 #		xboxRB.whileHeld(Command_Intake(self.robot))
 
 		#XXX debugging motor controller positions
-		xboxA.whileHeld(Do_Feeder(self.robot))
-		xboxB.whileHeld(Do_Carrier(self.robot))
+		#xboxA.whileHeld(Do_Feeder(self.robot))
+		#xboxB.whileHeld(Do_Carrier(self.robot))
+		xboxY.whileHeld(Do_Shoot(self.robot))
 		#xboxX.whileHeld(Do_Intake(self.robot))

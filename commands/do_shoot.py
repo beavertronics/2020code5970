@@ -25,6 +25,7 @@ class Do_Shoot(Command):
 		return False
 
 	def end(self):
+		self.shooter.stop_shoot()
 		pass
 
 	def interrupted(self):
