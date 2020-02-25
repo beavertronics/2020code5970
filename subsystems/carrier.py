@@ -2,7 +2,6 @@
 
 import wpilib
 from wpilib.command import Subsystem
-#from carrier_encoder import Carrier_Encoder
 from simple_pid import PID
 import logging
 
@@ -30,9 +29,9 @@ class Carrier(Subsystem):
 		# Carrier_Encoder class should be passed in and mocked in tests.
 
 		# Need to fix encoder init
-		#self.carrier_encoder = wpilib.Encoder(8, 9)
+		self.carrier_encoder = wpilib.Encoder(8, 9)
 		pulses_per_rev = 12
-		#self.carrier_encoder.setDistancePerPulse(pulses_per_rev)
+		self.carrier_encoder.setDistancePerPulse(pulses_per_rev)
 
 	#Sets carrier motor to object's given motor speed, will be determined later
 	def activate_carrier(self):
