@@ -3,7 +3,7 @@
 import wpilib
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
-from wpilib.kinematics import DifferentialDriveOdometry
+#from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 
@@ -19,7 +19,6 @@ class Drivetrain(Subsystem):
 
 		'''
 		super().__init__("drivetrain")
-		#print("drivetrain init! no seg fault please")
 
 		self.robot = robot
 		self.lm_inst = Left_Motors().left_motor_group
@@ -35,6 +34,7 @@ class Drivetrain(Subsystem):
 		self.right_encoder.setDistancePerPulse(pulses_per_rev)
 		self.left_encoder = wpilib.Encoder(2, 3)	
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		self.gear_ratio = 12.75
 
 		self.gyro = wpilib.ADXRS450_Gyro()
 		# This MUST occur while this doesn't move

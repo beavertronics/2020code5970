@@ -75,14 +75,13 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 
 		self.right_joy = wpilib.Joystick(1)
-		
 		# Instantiate Xbox
 		self.xbox = wpilib.Joystick(2)
 
 		# Instantiate OI; must be AFTER joysticks are inited
 		self.oi = OI(self)
 
-		self.timer = wpilib.Timer()
+		#self.timer = wpilib.Timer()
 
 		# untested vision
 		#wpilib.CameraServer.launch("vision.py:main")
