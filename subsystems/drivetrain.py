@@ -18,7 +18,6 @@ class Drivetrain(Subsystem):
 
 		'''
 		super().__init__("drivetrain")
-		#print("drivetrain init! no seg fault please")
 
 		self.robot = robot
 		self.lm_inst = Left_Motors().left_motor_group
@@ -28,19 +27,24 @@ class Drivetrain(Subsystem):
 		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
 		pulses_per_rev = 12
 		# gear_reduction = 1:1
+		#XXX .get() function returning 0 for the encoders even when wheels
+		# are turning
 		self.right_encoder = wpilib.Encoder(0, 1)
 		self.right_encoder.setDistancePerPulse(pulses_per_rev)
 		self.left_encoder = wpilib.Encoder(2, 3)	
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		self.gear_ratio = 12.75
 
 		self.gyro = wpilib.ADXRS450_Gyro()
 		# This MUST occur while this doesn't move
 		self.gyro.calibrate()
 		# init with gyroAngle and initialPose
 		gyro_angle = self.gyro.getAngle()
+		# initial_pose should be in form of (x position, y position, rotation)
+		initial_pose = (0, 0, 0)
 		#XXX missing the params for DifferentialDriveOdometry()
-		self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
-				gyro_angle, initial_pose)
+		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
+				#gyro_angle, initial_pose)
 		
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
@@ -49,6 +53,8 @@ class Drivetrain(Subsystem):
 		left_speed = left_joy.getY()
 		right_speed = right_joy.getY()
 		self.drive.tankDrive(left_speed, right_speed)
+		print(self.left_encoder.get())
+		print(self.right_encoder.get())
 
 	def stop_robot(self):
 		self.drive.tankDrive(0,0)

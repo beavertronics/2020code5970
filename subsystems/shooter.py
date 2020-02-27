@@ -17,7 +17,7 @@ class Shooter(Subsystem):
 		# Correct shoooter pwm
 		self.shooter_motor = wpilib.VictorSP(4)
 		#self.setpoint = 0.3
-		#self.pid = PID(0.5, 0.02, 0.001, setpoint=self.setpoint)
+		self.pid = PID(0.5, 0.02, 0.001, setpoint=self.setpoint)
 		#self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder

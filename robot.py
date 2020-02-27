@@ -64,29 +64,28 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 		# Instantiate Subsystems
 		#XXX DEBUGGING
-		self.drivetrain = Drivetrain(self)
+		#self.drivetrain = Drivetrain(self)
 		#self.shooter = Shooter(self)
 		#self.carrier = Carrier(self)
 		#self.feeder = Feeder(self)
-		#self.intake = Intake(self)
+		self.intake = Intake(self)
 		#self.winch = Winch(self)
 		#self.climber = Climber(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 
 		self.right_joy = wpilib.Joystick(1)
-		
 		# Instantiate Xbox
 		self.xbox = wpilib.Joystick(2)
 
 		# Instantiate OI; must be AFTER joysticks are inited
 		self.oi = OI(self)
 
-		self.timer = wpilib.Timer()
+		#self.timer = wpilib.Timer()
 
 		# untested vision
-		wpilib.CameraServer.launch("vision.py:main")
-		wpilib.CameraServer.launch()
+		#wpilib.CameraServer.launch("vision.py:main")
+		#wpilib.CameraServer.launch()
 		
 	def autonomousInit(self):
 		# Scheduler.getInstance().removeAll()

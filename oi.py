@@ -14,15 +14,14 @@ from command_shoot import Command_Shoot
 from do_big_climb import Do_Big_Climb
 from do_little_climb import Do_Little_Climb
 from do_winch import Do_Winch
+
+#XXX For testing
+from do_shoot import Do_Shoot
 from do_feeder import Do_Feeder
 from do_carrier import Do_Carrier
 from do_intake import Do_Intake
 
-#XXX For testing shooter
-from do_shoot import Do_Shoot
-
 # Non-button commands
-#from do_shifters_toggle import Do_Shifters_Toggle
 
 class OI():
 	def __init__(self, robot):
@@ -102,4 +101,4 @@ class OI():
 		#xboxA.whileHeld(Do_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
-		#xboxX.whileHeld(Do_Intake(self.robot))
+		xboxX.whileHeld(Do_Intake(self.robot))
