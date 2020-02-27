@@ -64,11 +64,11 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 		# Instantiate Subsystems
 		#XXX DEBUGGING
-		self.drivetrain = Drivetrain(self)
+		#self.drivetrain = Drivetrain(self)
 		#self.shooter = Shooter(self)
 		#self.carrier = Carrier(self)
 		#self.feeder = Feeder(self)
-		#self.intake = Intake(self)
+		self.intake = Intake(self)
 		#self.winch = Winch(self)
 		#self.climber = Climber(self)
 
@@ -85,8 +85,8 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.timer = wpilib.Timer()
 
 		# untested vision
-		wpilib.CameraServer.launch("vision.py:main")
-		wpilib.CameraServer.launch()
+		#wpilib.CameraServer.launch("vision.py:main")
+		#wpilib.CameraServer.launch()
 		
 	def autonomousInit(self):
 		# Scheduler.getInstance().removeAll()

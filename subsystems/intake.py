@@ -16,12 +16,10 @@ class Intake(Subsystem):
 		# constant, just indicates what speed the intake motor should go
 		self.pwm_val = 0.5
 
-		# resource already allocated -- multiple references to pwm 7
-		# self.intake_motor = wpilib.VictorSP(7)
 		#XXX 7 does not work
 		self.intake_motor = wpilib.VictorSP(7)
 		
-		# solenoid value arbitrary
+		#XXX solenoid value arbitrary
 		self.fourbar = wpilib.Solenoid(2)
 
 	def fourbar_eject(self):
