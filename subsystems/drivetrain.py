@@ -3,7 +3,6 @@
 import wpilib
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
-#from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 
