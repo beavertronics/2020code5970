@@ -40,7 +40,8 @@ class Drivetrain(Subsystem):
 		# init with gyroAngle and initialPose
 		gyro_angle = self.gyro.getAngle()
 		#XXX missing the params for DifferentialDriveOdometry()
-		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(gyro_angle, initial_pose)
+		self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
+				gyro_angle, initial_pose)
 		
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
