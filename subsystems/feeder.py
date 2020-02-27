@@ -24,6 +24,7 @@ class Feeder(Subsystem):
 
 	# Sets feeder motor to object's given motor speed, will be determined later
 	def activate_feeder(self):
+		# This is like this because seg faults
 		speed = self.motor_speed
 		self.feeder_motor.setSpeed(speed)
 

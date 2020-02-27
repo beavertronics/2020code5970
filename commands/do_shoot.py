@@ -20,13 +20,10 @@ class Do_Shoot(Command):
 		self.shooter.shoot()
 
 	def isFinished(self):
-		# Once the the motor speed has reached the goal rpm, it can stop
-		#XXX BELOW SHOULD GO IN CONDITIONAL COMMAND FOR FEEDER ACTIVATION
-		return False
+		pass
 
 	def end(self):
 		self.shooter.stop_shoot()
-		pass
 
 	def interrupted(self):
 		self.end()

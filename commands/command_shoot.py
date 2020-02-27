@@ -16,6 +16,7 @@ class Command_Shoot(CommandGroup):
 
 #		#XXX I think this should be parallel so that it continues to run
 #		# the flywheel when we use things like carrier and feeder. -lolly
+		#XXX Feeder should be activated conditionally
 		#self.addSequential(Do_Carrier(robot))
 		self.addParallel(Do_Shoot(robot))
 		#self.addParallel(Do_Activate_Feeder(robot))

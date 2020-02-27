@@ -56,9 +56,6 @@ from test_drivetrain import Test_Drivetrain
 # Auto Commands
 from command_bad_auto import Command_Bad_Auto
 
-#XXX DEBUG
-#import gc
-
 class BeaverTronicsRobot(CommandBasedRobot): 
 
 	def robotInit(self):
@@ -66,10 +63,10 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instances of classes
 
 		# Instantiate Subsystems
-		#XXX DEBUGGING PWM ports
-		#self.drivetrain = Drivetrain(self)
+		#XXX DEBUGGING
+		self.drivetrain = Drivetrain(self)
 		#self.shooter = Shooter(self)
-		self.carrier = Carrier(self)
+		#self.carrier = Carrier(self)
 		#self.feeder = Feeder(self)
 		#self.intake = Intake(self)
 		#self.winch = Winch(self)
@@ -88,7 +85,6 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.timer = wpilib.Timer()
 
 		# untested vision
-		#XXX might crash sim
 		wpilib.CameraServer.launch("vision.py:main")
 		wpilib.CameraServer.launch()
 		

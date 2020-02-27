@@ -26,9 +26,6 @@ class Do_Winch(Command):
 
 	def end(self):
 		# Stop motors when ending command
-		#XXX This may cause issues... ex if holding button down, will it
-		# roll up a little then stop then roll up a little or will it just
-		# run the execute func until the button is released?
 		self.winch.stop_motor()
 	
 	def interrupted(self):

@@ -33,18 +33,15 @@ class Drivetrain(Subsystem):
 		self.right_encoder.setDistancePerPulse(pulses_per_rev)
 		self.left_encoder = wpilib.Encoder(2, 3)	
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
-		#self.gyro = wpilib.interfaces.Gyro()
-		#XXX override calibrate?
-		#self.gyro.calibrate()
 
+		self.gyro = wpilib.ADXRS450_Gyro()
+		# This MUST occur while this doesn't move
+		self.gyro.calibrate()
 		# init with gyroAngle and initialPose
-		#gyro_angle = self.gyro.getAngle()
-		#XXX different possible starting positions, manual input? vision?
-		#initial_pose = 0
+		gyro_angle = self.gyro.getAngle()
 		#XXX missing the params for DifferentialDriveOdometry()
-		#self.drive_odometry = DifferentialDriveOdometry()
+		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(gyro_angle, initial_pose)
 		
-	#XXX not sure if this is correct
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
 

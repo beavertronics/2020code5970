@@ -9,7 +9,6 @@ from sys import path
 path.append('../commands')
 
 # Button commands
-#import do_button_command
 from command_intake_pickup import Command_Intake_Pickup
 from command_shoot import Command_Shoot
 from do_big_climb import Do_Big_Climb
@@ -101,6 +100,6 @@ class OI():
 
 		#XXX debugging motor controller positions
 		#xboxA.whileHeld(Do_Feeder(self.robot))
-		xboxB.whileHeld(Do_Carrier(self.robot))
+		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
 		#xboxX.whileHeld(Do_Intake(self.robot))
