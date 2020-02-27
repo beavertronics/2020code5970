@@ -36,7 +36,7 @@ class Carrier(Subsystem):
 	#Sets carrier motor to object's given motor speed, will be determined later
 	def activate_carrier(self):
 		#output = self.get_pid_output()
-		output = 0.3
+		output = -0.3
 		# why setSpeed() instead of set()
 		self.carrier_motor.setSpeed(output)
 		logging.info('set carrier motor speed ' + str(output))
