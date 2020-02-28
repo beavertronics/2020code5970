@@ -13,10 +13,9 @@ class Do_Activate_Feeder(ConditionalCommand):
 		ConditionalCommand.__init__(self, 'Do_Activate_Feeder', self.do_feeder)
 		self.requires(robot.shooter)
 		self.shooter = robot.shooter
-		self.rpm_lower = 0
-		self.rpm_upper = 1000
 
 	def condition(self):
+		#XXX setpoint_range MUST be tuned!
 		rpm = self.shooter.shooter_encoder.get_encoder_rpm()
 		if(rpm in self.shooter.setpoint_range):
 			shoot = True

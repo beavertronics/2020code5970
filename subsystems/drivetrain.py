@@ -3,7 +3,6 @@
 import wpilib
 from wpilib.command import Subsystem
 from wpilib.drive import DifferentialDrive
-from wpilib.kinematics import DifferentialDriveOdometry
 from left_motors import Left_Motors
 from right_motors import Right_Motors
 
@@ -19,7 +18,6 @@ class Drivetrain(Subsystem):
 
 		'''
 		super().__init__("drivetrain")
-		#print("drivetrain init! no seg fault please")
 
 		self.robot = robot
 		self.lm_inst = Left_Motors().left_motor_group
@@ -35,6 +33,7 @@ class Drivetrain(Subsystem):
 		self.right_encoder.setDistancePerPulse(pulses_per_rev)
 		self.left_encoder = wpilib.Encoder(2, 3)	
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		self.gear_ratio = 12.75
 
 		self.gyro = wpilib.ADXRS450_Gyro()
 		# This MUST occur while this doesn't move
@@ -67,4 +66,33 @@ class Drivetrain(Subsystem):
 		robot_position = self.drive_odometry.update(gyro_angle,
 				left_encoder_distance, right_encoder_distance)
 		return(robot_position)
+
+	#XXX kinda just guessing about this orientation for now... may change
+	''' In our code, the field will be represented as a plane with y = 0 
+	representing the wall of our alliance's drivestations; x = 0 represents 
+	the left wall when you are facing the field from the perspective of our
+	alliance's drivestation. Basically, picture you are driving the robot on
+	the field with left being the negative x direction and forward (away 
+	from you) being the positve y direction.'''
+	def which_path(self, start_position):
+		''' 
+		Left, middle, and right will be predefined distances from the wall.
+		This approach does not require vision to orient the robot, but does
+		require precise positioning and 
+		'''
+
+		if start_position == 'left':
+			self.a_path_follow()
+		if start_position == 'middle':
+			self.b_path_follow()
+		if start_position == 'right':
+			self.c_path_follow()
+
+	def a_path_follow(self):
+		pass
+	def b_path_follow(self):
+		pass
+	def c_path_follow(self):
+		pass
+
 
