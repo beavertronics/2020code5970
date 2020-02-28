@@ -3,6 +3,7 @@
 import wpilib
 from wpilib.command import Subsystem
 from simple_pid import PID
+import logging
 
 class Shooter(Subsystem):
 	#*********Robot-Side Initialization***************
@@ -16,9 +17,10 @@ class Shooter(Subsystem):
 		super().__init__("shooter")
 		# Correct shoooter pwm
 		self.shooter_motor = wpilib.VictorSP(4)
-		#self.setpoint = 0.3
-		#self.pid = PID(0.5, 0.02, 0.001, setpoint=self.setpoint)
-		#self.pid.output_limits = (-1,1)
+		self.setpoint = 4
+		#XXX UNTUNED
+		self.pid = PID(0.15, 0, 0, setpoint=self.setpoint)
+		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
@@ -31,18 +33,18 @@ class Shooter(Subsystem):
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
 		#XXX Need to get pid_output 
-		#output = self.get_pid_output()
-		output = 0.3
+		output = self.get_pid_output()
+		#output = 0.3
 		self.shooter_motor.setSpeed(output)
 		logging.info('set shooter motor speed ' + str(output))
 		
 	def stop_shoot(self):
 		self.shooter_motor.setSpeed(0)
 
-#	def get_pid_output(self):
-#		current_rpm = self.get_encoder_rpm()
-#		output = self.pid(current_rpm)
-#		return output
+	def get_pid_output(self):
+		current_rpm = self.get_encoder_rpm()
+		output = self.pid(current_rpm)
+		return output
 
 	def get_encoder_rpm(self):
 		angular_velocity_rpm = self.shooter_encoder.getRate()

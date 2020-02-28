@@ -21,4 +21,7 @@ class Do_Intake(Command):
 		return True
 
 	def end(self):
-		return None
+		self.intake.deactivate_intake()
+	
+	def interrupted(self):
+		self.end()

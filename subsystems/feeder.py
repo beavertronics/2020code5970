@@ -20,7 +20,7 @@ class Feeder(Subsystem):
 		#XXX 7 is drivetrain?
 		#XXX 8 is FEEDER
 		self.feeder_motor = wpilib.VictorSP(8)
-		self.motor_speed = 0.3
+		self.motor_speed = -0.5
 
 	# Sets feeder motor to object's given motor speed, will be determined later
 	def activate_feeder(self):
