@@ -17,15 +17,16 @@ class Shooter(Subsystem):
 		super().__init__("shooter")
 		# Correct shoooter pwm
 		self.shooter_motor = wpilib.VictorSP(4)
-		#XXX UNTUNED
-		self.setpoint = 4
-		self.pid = PID(0.2, 0, 0, 
+		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0)
+		self.setpoint = 1 
+		self.pid = PID(0.85, 0, 0, 
 			setpoint=self.setpoint, proportional_on_measurement=False)
-		self.pid.output_limits = (-1,1)
+		#self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
-		self.shooter_encoder = wpilib.Encoder(5, 4)
+		self.shooter_encoder = wpilib.Encoder(0, 1)
+		self.shooter_encoder.reset()
 		# If setting dist per pulse as radians per pulse
 		# (1 encoder_rev / 12 pulses) 
 		# (1 wheel rev / 1 encoder_rev) ( 2 pi / 1 wheel_rev) = pi / 6
