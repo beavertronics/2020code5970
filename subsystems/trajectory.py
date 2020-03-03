@@ -26,9 +26,10 @@ def generate_path():
 		dt=0.05
 		#XXX max velocity is probably in the units that your encoder and gyro
 		# calculate it in
-		max_velocity=1
-		max_acceleration=2
-		max_jerk=3
+		#XXX commented out because interfering with pid testing. invalid syntax
+		#max_velocity=1
+		#max_acceleration=2
+		#max_jerk=3
 		)
 
 	# pass in wheelbase width in meters

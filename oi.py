@@ -98,7 +98,7 @@ class OI():
 #		xboxRB.whileHeld(Command_Intake(self.robot))
 
 		#XXX debugging motor controller positions
-		#xboxA.whileHeld(Do_Feeder(self.robot))
+		xboxA.whileHeld(Do_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
-		#xboxY.whileHeld(Do_Shoot(self.robot))
-		xboxX.whileHeld(Do_Intake(self.robot))
+		xboxY.whileHeld(Do_Shoot(self.robot))
+		#xboxX.whileHeld(Do_Intake(self.robot))
