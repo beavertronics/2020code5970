@@ -20,8 +20,9 @@ class Do_Auto(Command):
 		"""Called just before this Command runs the first time"""
 		table = NetworkTables.getTable('SmartDashboard')
 		initial_pos = table.getData('initial_pos')
+		#XXX Doing this will start the path following immediately. May want this
+		# in the execute or something
 		path = self.dt.which_path(initial_pos)
-			
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
