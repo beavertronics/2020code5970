@@ -9,6 +9,7 @@ from right_motors import Right_Motors
 import sys
 sys.path.append('../commands')
 from do_tank_drive import Do_Tank_Drive
+from networktables import NetworkTables
 
 class Drivetrain(Subsystem):
 	def __init__(self, robot):
@@ -94,5 +95,11 @@ class Drivetrain(Subsystem):
 		pass
 	def c_path_follow(self):
 		pass
+
+	#XXX Link a pyqt button or input to this function
+	def update_network_tables(self, initial_pos):
+		table = NetworkTables.getTable('SmartDashboard')
+		table.putValue('initial_pos', initial_pos)
+		
 
 
