@@ -97,7 +97,10 @@ class Drivetrain(Subsystem):
 		pass
 
 	#XXX Link a pyqt button or input to this function
+	#XXX this will be called when the send button is hit on the gui and
+	# the gui will be opened on the desktop before matches
 	def update_network_tables(self, initial_pos):
+
 		table = NetworkTables.getTable('SmartDashboard')
 		table.putValue('initial_pos', initial_pos)
 		
