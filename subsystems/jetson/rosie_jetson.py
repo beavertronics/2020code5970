@@ -12,6 +12,7 @@ class Rosie_Jetson():
 	''' This is all the processing functions the Jetson will run.'''
 
 	def __init__(self):
+		#XXX camera needs to be instantiated with camera index
 		self.cam = Camera()
 
 	# get feed from camera
@@ -32,7 +33,7 @@ class Rosie_Jetson():
 	# filter by color (green)
 	# green filter range (temporary values): [0,0,0] [180,255,255]
 	def color_mask(self):
-		hsv_frame = hsv_frame()
+		hsv_frame = self.hsv_frame()
 		frame = self.frame
 		lower_bound = np.array([75, 100, 150])
 		upper_bound = np.array([95, 255, 255])
