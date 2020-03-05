@@ -31,7 +31,11 @@ class Intake(Subsystem):
 
 	# Currently sets to 0.5 speed
 	def activate_intake(self):
-		self.intake_motor.set(self.pwm_val)
+		pwm_val = self.pwm_val
+		self.intake_motor.set(pwm_val)
+	
+	def deactivate_intake(self):
+		self.intake_motor.set(0)
 	
 	def backwards_intake(self):
 		new_pwm_val = -1 * self.pwm_val

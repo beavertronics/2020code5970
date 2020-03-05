@@ -9,6 +9,7 @@ from right_motors import Right_Motors
 import sys
 sys.path.append('../commands')
 from do_tank_drive import Do_Tank_Drive
+from networktables import NetworkTables
 
 class Drivetrain(Subsystem):
 	def __init__(self, robot):
@@ -66,4 +67,42 @@ class Drivetrain(Subsystem):
 		robot_position = self.drive_odometry.update(gyro_angle,
 				left_encoder_distance, right_encoder_distance)
 		return(robot_position)
+
+	#XXX kinda just guessing about this orientation for now... may change
+	''' In our code, the field will be represented as a plane with y = 0 
+	representing the wall of our alliance's drivestations; x = 0 represents 
+	the left wall when you are facing the field from the perspective of our
+	alliance's drivestation. Basically, picture you are driving the robot on
+	the field with left being the negative x direction and forward (away 
+	from you) being the positve y direction.'''
+	def which_path(self, start_position):
+		''' 
+		Left, middle, and right will be predefined distances from the wall.
+		This approach does not require vision to orient the robot, but does
+		require precise positioning and 
+		'''
+
+		if start_position == 'left':
+			self.a_path_follow()
+		if start_position == 'middle':
+			self.b_path_follow()
+		if start_position == 'right':
+			self.c_path_follow()
+
+	def a_path_follow(self):
+		pass
+	def b_path_follow(self):
+		pass
+	def c_path_follow(self):
+		pass
+
+	#XXX Link a pyqt button or input to this function
+	#XXX this will be called when the send button is hit on the gui and
+	# the gui will be opened on the desktop before matches
+	def update_network_tables(self, initial_pos):
+
+		table = NetworkTables.getTable('SmartDashboard')
+		table.putValue('initial_pos', initial_pos)
+		
+
 
