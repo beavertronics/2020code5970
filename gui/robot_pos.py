@@ -21,15 +21,20 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
         self.radioButton_2 = QtWidgets.QRadioButton(self.gridLayoutWidget)
+
+        self.radioButton.setObjectName("radioButton")
+        self.gridLayout.addWidget(self.radioButton, 0, 0, 1, 1)
+        self.commandLinkButton = QtWidgets.QCommandLinkButton(
+            self.gridLayoutWidget)
+
         self.radioButton_2.setObjectName("radioButton_2")
         self.gridLayout.addWidget(self.radioButton_2, 3, 0, 1, 1)
         self.radioButton_3 = QtWidgets.QRadioButton(self.gridLayoutWidget)
+
         self.radioButton_3.setObjectName("radioButton_3")
         self.gridLayout.addWidget(self.radioButton_3, 1, 0, 1, 1)
         self.radioButton = QtWidgets.QRadioButton(self.gridLayoutWidget)
-        self.radioButton.setObjectName("radioButton")
-        self.gridLayout.addWidget(self.radioButton, 0, 0, 1, 1)
-        self.commandLinkButton = QtWidgets.QCommandLinkButton(self.gridLayoutWidget)
+
         self.commandLinkButton.setObjectName("commandLinkButton")
         self.gridLayout.addWidget(self.commandLinkButton, 4, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)

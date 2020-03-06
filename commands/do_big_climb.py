@@ -5,6 +5,7 @@
 import wpilib
 import wpilib.drive
 from wpilib.command import Command
+import time
 
 class Do_Big_Climb(Command):
 
@@ -18,17 +19,24 @@ class Do_Big_Climb(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		pass
+		self.is_done = False
+		self.climber.big_unactuate()
+		self.old_time = time.time_ns()
 	
 	def execute(self):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
 		#self.climber.reverse_solenoid(self.climber.biggum)
-		self.climber.big_unactuate()
+		t = time.clock_gettime()
+		if (t - self.old_time) > 300000000: # units in ns
+			self.is_done = False
+		else:
+			self.old_time = t
+			self.is_done = True
 
 	def isFinished(self):
-		pass
+		return self.is_done
 
 	def end(self):
 		self.climber.big_actuate()

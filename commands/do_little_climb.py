@@ -5,6 +5,7 @@
 import wpilib
 import wpilib.drive
 from wpilib.command import Command
+import time
 
 class Do_Little_Climb(Command):
 	''' Changes the piston actuation of the unfolding upper stage. '''
@@ -18,7 +19,7 @@ class Do_Little_Climb(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		pass
+		self.is_done = False
 	
 	def execute(self):
 		''' Called iteratively by Scheduler
@@ -26,9 +27,15 @@ class Do_Little_Climb(Command):
 		using the given piston '''
 		#self.climber.reverse_solenoid(self.climber.littlum)
 		self.climber.little_actuate()
+		t = time.time_ns()
+		if (t - old_time) > 300000000: # units in ns
+			self.is_done = False
+		else:
+			old_time = t
+			self.is_done = True
 
 	def isFinished(self):
-		self.climber.little_unactuate()
+		return self.is_done
 
 	def end(self):
 		self.climber.little_unactuate()

@@ -14,6 +14,8 @@ from command_shoot import Command_Shoot
 from do_big_climb import Do_Big_Climb
 from do_little_climb import Do_Little_Climb
 from do_winch import Do_Winch
+from command_climb_up import Command_Climb_Up
+from command_climb_down import Command_Climb_Down
 
 #XXX For testing
 from do_shoot import Do_Shoot
@@ -92,9 +94,10 @@ class OI():
 #		# In frame
 		#xboxY.whenPressed(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whenPressed(Do_Big_Climb(self.robot)) # A was actuating biggum
-		xboxB.whenPressed(Do_Little_Climb(self.robot)) # B was unactuating biggum
+		xboxA.whenPressed(Command_Climb_Up(self.robot)) # A was actuating biggum
+		xboxB.whenPressed(Command_Climb_Down(self.robot)) # B was unactuating biggum
 		# on second try, A actuated both and B unactuated both
+		# before, A was big and B was little
 
 		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
 #		xboxRB.whileHeld(Command_Intake(self.robot))

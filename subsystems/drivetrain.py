@@ -12,7 +12,7 @@ from do_tank_drive import Do_Tank_Drive
 from networktables import NetworkTables
 
 class Drivetrain(Subsystem):
-	def __init__(self, robot):
+	def __init__(self, robot, ui):
 		'''
 		Command Dependencies:
 			Do_Tank_Drive()
@@ -45,7 +45,10 @@ class Drivetrain(Subsystem):
 		initial_pose = (0, 0, 0)
 		#XXX missing the params for DifferentialDriveOdometry()
 		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
-				#gyro_angle, initial_pose)
+			#gyro_angle, initial_pose)
+
+		# GUI CODE
+		ui.send_button.clicked.connect(self.update_network_tables())
 		
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
@@ -89,6 +92,7 @@ class Drivetrain(Subsystem):
 		if start_position == 'right':
 			self.c_path_follow()
 
+	#XXX get specific path from wherever trajectory stores it
 	def a_path_follow(self):
 		pass
 	def b_path_follow(self):
@@ -96,11 +100,24 @@ class Drivetrain(Subsystem):
 	def c_path_follow(self):
 		pass
 
+	def path_follow(self):
+		pass
+		# get gyro
+		# get pathfinder gyro val
+		# get encoder
+		# get pathfinder encoder val
+		# calculate turn
+
+	#XXX checks which position button is pressed
+	def get_initial_pos(self):
+		pass
+
 	#XXX Link a pyqt button or input to this function
 	#XXX this will be called when the send button is hit on the gui and
 	# the gui will be opened on the desktop before matches
-	def update_network_tables(self, initial_pos):
+	def update_network_tables(self):
 
+		self.get_initial_pos()
 		table = NetworkTables.getTable('SmartDashboard')
 		table.putValue('initial_pos', initial_pos)
 		
