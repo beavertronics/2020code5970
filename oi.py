@@ -77,10 +77,6 @@ class OI():
 		Joystick 0 / Left Joystick Commands
 		'''
 
-#		# Button 1 causes cargo motor to spin outwards for 0.5s
-#		#ltop1.whileHeld(Do_Cargo_Eject(self.robot))
-#		ltop1.whenPressed(Do_Cancel_Current_Com(self.robot))
-#
 		'''
 		Joystick 1 / Right Joystick Commands
 		'''
