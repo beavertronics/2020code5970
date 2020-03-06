@@ -11,15 +11,10 @@ class Intake(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__("intake")
-		# Subsystem.__init__(self, "intake")
 		
-		# constant, just indicates what speed the intake motor should go
+		# constant indicating what speed the motor should go
 		self.pwm_val = 0.5
-
-		# 7 Supposedly works
-		self.intake_motor = wpilib.VictorSP(6)
-		
-		#XXX solenoid value arbitrary
+		self.intake_motor = wpilib.VictorSP(4)
 		self.fourbar = wpilib.Solenoid(0)
 
 		print('intake init!!')

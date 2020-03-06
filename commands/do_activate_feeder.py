@@ -15,9 +15,11 @@ class Do_Activate_Feeder(ConditionalCommand):
 		self.shooter = robot.shooter
 
 	def condition(self):
-		#XXX setpoint_range MUST be tuned!
+		''' If this returns True then it runs the execute()'''
+		#XXX setpoint_range MUST be tested!
 		rpm = self.shooter.shooter_encoder.get_encoder_rpm()
-		if(rpm in self.shooter.setpoint_range):
+		pwm_volts = self.shooter.convert_rpm_to_pwm(rpm)
+		if(pwm_volts in self.shooter.setpoint_range):
 			shoot = True
 		else:
 			shoot = False

@@ -4,7 +4,7 @@ import wpilib
 from wpilib.command import Command
 
 class Do_Carrier(Command):
-	#XXX may want to inherit from TimedCommand instead of Command
+	''' This is now a manual command so we don't need a timed command etc.. '''
 
 	def __init__(self, robot):
 		Command.__init__(self)
@@ -13,16 +13,15 @@ class Do_Carrier(Command):
 		self.carrier = robot.carrier
 	
 	def initialize(self):
-		"""Called just before this Command runs the first time"""
+		"""Called just before this Command runs"""
 		pass
 
 	def execute(self):
-		"""Called iteratively by Scheduler"""
+		"""Called once by Scheduler, mult"""
 		self.carrier.activate_carrier()
 
 	def isFinished(self):
-		#XXX Timed activation for correct carrying distance?
-		return True
+		pass
 
 	def end(self):
 		self.carrier.deactivate_carrier()

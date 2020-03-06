@@ -1,7 +1,5 @@
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
-#XXX Still need to incorporate timing between big and little climb within a 
-# command group
 import wpilib
 import wpilib.drive
 from wpilib.command import Command
@@ -15,6 +13,7 @@ class Do_Big_Climb(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
+		#XXX right now actuate is an unactuate
 		self.climber.big_actuate()
 	
 	def initialize(self):
@@ -27,6 +26,9 @@ class Do_Big_Climb(Command):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
+
+		# This timer waits 3 something amount of nanoseconds before setting
+		# is_done to True and calling isFinished on the command
 		#self.climber.reverse_solenoid(self.climber.biggum)
 		t = time.clock_gettime()
 		if (t - self.old_time) > 300000000: # units in ns

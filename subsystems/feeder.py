@@ -11,15 +11,15 @@ class Feeder(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__("feeder")
-		# Subsystem.__init__(self, "carrier")
 		
 		#XXX 0, 1, 2, 3 not wired 
-		#XXX 4 is supposed to be shooter? 
+		#XXX 4 is intake? 
 		#XXX 5 is CARRIER
-		#XXX 6 does nothing
-		#XXX 7 is drivetrain?
-		#XXX 8 is FEEDER
+		#XXX 6 is shooter
+		#XXX 7 is winch?
+		#XXX 8 is FEEDER?
 		self.feeder_motor = wpilib.VictorSP(8)
+		# Backwards is apparently forwards
 		self.motor_speed = -0.5
 
 	# Sets feeder motor to object's given motor speed, will be determined later

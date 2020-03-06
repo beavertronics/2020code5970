@@ -28,7 +28,7 @@ def main():
     camera = cs.startAutomaticCapture()
 
     camera.setResolution(320, 240)
-    #XXX deleted 2/5/20
+    #NOTE commented 2/5/20
     #camera.setPixelFormat(VideoMode.PixelFormat.kGray)
 
     #camera_mode.PixelFormat.kGray

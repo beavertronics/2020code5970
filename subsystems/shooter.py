@@ -27,7 +27,6 @@ class Shooter(Subsystem):
 		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
-		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
 		self.shooter_encoder = wpilib.Encoder(0, 1)
 		self.shooter_encoder.reset()
 		# If setting dist per pulse as radians per pulse
@@ -35,8 +34,9 @@ class Shooter(Subsystem):
 		# (1 wheel rev / 1 encoder_rev) ( 2 pi / 1 wheel_rev) = pi / 6
 		radians_per_pulse = math.pi / 6
 		self.shooter_encoder.setDistancePerPulse(radians_per_pulse)
-		#XXX not accurate
-		self.setpoint_range = range(0, 1000)
+		#XXX not accurate needs testing
+		# Should be roughly the same as the setpoint voltage
+		self.setpoint_range = range(.8, .9)
 
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''
@@ -44,8 +44,6 @@ class Shooter(Subsystem):
 		self.shooter_motor.set(output)
 		print('output: ' + str(output))
 		print('ACTUAL SPEED: ' + str(self.shooter_motor.get()))
-		#error = 1 - self.shooter_motor.get()
-		#print('ERROR: ' + str(error))
 		#logging.info('set shooter motor speed ' + str(output))
 		
 	def stop_shoot(self):
@@ -63,7 +61,8 @@ class Shooter(Subsystem):
 		pwm = rpm / 18730
 		return pwm
 
-	#XXX we think we should input pwm to get a pwm output from pid
+	#XXX pid gets pwm input and should do pwm output
+	# pid must not be working
 	def get_pid_output(self):
 		current_rpm = self.get_encoder_rpm()
 		print('ENCODER RPM: ' + str(current_rpm))

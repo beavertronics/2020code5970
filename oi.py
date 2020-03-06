@@ -19,7 +19,7 @@ from command_climb_down import Command_Climb_Down
 
 #XXX For testing
 from do_shoot import Do_Shoot
-from do_feeder import Do_Feeder
+from do_activate_feeder import Do_Activate_Feeder
 from do_carrier import Do_Carrier
 from do_intake import Do_Intake
 
@@ -92,18 +92,25 @@ class OI():
 		Joystick 2 / Xbox Controller Commands
 		'''	
 #		# In frame
+		#XXX The INTENDED commands for comp
 		#xboxY.whenPressed(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whenPressed(Command_Climb_Up(self.robot)) # A was actuating biggum
-		xboxB.whenPressed(Command_Climb_Down(self.robot)) # B was unactuating biggum
-		# on second try, A actuated both and B unactuated both
-		# before, A was big and B was little
-
+		#xboxA.whenPressed(Do_Big_Climb(self.robot))
+		#xboxB.whenPressed(Do_Little_Climb(self.robot))
 		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
-#		xboxRB.whileHeld(Command_Intake(self.robot))
+		#xboxLB.whileHeld(Do_Carrier(self.robot))
 
 		#XXX debugging motor controller positions
-		#xboxA.whileHeld(Do_Feeder(self.robot))
+		#XXX Do_Activate_Feeder needs testing
+		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
 		xboxX.whileHeld(Do_Intake(self.robot))
+
+		# CLIMBER
+		# A was actuating biggum
+		xboxA.whenPressed(Command_Climb_Up(self.robot))
+		# B was unactuating biggum
+		xboxB.whenPressed(Command_Climb_Down(self.robot))
+		# on second try, A actuated both and B unactuated both
+		# before, A was big and B was little

@@ -13,9 +13,6 @@ class Command_Shoot(CommandGroup):
 	def __init__(self, robot):
 		CommandGroup.__init__(self, name='Command_Shoot')
 		print("Command_Shoot init!!")
-
-#		#XXX I think this should be parallel so that it continues to run
-#		# the flywheel when we use things like carrier and feeder. -lolly
-		self.addSequential(Do_Carrier(robot))
+		# Carrier is now moved to a manual button
 		self.addParallel(Do_Shoot(robot))
 		self.addParallel(Do_Activate_Feeder(robot))

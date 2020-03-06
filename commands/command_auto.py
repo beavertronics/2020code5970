@@ -31,7 +31,7 @@ class Do_Auto(Command):
 	def isFinished(self):
 		# This is how running tank driving is prioritized
 		# In other words, runs til interrupted
-		#XXX should be over when auto is over
+		# just run it in auto periodic then it will end with auto ends
 		pass
 
 	def end(self):
