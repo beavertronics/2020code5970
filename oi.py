@@ -89,7 +89,7 @@ class OI():
 		'''	
 #		# In frame
 		#XXX The INTENDED commands for comp
-		#xboxY.whenPressed(Do_Winch(self.robot))
+		xboxY.whileHeld(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
 <<<<<<< HEAD
 		xboxA.whileHeld(Command_Climb_Up(self.robot)) # A was actuating biggum
@@ -109,7 +109,7 @@ class OI():
 		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
-		xboxX.whileHeld(Do_Intake(self.robot))
+		#xboxX.whileHeld(Do_Intake(self.robot))
 
 		# CLIMBER
 		# A was actuating biggum

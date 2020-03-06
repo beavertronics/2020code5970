@@ -68,7 +68,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		#self.carrier = Carrier(self)
 		#self.feeder = Feeder(self)
 		self.intake = Intake(self)
-		#self.winch = Winch(self)
+		self.winch = Winch(self)
 		self.climber = Climber(self)
 
 		# Instantiate Joysticks

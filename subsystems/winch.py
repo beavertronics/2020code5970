@@ -11,9 +11,7 @@ class Winch(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__("winch")
-		# Subsystem.__init__(self, "winch")
-		#self.shooter_motor = wpilib.VictorSP(7)
-		self.winch_motor = wpilib.VictorSP(6)
+		self.winch_motor = wpilib.VictorSP(5)
 		
 	def roll_up(self):
 		''' Rolls up winch and therefore climbs/lifts robot up '''

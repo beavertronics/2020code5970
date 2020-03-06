@@ -22,7 +22,7 @@ class Do_Winch(Command):
 		self.winch.roll_up()
 
 	def isFinished(self):
-		return True
+		pass
 
 	def end(self):
 		# Stop motors when ending command
