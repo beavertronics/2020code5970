@@ -19,7 +19,7 @@ class Do_Big_Climb(Command):
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
 		self.is_done = False
-		self.climber.big_unactuate()
+		self.climber.big_actuate()
 		self.old_time = time.time_ns()
 	
 	def execute(self):
@@ -40,8 +40,8 @@ class Do_Big_Climb(Command):
 	def isFinished(self):
 		return self.is_done
 
-	def end(self):
-		self.climber.big_actuate()
+#	def end(self):
+#		self.climber.big_actuate()
 	
 	def interrupted(self):
-		self.climber.big_actuate()
+		self.climber.big_unactuate()

@@ -3,8 +3,8 @@
 import wpilib
 from wpilib.command import CommandGroup
 
-from do_big_climb import Do_Big_Climb
-from do_little_climb import Do_Little_Climb
+from do_big_climb_down import Do_Big_Climb_Down
+from do_little_climb_down import Do_Little_Climb_Down
 
 class Command_Climb_Down(CommandGroup):
 
@@ -13,5 +13,5 @@ class Command_Climb_Down(CommandGroup):
 		print("climber down command group init!!")
 		# retract as soon as released maybe
 		self.robot = robot
-		self.addSequential(Do_Little_Climb(robot))
-		self.addSequential(Do_Big_Climb(robot))
+		self.addSequential(Do_Little_Climb_Down(robot))
+		self.addSequential(Do_Big_Climb_Down(robot))

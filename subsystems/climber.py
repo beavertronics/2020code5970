@@ -19,17 +19,17 @@ class Climber(Subsystem):
 		
 	def big_actuate(self):
 		''' Actuates the biggest stage of unfolding the climber via piston '''
-		self.biggum.set(False)
+		self.biggum.set(True)
 	
 	def big_unactuate(self):
-		self.biggum.set(True)
+		self.biggum.set(False)
 
 	def little_actuate(self):
 		''' Actuates the littlest stage of unfolding the climber via piston '''
-		self.littlum.set(False)
+		self.littlum.set(True)
 
 	def little_unactuate(self):
-		self.littlum.set(True)
+		self.littlum.set(False)
 
 	def reverse_solenoid(self, solenoid):
 		''' Sets piston actuation to opposite of the current state '''
