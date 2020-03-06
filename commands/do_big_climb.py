@@ -30,10 +30,10 @@ class Do_Big_Climb(Command):
 		#self.climber.reverse_solenoid(self.climber.biggum)
 		t = time.time_ns()
 		if (t - self.old_time) > 300000000: # units in ns
-			self.is_done = False
+			self.is_done = True
 		else:
 			self.old_time = t
-			self.is_done = True
+			self.is_done = False
 
 	def isFinished(self):
 		return self.is_done
