@@ -91,8 +91,8 @@ class OI():
 		#XXX The INTENDED commands for comp
 		xboxY.whileHeld(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		#xboxA.whenPressed(Do_Big_Climb(self.robot))
-		#xboxB.whenPressed(Do_Little_Climb(self.robot))
+		xboxA.whenPressed(Do_Big_Climb_Test(self.robot))
+		#xboxB.whenPressed(Do_Little_Climb_Test(self.robot))
 		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
 		#xboxLB.whileHeld(Do_Carrier(self.robot))
 
@@ -101,7 +101,7 @@ class OI():
 		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
-		xboxX.whileHeld(Do_Intake(self.robot))
+		#xboxX.whileHeld(Do_Intake(self.robot))
 
 		# CLIMBER
 		# A was actuating biggum
