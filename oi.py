@@ -94,8 +94,8 @@ class OI():
 #		# In frame
 		#xboxY.whenPressed(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whenPressed(Command_Climb_Up(self.robot)) # A was actuating biggum
-		xboxB.whenPressed(Command_Climb_Down(self.robot)) # B was unactuating biggum
+		xboxA.whileHeld(Command_Climb_Up(self.robot)) # A was actuating biggum
+		xboxB.whileHeld(Command_Climb_Down(self.robot)) # B was unactuating biggum
 		# on second try, A actuated both and B unactuated both
 		# before, A was big and B was little
 

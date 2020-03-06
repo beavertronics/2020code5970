@@ -28,7 +28,7 @@ class Do_Big_Climb(Command):
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
 		#self.climber.reverse_solenoid(self.climber.biggum)
-		t = time.clock_gettime()
+		t = time.time_ns()
 		if (t - self.old_time) > 300000000: # units in ns
 			self.is_done = False
 		else:
