@@ -22,6 +22,8 @@ from do_shoot import Do_Shoot
 from do_activate_feeder import Do_Activate_Feeder
 from do_carrier import Do_Carrier
 from do_intake import Do_Intake
+from do_big_climb_test import Do_Big_Climb_Test
+from do_little_climb_test import Do_Little_Climb_Test
 
 # Non-button commands
 
@@ -91,9 +93,9 @@ class OI():
 		#XXX The INTENDED commands for comp
 		xboxY.whileHeld(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whenPressed(Do_Big_Climb_Test(self.robot))
-		#xboxB.whenPressed(Do_Little_Climb_Test(self.robot))
-		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
+		#xboxA.whenPressed(Do_Big_Climb(self.robot))
+		#xboxB.whenPressed(Do_Little_Climb(self.robot))
+		xboxRB.whileHeld(Command_Intake_Pickup(self.robot))
 		#xboxLB.whileHeld(Do_Carrier(self.robot))
 
 		#XXX debugging motor controller positions
@@ -105,8 +107,9 @@ class OI():
 
 		# CLIMBER
 		# A was actuating biggum
-		xboxA.whileHeld(Command_Climb_Up(self.robot))
+		#xboxA.whileHeld(Command_Climb_Up(self.robot))
 		# B was unactuating biggum
-		xboxA.whenReleased(Command_Climb_Down(self.robot))
+		#xboxA.whenReleased(Command_Climb_Down(self.robot))
 		# on second try, A actuated both and B unactuated both
 		# before, A was big and B was little
+		xboxA.whileHeld(Do_Little_Climb_Test(self.robot))

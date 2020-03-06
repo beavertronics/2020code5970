@@ -4,6 +4,7 @@ import wpilib
 from wpilib.command import Subsystem
 from simple_pid import PID
 import logging
+import math
 
 class Carrier(Subsystem):
 	def __init__(self, robot):
@@ -24,15 +25,16 @@ class Carrier(Subsystem):
 
 		#initialize carrier encoder
 		self.carrier_encoder = wpilib.Encoder(4, 5)
-		self.shooter_encoder.reset()
+		self.carrier_encoder.reset()
 		# If setting dist per pulse as radians per pulse
 		# (1 encoder_rev / 12 pulses) 
 		# (1 wheel rev / 1 encoder_rev) ( 2 pi / 1 wheel_rev) = pi / 6
 		radians_per_pulse = math.pi / 6
-		self.shooter_encoder.setDistancePerPulse(radians_per_pulse)
+		self.carrier_encoder.setDistancePerPulse(radians_per_pulse)
 
-		#XXX not accurate needs testing
-		self.setpoint_range = range(.35, .45)
+		#XXX not accurate, CANT INTERPRET FLOAT AS INT
+		#self.setpoint_range = range(.35, .45)
+		self.setpoint_range = range(-1, 1)
 
 	#Sets carrier motor to object's given motor speed, will be determined later
 	def activate_carrier(self):
