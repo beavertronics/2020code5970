@@ -21,8 +21,6 @@ class Do_Feeder(Command):
 		self.feeder.activate_feeder()
 
 	def isFinished(self):
-		#XXX Do we need some kind of delay 
-		# in here so it goes the proper distance?
 		return False
 
 	def end(self):

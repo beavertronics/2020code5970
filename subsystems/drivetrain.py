@@ -24,20 +24,17 @@ class Drivetrain(Subsystem):
 		self.lm_inst = Left_Motors().left_motor_group
 		self.rm_inst = Right_Motors().right_motor_group
 		self.drive = DifferentialDrive(self.lm_inst, self.rm_inst)
-		#self.SetSafetyEnabled(False)
 		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
 		pulses_per_rev = 12
-		# gear_reduction = 1:1
-		#XXX .get() function returning 0 for the encoders even when wheels
-		# are turning
-		self.right_encoder = wpilib.Encoder(0, 1)
+		self.right_encoder = wpilib.Encoder(8, 9)
 		self.right_encoder.setDistancePerPulse(pulses_per_rev)
-		self.left_encoder = wpilib.Encoder(2, 3)	
+		self.left_encoder = wpilib.Encoder(6, 7)	
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
-		self.gear_ratio = 12.75
+		#self.gear_ratio = 12.75
 
 		self.gyro = wpilib.ADXRS450_Gyro()
 		# This MUST occur while this doesn't move
+		# (It will take some initial measurements and assumes the robot is still
 		self.gyro.calibrate()
 		# init with gyroAngle and initialPose
 		gyro_angle = self.gyro.getAngle()
@@ -57,6 +54,7 @@ class Drivetrain(Subsystem):
 		left_speed = left_joy.getY()
 		right_speed = right_joy.getY()
 		self.drive.tankDrive(left_speed, right_speed)
+		#XXX remove prints eventually
 		print(self.left_encoder.get())
 		print(self.right_encoder.get())
 

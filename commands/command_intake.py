@@ -20,8 +20,7 @@ class Command_Intake(Command):
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		# Continuously sets motor speed to joystick inputs w/ Scheduler
-		self.robot_dt.set_tank_speed(
-			self.left_joy, self.right_joy, self.robot_dt.drive)
+		pass
 
 	def isFinished(self):
 		# This is how running tank driving is prioritized
@@ -30,7 +29,7 @@ class Command_Intake(Command):
 
 	def end(self):
 		# Stop motors when ending command
-		self.robot_dt.stop_robot(self.robot_dt.drive)
+		pass
 	
 	def interrupted(self):
-		self.end()
+		pass

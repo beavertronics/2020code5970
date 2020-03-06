@@ -1,7 +1,5 @@
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
-#XXX Still need to incorporate timing between big and little climb within a 
-# command group
 import wpilib
 import wpilib.drive
 from wpilib.command import Command
@@ -41,6 +39,5 @@ class Do_Little_Climb(Command):
 	def end(self):
 		self.climber.little_unactuate()
 	
-	#XXX Not sure if this behavior is desired
 	def interrupted(self):
 		self.climber.little_unactuate()
