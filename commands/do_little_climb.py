@@ -13,7 +13,7 @@ class Do_Little_Climb(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
-		self.climber.little_unactuate()
+#		self.climber.little_unactuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
@@ -36,8 +36,8 @@ class Do_Little_Climb(Command):
 	def isFinished(self):
 		return self.is_done
 
-	def end(self):
-		self.climber.little_unactuate()
+#	def end(self):
+#		self.climber.little_unactuate()
 	
-	def interrupted(self):
-		self.climber.little_unactuate()
+#	def interrupted(self):
+#		self.climber.little_unactuate()
