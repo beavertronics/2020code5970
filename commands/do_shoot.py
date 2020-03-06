@@ -2,6 +2,7 @@
 
 import wpilib
 from wpilib.command import Command
+import time
 
 class Do_Shoot(Command):
 
@@ -14,6 +15,8 @@ class Do_Shoot(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
+		self.shooter.shooter_motor.set(0.1)
+		time.sleep(0.2)
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""

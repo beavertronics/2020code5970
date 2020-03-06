@@ -92,13 +92,15 @@ class OI():
 #		# In frame
 		#xboxY.whenPressed(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		#xboxA.whenPressed(Do_Big_Climb(self.robot))
-		#xboxB.whenPressed(Do_Little_Climb(self.robot))
+		xboxA.whenPressed(Do_Big_Climb(self.robot)) # A was actuating biggum
+		xboxB.whenPressed(Do_Little_Climb(self.robot)) # B was unactuating biggum
+		# on second try, A actuated both and B unactuated both
+
 		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
 #		xboxRB.whileHeld(Command_Intake(self.robot))
 
 		#XXX debugging motor controller positions
-		xboxA.whileHeld(Do_Feeder(self.robot))
+		#xboxA.whileHeld(Do_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
-		xboxY.whileHeld(Do_Shoot(self.robot))
-		#xboxX.whileHeld(Do_Intake(self.robot))
+		#xboxY.whileHeld(Do_Shoot(self.robot))
+		xboxX.whileHeld(Do_Intake(self.robot))

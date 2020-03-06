@@ -14,6 +14,7 @@ class Do_Big_Climb(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
+		self.climber.big_actuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
@@ -23,13 +24,14 @@ class Do_Big_Climb(Command):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
-		self.climber.reverse_solenoid(self.climber.biggum)
+		#self.climber.reverse_solenoid(self.climber.biggum)
+		self.climber.big_unactuate()
 
 	def isFinished(self):
-		return True
+		pass
 
 	def end(self):
-		pass
+		self.climber.big_actuate()
 	
 	def interrupted(self):
-		self.big_unactuate()
+		self.climber.big_actuate()

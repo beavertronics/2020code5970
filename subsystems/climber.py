@@ -13,26 +13,26 @@ class Climber(Subsystem):
 	
 		# Note to self: Biggum is two pistons on the lower stage which are
 		# currently on the same solenoid port
-		self.biggum = wpilib.Solenoid(0)
+		self.biggum = wpilib.Solenoid(1)
 		# Two pistons for the upper stage on same port
-		self.littlum = wpilib.Solenoid(1)
+		self.littlum = wpilib.Solenoid(2)
 		
 	def big_actuate(self):
 		''' Actuates the biggest stage of unfolding the climber via piston '''
-		self.biggum.set(True)
+		self.biggum.set(False)
 	
 	def big_unactuate(self):
-		self.biggum.set(False)
+		self.biggum.set(True)
 
 	def little_actuate(self):
 		''' Actuates the littlest stage of unfolding the climber via piston '''
-		self.littlum.set(True)
+		self.littlum.set(False)
 
 	def little_unactuate(self):
-		self.littlum.set(False)
+		self.littlum.set(True)
 
 	def reverse_solenoid(self, solenoid):
 		''' Sets piston actuation to opposite of the current state '''
-		current = solenoid.get()
-		solenoid.set(not(current))
+		state = solenoid.get()
+		solenoid.set(not(state))
 

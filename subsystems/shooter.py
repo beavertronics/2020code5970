@@ -15,13 +15,16 @@ class Shooter(Subsystem):
 		All values currently arbitary!
 		'''
 		super().__init__("shooter")
+		self.robot = robot
 		# Correct shoooter pwm
 		self.shooter_motor = wpilib.VictorSP(4)
 		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0)
-		self.setpoint = 1 
+		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0.05)
+
+		self.setpoint = 0.85 
 		self.pid = PID(0.85, 0, 0, 
 			setpoint=self.setpoint, proportional_on_measurement=False)
-		#self.pid.output_limits = (-1,1)
+		self.pid.output_limits = (-1,1)
 
 		#Initializes shooter encoder
 		#XXX DIO_1 and DIO_2 and pulses_per_rev are incorrect for now
@@ -39,8 +42,10 @@ class Shooter(Subsystem):
 		''' Shoots the ball by controlling the flywheel motor '''
 		output = self.get_pid_output()
 		self.shooter_motor.set(output)
-		print('shooter motor input speed ' + str(output))
+		print('output: ' + str(output))
 		print('ACTUAL SPEED: ' + str(self.shooter_motor.get()))
+		#error = 1 - self.shooter_motor.get()
+		#print('ERROR: ' + str(error))
 		#logging.info('set shooter motor speed ' + str(output))
 		
 	def stop_shoot(self):

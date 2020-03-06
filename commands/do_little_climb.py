@@ -14,6 +14,7 @@ class Do_Little_Climb(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
+		self.climber.little_actuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
@@ -23,14 +24,15 @@ class Do_Little_Climb(Command):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
-		self.climber.reverse_solenoid(self.climber.littlum)
+		#self.climber.reverse_solenoid(self.climber.littlum)
+		self.climber.little_actuate()
 
 	def isFinished(self):
-		return True
+		self.climber.little_unactuate()
 
 	def end(self):
-		pass
+		self.climber.little_unactuate()
 	
 	#XXX Not sure if this behavior is desired
 	def interrupted(self):
-		self.little_unactuate()
+		self.climber.little_unactuate()

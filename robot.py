@@ -28,7 +28,6 @@ sys.path.insert(0, '/home/lvuser/py/vision')
 
 # Subsidiary objects on the robot. Ex: Cube Intake from 2017/18 season
 from shooter import Shooter
-#from shooter_encoder import Shooter_Encoder
 from feeder import Feeder
 from carrier import Carrier
 from intake import Intake
@@ -65,12 +64,12 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instantiate Subsystems
 		#XXX DEBUGGING
 		#self.drivetrain = Drivetrain(self)
-		self.shooter = Shooter(self)
+		#self.shooter = Shooter(self)
 		#self.carrier = Carrier(self)
-		self.feeder = Feeder(self)
-		#self.intake = Intake(self)
+		#self.feeder = Feeder(self)
+		self.intake = Intake(self)
 		#self.winch = Winch(self)
-		#self.climber = Climber(self)
+		self.climber = Climber(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 
@@ -81,7 +80,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		# Instantiate OI; must be AFTER joysticks are inited
 		self.oi = OI(self)
 
-		#self.timer = wpilib.Timer()
+		self.timer = wpilib.Timer()
 
 		# untested vision
 		#wpilib.CameraServer.launch("vision.py:main")

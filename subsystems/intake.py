@@ -17,10 +17,12 @@ class Intake(Subsystem):
 		self.pwm_val = 0.5
 
 		# 7 Supposedly works
-		self.intake_motor = wpilib.VictorSP(7)
+		self.intake_motor = wpilib.VictorSP(6)
 		
 		#XXX solenoid value arbitrary
-		self.fourbar = wpilib.Solenoid(2)
+		self.fourbar = wpilib.Solenoid(0)
+
+		print('intake init!!')
 
 	def fourbar_eject(self):
 		''' Shoots the ball by controlling the flywheel motor '''
