@@ -3,20 +3,24 @@
 import wpilib
 from wpilib.command import Command
 
-class Do_Intake_Delay(Command):
+class Do_Intake(Command):
 
 	def __init__(self, robot):
-		print("do_intake_delay init")
+		print("do_intake init")
 		Command.__init__(self)
+		self.intake = robot.intake
 
 	def initialize(self):
-		pass
+		return None
 
 	def execute(self):
-		pass
+		self.intake.activate_intake()
 
 	def isFinished(self):
-		return True
+		pass
 
+	def end(self):
+		self.intake.deactivate_intake()
+	
 	def interrupted(self):
 		self.end()

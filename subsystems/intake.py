@@ -18,11 +18,9 @@ class Intake(Subsystem):
 		# 7 is INTAKE
 		self.intake_motor = wpilib.VictorSP(7)
 		self.fourbar = wpilib.Solenoid(0)
-
 		print('intake init!!')
 
 	def fourbar_eject(self):
-		''' Shoots the ball by controlling the flywheel motor '''
 		self.fourbar.set(True)
 
 	def fourbar_inject(self):
