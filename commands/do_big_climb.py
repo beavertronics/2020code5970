@@ -14,7 +14,7 @@ class Do_Big_Climb(Command):
 		self.requires(robot.climber)
 		self.climber = robot.climber
 		#XXX right now actuate is an unactuate
-		self.climber.big_actuate()
+#		self.climber.big_unactuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""

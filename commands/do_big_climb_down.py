@@ -14,7 +14,7 @@ class Do_Big_Climb_Down(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
-		self.climber.big_actuate()
+#		self.climber.big_actuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""

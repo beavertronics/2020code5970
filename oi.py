@@ -91,16 +91,8 @@ class OI():
 		#XXX The INTENDED commands for comp
 		xboxY.whileHeld(Do_Winch(self.robot))
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-<<<<<<< HEAD
-		xboxA.whileHeld(Command_Climb_Up(self.robot)) # A was actuating biggum
-		xboxA.whenReleased(Command_Climb_Down(self.robot)) # B was unactuating biggum
-		# on second try, A actuated both and B unactuated both
-		# before, A was big and B was little
-
-=======
 		#xboxA.whenPressed(Do_Big_Climb(self.robot))
 		#xboxB.whenPressed(Do_Little_Climb(self.robot))
->>>>>>> b27284867e9568cd5ed243dc3ddee521150ca298
 		#xboxRB.whenPressed(Command_Intake_Pickup(self.robot))
 		#xboxLB.whileHeld(Do_Carrier(self.robot))
 
@@ -109,12 +101,12 @@ class OI():
 		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
 		#xboxY.whileHeld(Do_Shoot(self.robot))
-		#xboxX.whileHeld(Do_Intake(self.robot))
+		xboxX.whileHeld(Do_Intake(self.robot))
 
 		# CLIMBER
 		# A was actuating biggum
-		xboxA.whenPressed(Command_Climb_Up(self.robot))
+		xboxA.whileHeld(Command_Climb_Up(self.robot))
 		# B was unactuating biggum
-		xboxB.whenPressed(Command_Climb_Down(self.robot))
+		xboxA.whenReleased(Command_Climb_Down(self.robot))
 		# on second try, A actuated both and B unactuated both
 		# before, A was big and B was little

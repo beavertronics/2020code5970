@@ -17,7 +17,7 @@ class Do_Intake(Command):
 		self.intake.activate_intake()
 
 	def isFinished(self):
-		return True
+		pass
 
 	def end(self):
 		self.intake.deactivate_intake()

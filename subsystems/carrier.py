@@ -14,8 +14,10 @@ class Carrier(Subsystem):
 		'''
 		super().__init__("carrier")
 		
-		self.carrier_motor = wpilib.VictorSP(5)
-		self.carrier_setpoint = 0.4
+		# CARRIER is 4
+		self.carrier_motor = wpilib.VictorSP(4)
+		#XXX watch the negative
+		self.carrier_setpoint = -0.4
 		#XXX UNTUNED
 		self.pid = PID(0.4, 0, 0, setpoint=self.carrier_setpoint)
 		self.pid.output_limits = (-1,1)

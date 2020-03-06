@@ -13,8 +13,10 @@ class Intake(Subsystem):
 		super().__init__("intake")
 		
 		# constant indicating what speed the motor should go
-		self.pwm_val = 0.5
-		self.intake_motor = wpilib.VictorSP(4)
+		self.pwm_val = -0.5
+		# 4 is CARRIER
+		# 7 is INTAKE
+		self.intake_motor = wpilib.VictorSP(7)
 		self.fourbar = wpilib.Solenoid(0)
 
 		print('intake init!!')
