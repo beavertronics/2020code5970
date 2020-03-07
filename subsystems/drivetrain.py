@@ -32,20 +32,21 @@ class Drivetrain(Subsystem):
 		self.left_encoder.setDistancePerPulse(pulses_per_rev)
 		#self.gear_ratio = 12.75
 
-		self.gyro = wpilib.ADXRS450_Gyro()
-		# This MUST occur while this doesn't move
-		# (It will take some initial measurements and assumes the robot is still
-		self.gyro.calibrate()
-		# init with gyroAngle and initialPose
-		gyro_angle = self.gyro.getAngle()
-		# initial_pose should be in form of (x position, y position, rotation)
-		initial_pose = (0, 0, 0)
-		#XXX missing the params for DifferentialDriveOdometry()
-		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
-			#gyro_angle, initial_pose)
-
-		# GUI CODE
-		#ui.send_button.clicked.connect(self.update_network_tables())
+#		#XXX gyro not plugged in
+#		self.gyro = wpilib.ADXRS450_Gyro()
+#		# This MUST occur while this doesn't move
+#		# (It will take some initial measurements and assumes the robot is still
+#		self.gyro.calibrate()
+#		# init with gyroAngle and initialPose
+#		gyro_angle = self.gyro.getAngle()
+#		# initial_pose should be in form of (x position, y position, rotation)
+#		initial_pose = (0, 0, 0)
+#		#XXX missing the params for DifferentialDriveOdometry()
+#		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
+#			#gyro_angle, initial_pose)
+#
+#		# GUI CODE
+#		#ui.send_button.clicked.connect(self.update_network_tables())
 		
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))

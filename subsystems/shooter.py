@@ -17,7 +17,7 @@ class Shooter(Subsystem):
 		super().__init__("shooter")
 		self.robot = robot
 		# Correct shoooter pwm
-		self.shooter_motor = wpilib.VictorSP(4)
+		self.shooter_motor = wpilib.VictorSP(6)
 		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0)
 		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0.05)
 
