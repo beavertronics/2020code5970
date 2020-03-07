@@ -16,11 +16,12 @@ class Do_Four_Bar(Command):
 	
 	def execute(self):
 		self.intake.fourbar_eject()
-		return None
 
 	def isFinished(self):
-		return True
+		pass
+
+	def end(self):
+		self.intake.fourbar_inject()
 
 	def interrupted(self):
-		#print("Command 'do_four_bar' has been interrupted")
 		self.end()

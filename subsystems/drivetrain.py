@@ -52,8 +52,8 @@ class Drivetrain(Subsystem):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
 
 	def set_tank_speed(self, left_joy, right_joy):
-		left_speed = (left_joy.getY() * -1)
-		right_speed = (right_joy.getY() * -1)
+		left_speed = (left_joy.getY() * -1) * -1
+		right_speed = (right_joy.getY() * -1) * -1
 		self.drive.tankDrive(left_speed, right_speed)
 		#XXX remove prints eventually
 		print('DRIVETRAIN ENCODER: ' + str(self.left_encoder.get()))

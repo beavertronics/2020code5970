@@ -15,11 +15,12 @@ class Do_Shoot(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		self.shooter.shooter_motor.set(0.1)
+		self.shooter.shooter_motor.set(0.85)
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		self.shooter.shoot()
+		#self.shooter.stupid_shoot(0.85)
 
 	def isFinished(self):
 		pass

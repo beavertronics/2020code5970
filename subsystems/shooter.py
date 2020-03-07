@@ -45,6 +45,9 @@ class Shooter(Subsystem):
 		print('output: ' + str(output))
 		print('ACTUAL SPEED: ' + str(self.shooter_motor.get()))
 		#logging.info('set shooter motor speed ' + str(output))
+
+	def stupid_shoot(self, val):
+		self.shooter_motor.set(val)
 		
 	def stop_shoot(self):
 		self.shooter_motor.set(0)

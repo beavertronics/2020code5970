@@ -21,7 +21,7 @@ class Do_Feeder(Command):
 		self.feeder.activate_feeder()
 
 	def isFinished(self):
-		return False
+		pass
 
 	def end(self):
 		self.feeder.deactivate_feeder()

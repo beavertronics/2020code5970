@@ -31,3 +31,6 @@ class Feeder(Subsystem):
 	def deactivate_feeder(self):
 		self.feeder_motor.setSpeed(0)
 
+	def stupid_feeder(self, val):
+		self.feeder_motor.set(val)
+

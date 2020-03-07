@@ -14,17 +14,19 @@ class Do_Intake(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		self.old_time = time.time_ns()
+		pass
+		#self.old_time = time.time_ns()
+		#self.intake.fourbar_eject()
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""
-		self.intake.fourbar_eject()
 		# This timer waits 3 something amount of nanoseconds before intaking
-		t = time.time_ns()
-		if (t - self.old_time) > 30000000:
-			self.intake.activate_intake()
-		else:
-			t = time.time_ns()
+#		t = time.time_ns()
+#		if (t - self.old_time) > 30000000:
+#			self.intake.activate_intake()
+#		else:
+#			t = time.time_ns()
+		self.intake.activate_intake()
 
 	def isFinished(self):
 		pass
