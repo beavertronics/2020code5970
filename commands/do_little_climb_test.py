@@ -39,5 +39,5 @@ class Do_Little_Climb_Test(Command):
 #	def end(self):
 #		self.climber.little_unactuate()
 	
-#	def interrupted(self):
-#		self.climber.little_unactuate()
+	def interrupted(self):
+		self.climber.little_unactuate()

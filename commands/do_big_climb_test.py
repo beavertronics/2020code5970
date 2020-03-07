@@ -13,7 +13,6 @@ class Do_Big_Climb_Test(Command):
 		Command.__init__(self)
 		self.requires(robot.climber)
 		self.climber = robot.climber
-		#XXX right now actuate is an unactuate
 #		self.climber.big_unactuate()
 	
 	def initialize(self):
@@ -43,5 +42,5 @@ class Do_Big_Climb_Test(Command):
 #	def end(self):
 #		self.climber.big_actuate()
 	
-	def interrupted(self):
-		self.climber.big_unactuate()
+#	def interrupted(self):
+#		self.climber.big_unactuate()

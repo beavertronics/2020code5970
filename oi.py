@@ -112,4 +112,5 @@ class OI():
 		#xboxA.whenReleased(Command_Climb_Down(self.robot))
 		# on second try, A actuated both and B unactuated both
 		# before, A was big and B was little
-		xboxA.whileHeld(Do_Little_Climb_Test(self.robot))
+		xboxA.whenPressed(Do_Big_Climb_Test(self.robot))
+		xboxB.whenPressed(Do_Little_Climb_Test(self.robot))
