@@ -50,12 +50,6 @@ class Carrier(Subsystem):
 		new_speed = speed * -1
 		self.carrier_motor.set(new_speed)
 
-	def get_pid_output(self):
-		current_rpm = self.get_encoder_rpm()
-		pwm = self.convert_rpm_to_pwm(current_rpm)
-		output = self.pid(pwm)
-		return output
-
 	def convert_rpm_to_pwm(self, rpm):
 		# 18,730 rpm for 12V applied to a 775 pro motor
 		# vexrobotics.com/775pro.html#Other_Info
@@ -63,5 +57,14 @@ class Carrier(Subsystem):
 		return pwm
 	
 	def get_encoder_rpm(self):
-		angular_velocity_rpm = self.carrier_encoder.getRate()
-		return angular_velocity_rpm
+		angular_vel = self.carrier_encoder.getRate()
+		rpm = angular_vel / (2*math.pi) * 60
+		return rpm
+
+	def get_pid_output(self):
+		current_rpm = self.get_encoder_rpm()
+		print('CARRIER RPM: ' + str(current_rpm))
+		pwm = self.convert_rpm_to_pwm(current_rpm)
+		output = self.pid(pwm)
+		return output
+

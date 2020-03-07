@@ -19,6 +19,6 @@ class Command_Intake_Pickup(CommandGroup):
 		#XXX just combined do_four_bar into the Do_Intake command since
 		# they're the same subsystem
 		#self.addSequential(Do_Four_Bar(robot))
-		self.addSequential(Do_Intake(robot))
+		self.addParallel(Do_Intake(robot))
 		self.addParallel(Do_Carrier(robot))
 		#self.addSequential(Do_Four_Bar_Inside(robot))
