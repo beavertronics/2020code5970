@@ -51,14 +51,13 @@ class Drivetrain(Subsystem):
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
 
-	# The negative 1 is to flip the front and back
 	def set_tank_speed(self, left_joy, right_joy):
-		left_speed = left_joy.getY() * -1
-		right_speed = right_joy.getY() * -1
+		left_speed = (left_joy.getY() * -1)
+		right_speed = (right_joy.getY() * -1)
 		self.drive.tankDrive(left_speed, right_speed)
 		#XXX remove prints eventually
-		print(self.left_encoder.get())
-		print(self.right_encoder.get())
+		print('DRIVETRAIN ENCODER: ' + str(self.left_encoder.get()))
+		print('DRIVETRAIN ENCODER: ' + str(self.right_encoder.get()))
 
 	def stop_robot(self):
 		self.drive.tankDrive(0,0)

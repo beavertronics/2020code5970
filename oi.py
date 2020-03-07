@@ -84,7 +84,7 @@ class OI():
 		Joystick 1 / Right Joystick Commands
 		'''
 
-		rtop1.whenPressed(Do_Feeder(self.robot))
+		rtop1.whileHeld(Do_Feeder(self.robot))
 
 #		# Button 2 toggles shifters
 #		rtop2.toggleWhenPressed(Do_Shifters_Toggle(self.robot))
