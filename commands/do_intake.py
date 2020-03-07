@@ -19,14 +19,12 @@ class Do_Intake(Command):
 	def execute(self):
 		"""Called iteratively by Scheduler"""
 		self.intake.fourbar_eject()
-		# This timer waits 3 something amount of nanoseconds before setting
-		# is_done to True and calling isFinished on the command
-		#self.climber_big.reverse_solenoid(self.climber_big.biggum)
+		# This timer waits 3 something amount of nanoseconds before intaking
 		t = time.time_ns()
-		#while not((t - self.old_time) > 300000000): # units in ns
-		#	self.old_time = t
-
-		self.intake.activate_intake()
+		if (t - self.old_time) > 30000000:
+			self.intake.activate_intake()
+		else:
+			t = time.time_ns()
 
 	def isFinished(self):
 		pass

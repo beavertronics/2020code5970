@@ -34,7 +34,7 @@ class Do_Big_Climb(Command):
 		if (t - self.old_time) > 300000000: # units in ns
 			self.is_done = True
 		else:
-			self.old_time = t
+			t = time.time_ns()
 			self.is_done = False
 
 	def isFinished(self):
