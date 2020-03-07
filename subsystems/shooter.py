@@ -36,7 +36,7 @@ class Shooter(Subsystem):
 		self.shooter_encoder.setDistancePerPulse(radians_per_pulse)
 		#XXX not accurate needs testing
 		# Should be roughly the same as the setpoint voltage
-		self.setpoint_range = range(.8, .9)
+		self.setpoint_range = [.8, .9]
 
 	def shoot(self):
 		''' Shoots the ball by controlling the flywheel motor '''

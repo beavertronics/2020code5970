@@ -19,7 +19,8 @@ class Do_Activate_Feeder(ConditionalCommand):
 		#XXX setpoint_range MUST be tested!
 		rpm = self.shooter.shooter_encoder.get_encoder_rpm()
 		pwm_volts = self.shooter.convert_rpm_to_pwm(rpm)
-		if(pwm_volts in self.shooter.setpoint_range):
+		if(self.shooter.setpoint_range[0] < pwm_volts and
+			self.shooter.setpoint_range[1] > pwm_volts):
 			shoot = True
 		else:
 			shoot = False

@@ -21,7 +21,7 @@ class Carrier(Subsystem):
 		#XXX watch the negative
 		self.carrier_setpoint = -1
 		#XXX UNTUNED
-		self.pid = PID(0.4, 0, 0, setpoint=self.carrier_setpoint)
+		self.pid = PID(.85, 0, 0, setpoint=self.carrier_setpoint)
 		self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder

@@ -39,8 +39,8 @@ class Do_Big_Climb_Test(Command):
 	def isFinished(self):
 		return self.is_done
 
-#	def end(self):
-#		self.climber_big.big_actuate()
+	def end(self):
+		self.climber_big.big_unactuate()
 	
 	def interrupted(self):
 		self.climber_big.big_unactuate()

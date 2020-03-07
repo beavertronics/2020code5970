@@ -12,11 +12,11 @@ from do_tank_drive import Do_Tank_Drive
 from networktables import NetworkTables
 
 class Drivetrain(Subsystem):
-	def __init__(self, robot, ui):
+	#def __init__(self, robot, ui):
+	def __init__(self, robot):
 		'''
 		Command Dependencies:
 			Do_Tank_Drive()
-
 		'''
 		super().__init__("drivetrain")
 
@@ -45,7 +45,7 @@ class Drivetrain(Subsystem):
 			#gyro_angle, initial_pose)
 
 		# GUI CODE
-		ui.send_button.clicked.connect(self.update_network_tables())
+		#ui.send_button.clicked.connect(self.update_network_tables())
 		
 	def initDefaultCommand(self):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
@@ -60,64 +60,64 @@ class Drivetrain(Subsystem):
 
 	def stop_robot(self):
 		self.drive.tankDrive(0,0)
-
-	def get_robot_position(self):
-		right_encoder_distance = self.right_encoder.getDistance()
-		left_encoder_distance = self.left_encoder.getDistance()
-		gyro_angle = self.gyro.getAngle()
-		robot_position = self.drive_odometry.update(gyro_angle,
-				left_encoder_distance, right_encoder_distance)
-		return(robot_position)
-
-	#XXX kinda just guessing about this orientation for now... may change
-	''' In our code, the field will be represented as a plane with y = 0 
-	representing the wall of our alliance's drivestations; x = 0 represents 
-	the left wall when you are facing the field from the perspective of our
-	alliance's drivestation. Basically, picture you are driving the robot on
-	the field with left being the negative x direction and forward (away 
-	from you) being the positve y direction.'''
-	def which_path(self, start_position):
-		''' 
-		Left, middle, and right will be predefined distances from the wall.
-		This approach does not require vision to orient the robot, but does
-		require precise positioning and 
-		'''
-
-		if start_position == 'left':
-			self.a_path_follow()
-		if start_position == 'middle':
-			self.b_path_follow()
-		if start_position == 'right':
-			self.c_path_follow()
-
-	#XXX get specific path from wherever trajectory stores it
-	def a_path_follow(self):
-		pass
-	def b_path_follow(self):
-		pass
-	def c_path_follow(self):
-		pass
-
-	def path_follow(self):
-		pass
-		# get gyro
-		# get pathfinder gyro val
-		# get encoder
-		# get pathfinder encoder val
-		# calculate turn
-
-	#XXX checks which position button is pressed
-	def get_initial_pos(self):
-		pass
-
-	#XXX Link a pyqt button or input to this function
-	#XXX this will be called when the send button is hit on the gui and
-	# the gui will be opened on the desktop before matches
-	def update_network_tables(self):
-
-		self.get_initial_pos()
-		table = NetworkTables.getTable('SmartDashboard')
-		table.putValue('initial_pos', initial_pos)
-		
-
-
+#
+#	def get_robot_position(self):
+#		right_encoder_distance = self.right_encoder.getDistance()
+#		left_encoder_distance = self.left_encoder.getDistance()
+#		gyro_angle = self.gyro.getAngle()
+#		robot_position = self.drive_odometry.update(gyro_angle,
+#				left_encoder_distance, right_encoder_distance)
+#		return(robot_position)
+#
+#	#XXX kinda just guessing about this orientation for now... may change
+#	''' In our code, the field will be represented as a plane with y = 0 
+#	representing the wall of our alliance's drivestations; x = 0 represents 
+#	the left wall when you are facing the field from the perspective of our
+#	alliance's drivestation. Basically, picture you are driving the robot on
+#	the field with left being the negative x direction and forward (away 
+#	from you) being the positve y direction.'''
+#	def which_path(self, start_position):
+#		''' 
+#		Left, middle, and right will be predefined distances from the wall.
+#		This approach does not require vision to orient the robot, but does
+#		require precise positioning and 
+#		'''
+#
+#		if start_position == 'left':
+#			self.a_path_follow()
+#		if start_position == 'middle':
+#			self.b_path_follow()
+#		if start_position == 'right':
+#			self.c_path_follow()
+#
+#	#XXX get specific path from wherever trajectory stores it
+#	def a_path_follow(self):
+#		pass
+#	def b_path_follow(self):
+#		pass
+#	def c_path_follow(self):
+#		pass
+#
+#	def path_follow(self):
+#		pass
+#		# get gyro
+#		# get pathfinder gyro val
+#		# get encoder
+#		# get pathfinder encoder val
+#		# calculate turn
+#
+#	#XXX checks which position button is pressed
+#	def get_initial_pos(self):
+#		pass
+#
+#	#XXX Link a pyqt button or input to this function
+#	#XXX this will be called when the send button is hit on the gui and
+#	# the gui will be opened on the desktop before matches
+#	def update_network_tables(self):
+#
+#		self.get_initial_pos()
+#		table = NetworkTables.getTable('SmartDashboard')
+#		table.putValue('initial_pos', initial_pos)
+#		
+#
+#

@@ -36,8 +36,8 @@ class Do_Little_Climb_Test(Command):
 	def isFinished(self):
 		return self.is_done
 
-#	def end(self):
-#		self.climber_little.little_unactuate()
+	def end(self):
+		self.climber_little.little_unactuate()
 	
 	def interrupted(self):
 		self.climber_little.little_unactuate()

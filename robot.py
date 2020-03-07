@@ -32,7 +32,9 @@ from feeder import Feeder
 from carrier import Carrier
 from intake import Intake
 from winch import Winch
-from climber import Climber
+#from climber import Climber
+from climber_big import Climber_Big
+from climber_little import Climber_Little
 
 from drivetrain import Drivetrain
 
@@ -63,13 +65,15 @@ class BeaverTronicsRobot(CommandBasedRobot):
 
 		# Instantiate Subsystems
 		#XXX DEBUGGING
-		#self.drivetrain = Drivetrain(self)
-		#self.shooter = Shooter(self)
+		self.drivetrain = Drivetrain(self)
+		self.shooter = Shooter(self)
 		self.carrier = Carrier(self)
-		#self.feeder = Feeder(self)
+		self.feeder = Feeder(self)
 		self.intake = Intake(self)
 		self.winch = Winch(self)
-		self.climber = Climber(self)
+		#self.climber = Climber(self)
+		self.climber_big = Climber_Big(self)
+		self.climber_little = Climber_Little(self)
 
 		# Instantiate Joysticks
 		self.left_joy = wpilib.Joystick(0) 

@@ -92,11 +92,11 @@ class OI():
 #		# In frame
 		#XXX The INTENDED commands for comp
 		xboxY.whileHeld(Do_Winch(self.robot))
-		#xboxX.whileHeld(Command_Shoot(self.robot))
-		#xboxA.whenPressed(Do_Big_Climb(self.robot))
-		#xboxB.whenPressed(Do_Little_Climb(self.robot))
+		xboxX.whileHeld(Command_Shoot(self.robot))
+		#xboxA.whileHeld(Do_Big_Climb(self.robot))
+		#xboxB.whileHeld(Do_Little_Climb(self.robot))
 		xboxRB.whileHeld(Command_Intake_Pickup(self.robot))
-		#xboxLB.whileHeld(Do_Carrier(self.robot))
+		xboxLB.whileHeld(Do_Carrier(self.robot))
 
 		#XXX debugging motor controller positions
 		#XXX Do_Activate_Feeder needs testing
@@ -112,5 +112,5 @@ class OI():
 		#xboxA.whenReleased(Command_Climb_Down(self.robot))
 		# on second try, A actuated both and B unactuated both
 		# before, A was big and B was little
-		xboxA.whenPressed(Do_Big_Climb_Test(self.robot))
-		xboxB.whenPressed(Do_Little_Climb_Test(self.robot))
+		xboxA.whileHeld(Do_Big_Climb_Test(self.robot))
+		xboxB.whileHeld(Do_Little_Climb_Test(self.robot))
