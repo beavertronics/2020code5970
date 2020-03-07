@@ -7,6 +7,7 @@ import logging
 import math
 
 class Carrier(Subsystem):
+	#XXX DEBUGGING PRINTS
 	def __init__(self, robot):
 		'''
 		Command Dependencies:
@@ -35,12 +36,6 @@ class Carrier(Subsystem):
 		#XXX not accurate, CANT INTERPRET FLOAT AS INT
 		#self.setpoint_range = range(.35, .45)
 		self.setpoint_range = range(-1, 1)
-
-	#Sets carrier motor to object's given motor speed, will be determined later
-	def activate_carrier(self):
-		output = self.get_pid_output()
-		self.carrier_motor.set(output)
-		#logging.info('set carrier motor speed ' + str(output))
 	
 	def deactivate_carrier(self):
 		self.carrier_motor.set(0)
@@ -68,3 +63,9 @@ class Carrier(Subsystem):
 		output = self.pid(pwm)
 		return output
 
+	#Sets carrier motor to object's given motor speed, will be determined later
+	def activate_carrier(self):
+		output = self.get_pid_output()
+		print('CARRIER PID OUTPUT: ' + str(output))
+		self.carrier_motor.set(output)
+		#logging.info('set carrier motor speed ' + str(output))

@@ -17,7 +17,6 @@ class Do_Carrier(Command):
 		pass
 
 	def execute(self):
-		"""Called once by Scheduler, mult"""
 		self.carrier.activate_carrier()
 
 	def isFinished(self):
