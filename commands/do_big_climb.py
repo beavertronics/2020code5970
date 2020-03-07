@@ -11,15 +11,15 @@ class Do_Big_Climb(Command):
 		# Recognize as a wpilib command
 		print("do_big_climb init!!")
 		Command.__init__(self)
-		self.requires(robot.climber)
-		self.climber = robot.climber
+		self.requires(robot.climber_big)
+		self.climber_big = robot.climber_big
 		#XXX right now actuate is an unactuate
-#		self.climber.big_unactuate()
+#		self.climber_big.big_unactuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
 		self.is_done = False
-		self.climber.big_actuate()
+		self.climber_big.big_actuate()
 		self.old_time = time.time_ns()
 	
 	def execute(self):
@@ -29,7 +29,7 @@ class Do_Big_Climb(Command):
 
 		# This timer waits 3 something amount of nanoseconds before setting
 		# is_done to True and calling isFinished on the command
-		#self.climber.reverse_solenoid(self.climber.biggum)
+		#self.climber_big.reverse_solenoid(self.climber_big.biggum)
 		t = time.time_ns()
 		if (t - self.old_time) > 300000000: # units in ns
 			self.is_done = True
@@ -40,8 +40,8 @@ class Do_Big_Climb(Command):
 	def isFinished(self):
 		return self.is_done
 
-#	def end(self):
-#		self.climber.big_actuate()
+	def end(self):
+		self.climber_big.big_actuate()
 	
 	def interrupted(self):
-		self.climber.big_unactuate()
+		self.climber_big.big_unactuate()
