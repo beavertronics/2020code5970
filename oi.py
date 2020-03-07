@@ -83,6 +83,8 @@ class OI():
 		Joystick 1 / Right Joystick Commands
 		'''
 
+		rtop1.whenPressed(Do_Feeder(self.robot))
+
 #		# Button 2 toggles shifters
 #		rtop2.toggleWhenPressed(Do_Shifters_Toggle(self.robot))
 #
@@ -92,7 +94,7 @@ class OI():
 #		# In frame
 		#XXX The INTENDED commands for comp
 		xboxY.whileHeld(Do_Winch(self.robot))
-		xboxX.whileHeld(Command_Shoot(self.robot))
+		#xboxX.whileHeld(Command_Shoot(self.robot))
 		#xboxA.whileHeld(Do_Big_Climb(self.robot))
 		#xboxB.whileHeld(Do_Little_Climb(self.robot))
 		xboxRB.whileHeld(Command_Intake_Pickup(self.robot))
@@ -102,8 +104,8 @@ class OI():
 		#XXX Do_Activate_Feeder needs testing
 		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
-		#xboxY.whileHeld(Do_Shoot(self.robot))
-		#xboxX.whileHeld(Do_Intake(self.robot))
+		xboxX.whileHeld(Do_Shoot(self.robot))
+		#xboxY.whileHeld(Do_Intake(self.robot))
 
 		# CLIMBER
 		# A was actuating biggum
