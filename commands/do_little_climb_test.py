@@ -11,21 +11,21 @@ class Do_Little_Climb_Test(Command):
 	def __init__(self, robot):
 		print("do_little_climb TEST init")
 		Command.__init__(self)
-		self.requires(robot.climber)
-		self.climber = robot.climber
-#		self.climber.little_unactuate()
+		self.requires(robot.climber_little)
+		self.climber_little = robot.climber_little
+#		self.climber_little.little_unactuate()
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
 		self.is_done = False
-		self.climber.little_actuate()
+		self.climber_little.little_actuate()
 		self.old_time = time.time_ns()
 	
 	def execute(self):
 		''' Called iteratively by Scheduler
 		This reverses the position of the solenoid (hence the piston actuation)
 		using the given piston '''
-		#self.climber.reverse_solenoid(self.climber.littlum)
+		#self.climber_little.reverse_solenoid(self.climber_little.littlum)
 		t = time.time_ns()
 		if (t - self.old_time) > 300000000: # units in ns
 			self.is_done = True
@@ -37,7 +37,7 @@ class Do_Little_Climb_Test(Command):
 		return self.is_done
 
 #	def end(self):
-#		self.climber.little_unactuate()
+#		self.climber_little.little_unactuate()
 	
 	def interrupted(self):
-		self.climber.little_unactuate()
+		self.climber_little.little_unactuate()
