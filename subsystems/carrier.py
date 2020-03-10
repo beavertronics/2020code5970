@@ -69,3 +69,6 @@ class Carrier(Subsystem):
 		print('CARRIER PID OUTPUT: ' + str(output))
 		self.carrier_motor.set(output)
 		#logging.info('set carrier motor speed ' + str(output))
+
+	def stupid_carrier(self, val):
+		self.carrier_motor.set(val)
