@@ -38,3 +38,5 @@ class Intake(Subsystem):
 		new_pwm_val = -1 * self.pwm_val
 		self.intake_motor.set(new_pwm_val)
 
+	def stupid_intake(self, val):
+		self.intake_motor.set(val)

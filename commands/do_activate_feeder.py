@@ -21,9 +21,9 @@ class Do_Activate_Feeder(ConditionalCommand):
 		pwm_volts = self.shooter.convert_rpm_to_pwm(rpm)
 		if(self.shooter.setpoint_range[0] < pwm_volts and
 			self.shooter.setpoint_range[1] > pwm_volts):
-			shoot = True
-		else:
 			shoot = False
+		else:
+			shoot = True
 		return shoot
 
 	def execute(self):

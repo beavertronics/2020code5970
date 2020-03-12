@@ -7,8 +7,8 @@ import time
 
 class Do_Intake(Command):
 	def __init__(self, robot):
-		Command.__init__(self, name='Command_Intake')
 		print("command_intake init!!")
+		Command.__init__(self)
 		self.requires(robot.intake)
 		self.intake = robot.intake
 	
@@ -32,7 +32,7 @@ class Do_Intake(Command):
 		pass
 
 	def end(self):
-		self.intake.fourbar_inject()
+#		self.intake.fourbar_inject()
 		self.intake.deactivate_intake()
 	
 	def interrupted(self):
