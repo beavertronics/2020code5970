@@ -5,29 +5,29 @@ import wpilib.drive
 from wpilib.command import Command
 import time
 
-class Do_Intake(Command):
-    def __init__(self, robot):
-	print("command_intake init!!")
-	Command.__init__(self)
-	self.requires(robot.intake)
-	self.intake = robot.intake
+class Do_Stupid_Intake(Command):
+	def __init__(self, robot):
+		print("do_stupid_intake init!!")
+		Command.__init__(self)
+		self.requires(robot.intake)
+		self.intake = robot.intake
 	
-    def initialize(self):
-	"""Called just before this Command runs the first time"""
-	pass
-	#self.old_time = time.time_ns()
-	#self.intake.fourbar_eject()
+	def initialize(self):
+		"""Called just before this Command runs the first time"""
+		pass
+		#self.old_time = time.time_ns()
+		#self.intake.fourbar_eject()
 	
-    def execute(self):
-	"""Called iteratively by Scheduler"""
-	self.stupid_intake(0.4)	
+	def execute(self):
+		"""Called iteratively by Scheduler"""
+		self.intake.activate_intake()	
 
-    def isFinished(self):
-	pass
+	def isFinished(self):
+		pass
 
-    def end(self):
-#	self.intake.fourbar_inject()
-	self.intake.deactivate_intake()
+	def end(self):
+#		self.intake.fourbar_inject()
+		self.intake.deactivate_intake()
 	
-    def interrupted(self):
-	self.end()
+	def interrupted(self):
+		self.end()

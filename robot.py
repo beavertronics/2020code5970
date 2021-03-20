@@ -7,7 +7,8 @@ from wpilib.command import Scheduler
 from wpilib.buttons import JoystickButton
 import time
 from networktables import NetworkTables
-from commandbased.commandbasedrobot import CommandBasedRobot
+from commands2 import CommandScheduler
+from commandbased import CommandBasedRobot
 
 # Non robot specific libraries
 import os
@@ -71,7 +72,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.feeder = Feeder(self)
 		self.intake = Intake(self)
 		self.winch = Winch(self)
-		#self.climber = Climber(self)
+		self.climber = Climber(self)
 		self.climber_big = Climber_Big(self)
 		self.climber_little = Climber_Little(self)
 

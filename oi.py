@@ -29,6 +29,7 @@ from do_four_bar import Do_Four_Bar
 from do_backwards_shoot import Do_Backwards_Shoot
 from do_backwards_feeder import Do_Backwards_Feeder
 from do_backwards_carrier import Do_Backwards_Carrier
+from do_stupid_intake import Do_Stupid_Intake
 
 # Non-button commands
 
@@ -101,23 +102,23 @@ class OI():
 		'''	
 #		# In frame
 		#XXX The INTENDED commands for comp
-		xboxY.whileHeld(Do_Winch(self.robot))
+		#xboxY.whileHeld(Do_Winch(self.robot))
 		#XXX do_activate_feeder does not override conditional command
 		#xboxX.whileHeld(Command_Shoot(self.robot))
-		xboxA.whileHeld(Do_Big_Climb(self.robot))
-		xboxB.whileHeld(Do_Little_Climb(self.robot))
+		#xboxA.whileHeld(Do_Big_Climb(self.robot))
+		#xboxB.whileHeld(Do_Little_Climb(self.robot))
 		#xboxRB.whileHeld(Command_Intake_Pickup(self.robot))
-		xboxRB.whileHeld(Do_Intake(self.robot))
-		xboxLB.whileHeld(Do_Carrier(self.robot))
-		xboxX.whileHeld(Command_Shoot(self.robot))
+		#xboxLB.whileHeld(Do_Carrier(self.robot))
+		#xboxX.whileHeld(Command_Shoot(self.robot))
 
 		#XXX debugging motor controller positions
 		#XXX Do_Activate_Feeder needs testing
 		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
 		#xboxB.whileHeld(Do_Carrier(self.robot))
-		#xboxX.whileHeld(Do_Shoot(self.robot))
+		xboxX.whileHeld(Do_Shoot(self.robot))
 		#xboxRB.whileHeld(Do_Intake(self.robot))
-		xboxBACK.whileHeld(Do_Backwards_Shoot(self.robot))
+		#xboxBACK.whileHeld(Do_Backwards_Shoot(self.robot))
+		#xboxRB.whileHeld(Do_Stupid_Intake(self.robot))
 
 		# CLIMBER
 		# A was actuating biggum
