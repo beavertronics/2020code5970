@@ -26,9 +26,9 @@ from do_feeder import Do_Feeder
 from do_big_climb_test import Do_Big_Climb_Test
 from do_little_climb_test import Do_Little_Climb_Test
 from do_four_bar import Do_Four_Bar
-from do_backwards_shoot import Do_Backwards_Shoot
-from do_backwards_feeder import Do_Backwards_Feeder
-from do_backwards_carrier import Do_Backwards_Carrier
+# from do_backwards_shoot import Do_Backwards_Shoot
+# from do_backwards_feeder import Do_Backwards_Feeder
+# from do_backwards_carrier import Do_Backwards_Carrier
 from do_stupid_intake import Do_Stupid_Intake
 
 # Non-button commands
@@ -91,8 +91,8 @@ class OI():
 		'''
 
 		rtop1.whileHeld(Do_Feeder(self.robot))
-		rtop2.whileHeld(Do_Backwards_Feeder(self.robot))
-		ltop2.whileHeld(Do_Backwards_Carrier(self.robot))
+#		rtop2.whileHeld(Do_Backwards_Feeder(self.robot))
+#		ltop2.whileHeld(Do_Backwards_Carrier(self.robot))
 
 #		# Button 2 toggles shifters
 #		rtop2.toggleWhenPressed(Do_Shifters_Toggle(self.robot))
