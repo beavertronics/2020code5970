@@ -32,10 +32,10 @@ from shooter import Shooter
 from feeder import Feeder
 from carrier import Carrier
 from intake import Intake
-from winch import Winch
+#from winch import Winch
 #from climber import Climber
-from climber_big import Climber_Big
-from climber_little import Climber_Little
+#from climber_big import Climber_Big
+#from climber_little import Climber_Little
 
 from drivetrain import Drivetrain
 
@@ -51,7 +51,7 @@ from test_do_tank_drive import Test_Do_Tank_Drive
 from test_feeder import Test_Feeder
 from test_carrier import Test_Carrier
 from test_intake import Test_Intake
-from test_winch import Test_Winch
+#from test_winch import Test_Winch
 from test_climber import Test_Climber
 from test_drivetrain import Test_Drivetrain
 
@@ -71,16 +71,16 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.carrier = Carrier(self)
 		self.feeder = Feeder(self)
 		self.intake = Intake(self)
-		self.winch = Winch(self)
+		#self.winch = Winch(self)
 		#self.climber = Climber(self)
-		self.climber_big = Climber_Big(self)
-		self.climber_little = Climber_Little(self)
+		#self.climber_big = Climber_Big(self)
+		#self.climber_little = Climber_Little(self)
 
 		# Instantiate Joysticks
-		self.left_joy = wpilib.Joystick(0) 
-		self.right_joy = wpilib.Joystick(1)
+		self.left_joy = wpilib.Joystick(1) 
+		self.right_joy = wpilib.Joystick(2)
 		# Instantiate Xbox
-		self.xbox = wpilib.Joystick(2)
+		self.xbox = wpilib.Joystick(3)
 
 		# Instantiate OI; must be AFTER joysticks are inited
 		self.oi = OI(self)
@@ -107,6 +107,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		self.logger.info(self.getPeriod())
 
 	def disabledInit(self):
+		#self.drivetrain.stop_robot()
 		pass
 
 	def disabledPeriodic(self):

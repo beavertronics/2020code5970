@@ -16,26 +16,26 @@ class Carrier(Subsystem):
 		'''
 		super().__init__("carrier")
 		
-		# CARRIER is 4
-		self.carrier_motor = wpilib.VictorSP(4)
+		# CARRIER is 5
+		self.carrier_motor = wpilib.VictorSP(5)
 		#XXX watch the negative
-		self.carrier_setpoint = 1 
+		#self.carrier_setpoint = 1 
 		#XXX UNTUNED
-		self.pid = PID(.85, 0, 0, setpoint=self.carrier_setpoint)
-		self.pid.output_limits = (-1,1)
+		#self.pid = PID(.85, 0, 0, setpoint=self.carrier_setpoint)
+		#self.pid.output_limits = (-1,1)
 
 		#initialize carrier encoder
-		self.carrier_encoder = wpilib.Encoder(4, 5)
-		self.carrier_encoder.reset()
+		#self.carrier_encoder = wpilib.Encoder(4, 5)
+		#self.carrier_encoder.reset()
 		# If setting dist per pulse as radians per pulse
 		# (1 encoder_rev / 12 pulses) 
 		# (1 wheel rev / 1 encoder_rev) ( 2 pi / 1 wheel_rev) = pi / 6
-		radians_per_pulse = math.pi / 6
-		self.carrier_encoder.setDistancePerPulse(radians_per_pulse)
+		#radians_per_pulse = math.pi / 6
+		#self.carrier_encoder.setDistancePerPulse(radians_per_pulse)
 
 		#XXX not accurate, CANT INTERPRET FLOAT AS INT
 		#self.setpoint_range = range(.35, .45)
-		self.setpoint_range = range(-1, 1)
+		#self.setpoint_range = range(-1, 1)
 	
 	def deactivate_carrier(self):
 		self.carrier_motor.set(0)

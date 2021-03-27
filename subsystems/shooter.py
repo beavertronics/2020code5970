@@ -17,7 +17,18 @@ class Shooter(Subsystem):
 		super().__init__("shooter")
 		self.robot = robot
 		# Correct shoooter pwm
-		self.shooter_motor = wpilib.VictorSP(6)
+		#pwm 0 not functional
+		#pwm 1 motor whirs, no motion
+		#pwm 2 is right drivetrain. not functional 
+		#pwm 3 is left drivetrain. not functional
+		#pwm 4 is intake. good
+		#pwm 5 is carrier. good
+		#pwm 6 is left drivetrain. good 
+		#pwm 7 is shooter. good
+		#pwm 8 not functional
+		#pwm 9 is right drivetrain. good
+		#need to replace nonfunctional motor controllers. just go with victor sps that we know work (test with motor before mounting)
+		self.shooter_motor = wpilib.VictorSP(7)
 		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0)
 		#XXX UNTUNED SETPOINT 1 and PID(0.85, 0, 0.05)
 

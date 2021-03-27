@@ -9,27 +9,27 @@ from sys import path
 path.append('../commands')
 
 # Button commands
-from command_intake_pickup import Command_Intake_Pickup
-from command_shoot import Command_Shoot
-from do_big_climb import Do_Big_Climb
-from do_little_climb import Do_Little_Climb
-from do_winch import Do_Winch
-from command_climb_up import Command_Climb_Up
-from command_climb_down import Command_Climb_Down
+#from command_intake_pickup import Command_Intake_Pickup
+#from command_shoot import Command_Shoot
+#from do_big_climb import Do_Big_Climb
+#from do_little_climb import Do_Little_Climb
+#from do_winch import Do_Winch
+#from command_climb_up import Command_Climb_Up
+#from command_climb_down import Command_Climb_Down
 
 #XXX For testing
 from do_shoot import Do_Shoot
-from do_activate_feeder import Do_Activate_Feeder
+#from do_activate_feeder import Do_Activate_Feeder
 from do_carrier import Do_Carrier
 from do_intake import Do_Intake
 from do_feeder import Do_Feeder
-from do_big_climb_test import Do_Big_Climb_Test
-from do_little_climb_test import Do_Little_Climb_Test
+#from do_big_climb_test import Do_Big_Climb_Test
+#from do_little_climb_test import Do_Little_Climb_Test
 from do_four_bar import Do_Four_Bar
 # from do_backwards_shoot import Do_Backwards_Shoot
 # from do_backwards_feeder import Do_Backwards_Feeder
 # from do_backwards_carrier import Do_Backwards_Carrier
-from do_stupid_intake import Do_Stupid_Intake
+#from do_stupid_intake import Do_Stupid_Intake
 
 # Non-button commands
 
@@ -84,13 +84,13 @@ class OI():
 		'''
 		Joystick 0 / Left Joystick Commands
 		'''
-		ltop1.whileHeld(Do_Four_Bar(self.robot))
+#		ltop1.whileHeld(Do_Four_Bar(self.robot))
 
 		'''
 		Joystick 1 / Right Joystick Commands
 		'''
 
-		rtop1.whileHeld(Do_Feeder(self.robot))
+#		rtop1.whileHeld(Do_Feeder(self.robot))
 #		rtop2.whileHeld(Do_Backwards_Feeder(self.robot))
 #		ltop2.whileHeld(Do_Backwards_Carrier(self.robot))
 
@@ -113,10 +113,11 @@ class OI():
 
 		#XXX debugging motor controller positions
 		#XXX Do_Activate_Feeder needs testing
-		#xboxA.whileHeld(Do_Activate_Feeder(self.robot))
-		#xboxB.whileHeld(Do_Carrier(self.robot))
+		xboxA.whileHeld(Do_Feeder(self.robot))
+		xboxB.whileHeld(Do_Carrier(self.robot))
 		xboxX.whileHeld(Do_Shoot(self.robot))
-		#xboxRB.whileHeld(Do_Intake(self.robot))
+		xboxRB.whileHeld(Do_Intake(self.robot))
+		xboxLB.whileHeld(Do_Four_Bar(self.robot))
 		#xboxBACK.whileHeld(Do_Backwards_Shoot(self.robot))
 		#xboxRB.whileHeld(Do_Stupid_Intake(self.robot))
 

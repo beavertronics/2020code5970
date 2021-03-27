@@ -13,10 +13,9 @@ class Feeder(Subsystem):
 		super().__init__("feeder")
 		
 		#XXX 0, 1, 2, 3 not wired 
-		#XXX 4 is intake? 
+		#XXX 4 is intake 
 		#XXX 5 is CARRIER
-		#XXX 6 is shooter
-		#XXX 7 is winch?
+		#XXX 7 is shooter
 		#XXX 8 is FEEDER?
 		self.feeder_motor = wpilib.VictorSP(8)
 		# Backwards is apparently forwards

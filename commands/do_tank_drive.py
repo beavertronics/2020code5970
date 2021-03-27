@@ -21,7 +21,7 @@ class Do_Tank_Drive(Command):
 	
 	def initialize(self):
 		"""Called just before this Command runs the first time"""
-		pass
+		self.robot_dt.stop_robot()
 	
 	def execute(self):
 		"""Called iteratively by Scheduler"""

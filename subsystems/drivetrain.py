@@ -26,10 +26,10 @@ class Drivetrain(Subsystem):
 		self.drive = DifferentialDrive(self.lm_inst, self.rm_inst)
 		#XXX encoder DIO inputs and pulses_per_rev are currently incorrect
 		pulses_per_rev = 12
-		self.right_encoder = wpilib.Encoder(8, 9)
-		self.right_encoder.setDistancePerPulse(pulses_per_rev)
-		self.left_encoder = wpilib.Encoder(6, 7)	
-		self.left_encoder.setDistancePerPulse(pulses_per_rev)
+		#self.right_encoder = wpilib.Encoder(8, 9)
+		#self.right_encoder.setDistancePerPulse(pulses_per_rev)
+		#self.left_encoder = wpilib.Encoder(6, 7)	
+		#self.left_encoder.setDistancePerPulse(pulses_per_rev)
 		#self.gear_ratio = 12.75
 
 #		#XXX gyro not plugged in
@@ -39,7 +39,7 @@ class Drivetrain(Subsystem):
 #		self.gyro.calibrate()
 #		# init with gyroAngle and initialPose
 #		gyro_angle = self.gyro.getAngle()
-#		# initial_pose should be in form of (x position, y position, rotation)
+#		# initial_pose should be i form of (x position, y position, rotation)
 #		initial_pose = (0, 0, 0)
 #		#XXX missing the params for DifferentialDriveOdometry()
 #		#self.drive_odometry = wpilib.kinematics.DifferentialDriveOdometry(
@@ -52,16 +52,24 @@ class Drivetrain(Subsystem):
 		self.setDefaultCommand(Do_Tank_Drive(self.robot))
 
 	def set_tank_speed(self, left_joy, right_joy):
-		left_speed = (left_joy.getY() * -1) * -1
-		right_speed = (right_joy.getY() * -1) * -1
+		# Get raw joystick inputs
+		left_speed = left_joy.getY()
+		right_speed = right_joy.getY()
+
+		# Converts to proper speed values
+		# NOTE: documentation claims different numbers than we have found to
+		# work for the victor spx
+		left_speed = (-1 * left_speed)
+		right_speed = (-1 * right_speed)
+
 		self.drive.tankDrive(left_speed, right_speed)
 		#XXX remove prints eventually
-		print('DRIVETRAIN ENCODER: ' + str(self.left_encoder.get()))
-		print('DRIVETRAIN ENCODER: ' + str(self.right_encoder.get()))
+		#print('DRIVETRAIN ENCODER: ' + str(self.left_encoder.get()))
+		#print('DRIVETRAIN ENCODER: ' + str(self.right_encoder.get()))
 
 	def stop_robot(self):
 		self.drive.tankDrive(0,0)
-#
+
 #	def get_robot_position(self):
 #		right_encoder_distance = self.right_encoder.getDistance()
 #		left_encoder_distance = self.left_encoder.getDistance()

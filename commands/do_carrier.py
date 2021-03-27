@@ -17,7 +17,7 @@ class Do_Carrier(Command):
 		pass
 
 	def execute(self):
-		self.carrier.activate_carrier()
+		self.carrier.stupid_carrier(0.5)
 
 	def isFinished(self):
 		pass
