@@ -4,3 +4,5 @@ This is code uses a command-based framework to manage controls of subsystems on 
 yamuel contributed a lot to this but it would not push from his account because the global config was messed up
 so it looked like lollyi instead. He did about half the pushes. 
 (also because his brain is smooth)
+
+Kaleb is updating some of the code for the robo rodeo including bug fixes 

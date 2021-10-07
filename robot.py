@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 # vim: set sw=4 noet ts=4 fileencoding=utf-8:
 
+
+"""
+1 = left drive train motor
+2 = left drive train motor
+3 = right drive train motor
+4 = right drive train motor
+5 = intake
+6 = carrier
+7 = shooter
+8 = feeder
+
+"""
 # Robotics specifc libraries
 import wpilib
 from wpilib.command import Scheduler
@@ -114,7 +126,7 @@ class BeaverTronicsRobot(CommandBasedRobot):
 		pass
 
 	def testInit(self):
-		return None
+		pass
 
 	def testPeriodic(self):
 		suite = unittest.TestSuite()

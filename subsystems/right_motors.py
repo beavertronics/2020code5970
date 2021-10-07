@@ -8,8 +8,8 @@ class Right_Motors():
 	
 	def __init__(self):
 		#Initialize Right motors
-		right_one = (wpilib.PWMVictorSPX(2))
-		right_two = (wpilib.PWMVictorSPX(9))
+		right_one = (wpilib.PWMVictorSPX(3))
+		right_two = (wpilib.PWMVictorSPX(4))
 		self.right_motor_group = wpilib.SpeedControllerGroup(
 			right_one, right_two)
 

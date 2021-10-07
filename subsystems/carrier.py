@@ -17,7 +17,7 @@ class Carrier(Subsystem):
 		super().__init__("carrier")
 		
 		# CARRIER is 5
-		self.carrier_motor = wpilib.VictorSP(5)
+		self.carrier_motor = wpilib.VictorSP(6)
 		#XXX watch the negative
 		#self.carrier_setpoint = 1 
 		#XXX UNTUNED

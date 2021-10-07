@@ -11,8 +11,8 @@ class Left_Motors():
 		#Initialize Left motors
 		# Two motors cause TuffBox 
 		# Also 0 is generally reserved for PDP or something
-		left_one = (wpilib.PWMVictorSPX(3))
-		left_two = (wpilib.VictorSP(6))
+		left_one = (wpilib.PWMVictorSPX(1))
+		left_two = (wpilib.VictorSP(2))
 		self.left_motor_group = wpilib.SpeedControllerGroup(
 			left_one, left_two)
 

@@ -15,7 +15,7 @@ class Intake(Subsystem):
 		# constant indicating what speed the motor should go
 		self.pwm_val = -0.4
 		# 4 is INTAKE
-		self.intake_motor = wpilib.VictorSP(4)
+		self.intake_motor = wpilib.VictorSP(5)
 		self.fourbar = wpilib.Solenoid(0)
 		print('intake init!!')
 
